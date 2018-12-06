@@ -27,6 +27,13 @@ namespace Server.Items
 
         public override void OnDoubleClick(Mobile from)
         {
+            if (from.AccessLevel == AccessLevel.Player)
+            {
+                from.SendMessage("L'outil glisse entre vos doigts, tombe par terre, et se brise...");
+                Delete();
+                return;
+            }
+
             if (IsChildOf(from.Backpack))
             {
                 if (from.Map == Map.TerMur && !Server.Engines.Points.PointsSystem.QueensLoyalty.IsNoble(from))

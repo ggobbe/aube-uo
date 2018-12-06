@@ -199,6 +199,7 @@ namespace Server.Misc
 			newChar.Hue = args.Hue | 0x8000;
 
 			newChar.Hunger = 20;
+		    newChar.Thirst = 20;
 
 			var young = false;
 
@@ -276,10 +277,9 @@ namespace Server.Misc
 				newChar.BankBox.DropItem(ticket);
 			}
 
-			var city = args.City;
-			var map = Siege.SiegeShard && city.Map == Map.Trammel ? Map.Felucca : city.Map;
+		    var city = new CityInfo("New Haven", "New Haven Bank", 1150168, 3503, 2574, 14, Map.Trammel);
 
-			newChar.MoveToWorld(city.Location, map);
+			newChar.MoveToWorld(city.Location, city.Map);
 
 			Utility.PushColor(ConsoleColor.Green);
 			Console.WriteLine("Login: {0}: New character being created (account={1})", state, args.Account.Username);

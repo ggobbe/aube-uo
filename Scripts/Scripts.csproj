@@ -73,6 +73,11 @@
     <Compile Include="Accounting\IPLimiter.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Aube\Alimentation\Feeding.cs" />
+    <Compile Include="Aube\Alimentation\FeedingGump.cs" />
+    <Compile Include="Aube\Commands\HearAll.cs" />
+    <Compile Include="Aube\Items\CustomClothes.cs" />
+    <Compile Include="Aube\Misc\SpeechLogging.cs" />
     <Compile Include="Commands\AccountGoldCheck.cs" />
     <Compile Include="Commands\Add.cs">
       <SubType>Code</SubType>
@@ -11945,6 +11950,39 @@
     <Compile Include="VendorInfo\SBWeaver.cs" />
     <Compile Include="VendorInfo\SBWoodenShields.cs" />
     <Compile Include="VendorInfo\VendorInventory.cs" />
+    <Compile Include="_Custom\AccountLogin\AccountInfo.cs" />
+    <Compile Include="_Custom\AccountLogin\AccountLogin.cs" />
+    <Compile Include="_Custom\BloodyBandageSystemV2.0\BloodyBandage.cs" />
+    <Compile Include="_Custom\control.cs" />
+    <Compile Include="_Custom\LayerChangeCommand.cs" />
+    <Compile Include="_Custom\MacroCheck.cs" />
+    <Compile Include="_Custom\RobesACapuche.cs" />
+    <Compile Include="_Custom\BrosseCheveux.cs" />
+    <Compile Include="_Custom\townhouses\Gumps\Error Reporting\Errors.cs" />
+    <Compile Include="_Custom\townhouses\Gumps\Error Reporting\ErrorsGump.cs" />
+    <Compile Include="_Custom\townhouses\Gumps\Error Reporting\ErrorsNotifyGump.cs" />
+    <Compile Include="_Custom\townhouses\Gumps\Gumps Plus Light\BackgroundPlus.cs" />
+    <Compile Include="_Custom\townhouses\Gumps\Gumps Plus Light\ButtonPlus.cs" />
+    <Compile Include="_Custom\townhouses\Gumps\Gumps Plus Light\GumpPlusLight.cs" />
+    <Compile Include="_Custom\townhouses\Gumps\Gumps Plus Light\HTML.cs" />
+    <Compile Include="_Custom\townhouses\Gumps\Gumps Plus Light\HtmlPlus.cs" />
+    <Compile Include="_Custom\townhouses\Gumps\Gumps Plus Light\InfoGump.cs" />
+    <Compile Include="_Custom\townhouses\Gumps\TownHouse Gumps\ContractConfirmGump.cs" />
+    <Compile Include="_Custom\townhouses\Gumps\TownHouse Gumps\ContractSetupGump.cs" />
+    <Compile Include="_Custom\townhouses\Gumps\TownHouse Gumps\TownHouseConfirmGump.cs" />
+    <Compile Include="_Custom\townhouses\Gumps\TownHouse Gumps\TownHouseSetupGump.cs" />
+    <Compile Include="_Custom\townhouses\Gumps\TownHouse Gumps\TownHousesGump.cs" />
+    <Compile Include="_Custom\townhouses\Items\RentalContract.cs" />
+    <Compile Include="_Custom\townhouses\Items\RentalContractCopy.cs" />
+    <Compile Include="_Custom\townhouses\Items\RentalLicense.cs" />
+    <Compile Include="_Custom\townhouses\Items\SignHammer.cs" />
+    <Compile Include="_Custom\townhouses\Items\TownHouse.cs" />
+    <Compile Include="_Custom\townhouses\Items\TownHouseSign.cs" />
+    <Compile Include="_Custom\townhouses\Misc\CommandInfo.cs" />
+    <Compile Include="_Custom\townhouses\Misc\DecoreItemInfo.cs" />
+    <Compile Include="_Custom\townhouses\Misc\General.cs" />
+    <Compile Include="_Custom\townhouses\Misc\GumpResponse.cs" />
+    <Compile Include="_Custom\townhouses\RUOVersion.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Services\New Magincia\ReadMe.txt" />
@@ -11952,6 +11990,10 @@
     <Content Include="Services\Revamped Dungeons\Shame Revamped\Read Me.txt" />
     <Content Include="Services\RunicReforging\ReadMe.txt" />
     <Content Include="Services\UltimaStore\ReadMe.txt" />
+    <Content Include="_Custom\townhouses\Optional Patches\BaseHousePatch.txt" />
+    <Content Include="_Custom\townhouses\Optional Patches\InteriorDecoratorPatch.txt" />
+    <Content Include="_Custom\townhouses\Optional Patches\READ.txt" />
+    <Content Include="_Custom\townhouses\Read.doc" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Server\Server.csproj">

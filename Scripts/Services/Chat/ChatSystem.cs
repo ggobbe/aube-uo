@@ -23,7 +23,7 @@ namespace Server.Engines.Chat
 
             if (!Enabled)
             {
-                from.SendMessage("The chat system has been disabled.");
+                //from.SendMessage("The chat system has been disabled.");
                 return;
             }
 
@@ -39,7 +39,10 @@ namespace Server.Engines.Chat
         public static void ChatAction(NetState state, PacketReader pvSrc)
         {
             if (!Enabled)
+            {
+                state.Mobile.SendMessage("Le chat IG est désactivé. Merci d'utiliser Discord à la place: https://discord.gg/AneDq7N");
                 return;
+            }
 
             try
             {

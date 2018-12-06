@@ -10,7 +10,7 @@ namespace Server.Misc
     public class ClientVerification
     {
         private static readonly bool m_DetectClientRequirement = true;
-        private static readonly OldClientResponse m_OldClientResponse = OldClientResponse.LenientKick;
+        private static readonly OldClientResponse m_OldClientResponse = OldClientResponse.Kick;
         private static readonly TimeSpan m_AgeLeniency = TimeSpan.FromDays(10);
         private static readonly TimeSpan m_GameTimeLeniency = TimeSpan.FromHours(25);
 
@@ -61,7 +61,8 @@ namespace Server.Misc
             EventSink.ClientVersionReceived += new ClientVersionReceivedHandler(EventSink_ClientVersionReceived);
             EventSink.ClientTypeReceived += new ClientTypeReceivedHandler(EventSink_ClientTypeReceived);
 
-            m_RequiredEC = new ClientVersion(67, 0, 59, 0, ClientType.SA);
+            Required = new ClientVersion("7.0.45.65");
+            RequiredEC = null;
 
             if (m_DetectClientRequirement)
             {

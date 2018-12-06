@@ -35,6 +35,7 @@ namespace Server.Mobiles
                 Add(new GenericBuyInfo(typeof(Scissors), 11, 20, 0xF9F, 0));
                 Add(new GenericBuyInfo(typeof(DyeTub), 8, 20, 0xFAB, 0)); 
                 Add(new GenericBuyInfo(typeof(Dyes), 8, 20, 0xFA9, 0)); 
+                Add(new GenericBuyInfo(typeof(SpecialDyeTub), 10000, 5, 0xFAB, 0));
 
                 Add(new GenericBuyInfo(typeof(Shirt), 12, 20, 0x1517, 0));
                 Add(new GenericBuyInfo(typeof(ShortPants), 7, 20, 0x152E, 0));

@@ -175,7 +175,7 @@ namespace Server.Engines.VoidPool
             RespawnMax = 90;
 
             ClearSpawners();
-			Active = true;
+			Active = false;
 
             ResetLevel3Spawners();
 		}

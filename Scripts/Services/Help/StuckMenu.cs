@@ -35,6 +35,16 @@ namespace Server.Menus.Questions
 
     public class StuckMenu : Gump
     {
+        private static readonly StuckMenuEntry[] m_AubeEntires = new[]
+        {
+            // New Haven
+            new StuckMenuEntry(1078342, new Point3D[]
+            {
+                new Point3D(3506, 2570, 14),
+                new Point3D(3502, 2475, 34)
+            })
+        };
+
         private static readonly StuckMenuEntry[] m_Entries = new StuckMenuEntry[]
         {
             // Britain
@@ -162,7 +172,7 @@ namespace Server.Menus.Questions
 
             AddHtmlLocalized(50, 20, 250, 35, 1011027, false, false); // Chose a town:
 
-            StuckMenuEntry[] entries = IsTerMur(beheld) ? m_TerMurEntries : IsInSecondAgeArea(beheld) ? m_T2AEntries : m_Entries;
+            StuckMenuEntry[] entries = m_AubeEntires;
 
             for (int i = 0; i < entries.Length; i++)
             {
@@ -210,7 +220,7 @@ namespace Server.Menus.Questions
             else
             {
                 int index = info.ButtonID - 1;
-                StuckMenuEntry[] entries = IsTerMur(m_Mobile) ? m_TerMurEntries : IsInSecondAgeArea(m_Mobile) ? m_T2AEntries : m_Entries;
+                StuckMenuEntry[] entries = m_AubeEntires;
 
                 if (index >= 0 && index < entries.Length)
                     Teleport(entries[index]);

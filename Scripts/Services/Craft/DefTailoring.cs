@@ -1,6 +1,7 @@
 using System;
 using Server.Items;
 using System.Collections.Generic;
+using Server.Aube.Items;
 
 namespace Server.Engines.Craft
 {
@@ -171,6 +172,8 @@ namespace Server.Engines.Craft
         public override void InitCraftList()
         {
             int index = -1;
+
+            AddAubeCrafts();
 
             #region Materials
 
@@ -730,6 +733,86 @@ namespace Server.Engines.Craft
             Repair = Core.AOS;
             CanEnhance = Core.ML;
 			CanAlter = Core.SA;
+        }
+
+        private void AddAubeCrafts()
+        {
+            AddCraft(typeof(CapeCourte), 1111747, "Cape Courte", 41.4, 66.4, typeof(Cloth), 1044455, 14, 1044287);
+            AddCraft(typeof(CapePeau), 1111747, "Cape de Peau", 41.4, 66.4, typeof(Cloth), 1044455, 14, 1044287);
+            AddCraft(typeof(CapeDrapee), 1111747, "Cape Drapée", 41.4, 66.4, typeof(Cloth), 1044455, 14, 1044287);
+            AddCraft(typeof(CapeFourrure), 1111747, "Cape de Fourrure", 41.4, 66.4, typeof(Cloth), 1044455, 14, 1044287);
+            AddCraft(typeof(CapeLegere), 1111747, "Cape Légère", 41.4, 66.4, typeof(Cloth), 1044455, 14, 1044287);
+            AddCraft(typeof(CapeStylisee), 1111747, "Cape Stylisée", 41.4, 66.4, typeof(Cloth), 1044455, 14, 1044287);
+            AddCraft(typeof(CapeVoyageur), 1111747, "Cape du Voyageur", 41.4, 66.4, typeof(Cloth), 1044455, 14, 1044287);
+            AddCraft(typeof(FoulardTaille), 1111747, "Foulard de Taille", 29.0, 54.0, typeof(Cloth), 1044455, 10, 1044287);
+            AddCraft(typeof(JupeCintree), 1111747, "Jupe Cintrée", 29.0, 54.0, typeof(Cloth), 1044455, 10, 1044287);
+            AddCraft(typeof(JupeCombat), 1111747, "Jupe de Combat", 29.0, 54.0, typeof(Cloth), 1044455, 10, 1044287);
+            AddCraft(typeof(JupeNomade), 1111747, "Jupe de Nomade", 29.0, 54.0, typeof(Cloth), 1044455, 10, 1044287);
+            AddCraft(typeof(JupeDechiree), 1111747, "Jupe Déchirée", 29.0, 54.0, typeof(Cloth), 1044455, 10, 1044287);
+            AddCraft(typeof(JupeFendue), 1111747, "Jupe Fendue", 29.0, 54.0, typeof(Cloth), 1044455, 10, 1044287);
+            AddCraft(typeof(JupeFluide), 1111747, "Jupe Fluide", 29.0, 54.0, typeof(Cloth), 1044455, 10, 1044287);
+            AddCraft(typeof(JupeLongue), 1111747, "Jupe Longue", 29.0, 54.0, typeof(Cloth), 1044455, 10, 1044287);
+            AddCraft(typeof(JupeNordique), 1111747, "Jupe Nordique", 29.0, 54.0, typeof(Cloth), 1044455, 10, 1044287);
+            AddCraft(typeof(JupeSombre), 1111747, "Jupe Sombre", 29.0, 54.0, typeof(Cloth), 1044455, 10, 1044287);
+            AddCraft(typeof(PantalonGance), 1111747, "Pantalon à Gance", 24.8, 49.8, typeof(Cloth), 1044455, 8, 1044287);
+            AddCraft(typeof(PantalonBouffant), 1111747, "Pantalon Bouffant", 24.8, 49.8, typeof(Cloth), 1044455, 8, 1044287);
+            AddCraft(typeof(PantalonCourt), 1111747, "Pantalon Court", 24.8, 49.8, typeof(Cloth), 1044455, 6, 1044287);
+            AddCraft(typeof(PantalonCuir), 1111747, "Pantalon Cuir", 24.8, 49.8, typeof(Cloth), 1044455, 8, 1044287);
+            AddCraft(typeof(PantalonMoulant), 1111747, "Pantalon Moulant", 24.8, 49.8, typeof(Cloth), 1044455, 8, 1044287);
+            AddCraft(typeof(PantalonNinja), 1111747, "Pantalon de Ninja", 24.8, 49.8, typeof(Cloth), 1044455, 8, 1044287);
+            AddCraft(typeof(PantalonNinja2), 1111747, "Pantalon de Ninja", 24.8, 49.8, typeof(Cloth), 1044455, 8, 1044287);
+            AddCraft(typeof(PantalonOrne), 1111747, "Pantalon Orné", 24.8, 49.8, typeof(Cloth), 1044455, 8, 1044287);
+            AddCraft(typeof(PantalonPauvre), 1111747, "Pantalon de Pauvre", 24.8, 49.8, typeof(Cloth), 1044455, 6, 1044287);
+            AddCraft(typeof(PantalonRodeur), 1111747, "Pantalon de Rodeur", 24.8, 49.8, typeof(Cloth), 1044455, 8, 1044287);
+            AddCraft(typeof(ChemiseLassee), 1111747, "chemise lassée", 24.8, 49.8, typeof(Cloth), 1044455, 8, 1044287);
+            AddCraft(typeof(ChemiseNoble), 1111747, "Chemise noble", 24.8, 49.8, typeof(Cloth), 1044455, 8, 1044287);
+            AddCraft(typeof(GambisonAjuste), 1111747, "Gambison ajusté", 20.7, 45.7, typeof(Cloth), 1044455, 8, 1044287);
+            AddCraft(typeof(JusteAuCorpCuir), 1111747, "Juste au corp de cuire", 20.7, 45.7, typeof(Cloth), 1044455, 8, 1044287);
+            AddCraft(typeof(JusteAuCorpRafine), 1111747, "Juste au corps rafiné", 24.8, 49.8, typeof(Cloth), 1044455, 8, 1044287);
+            AddCraft(typeof(ManteauVille), 1111747, "Manteau de Ville", 24.8, 49.8, typeof(Cloth), 1044455, 8, 1044287);
+            AddCraft(typeof(PourpointCuir), 1111747, "Pourpoint de Cuire", 20.7, 45.7, typeof(Cloth), 1044455, 8, 1044287);
+            AddCraft(typeof(PourpointFourrure), 1111747, "Pourpoint de Fourrure", 20.7, 45.7, typeof(Cloth), 1044455, 8, 1044287);
+            AddCraft(typeof(SurvetementCollerette), 1111747, "Survêtement à Collerette", 20.7, 45.7, typeof(Cloth), 1044455, 8, 1044287);
+            AddCraft(typeof(SurvetementCuir), 1111747, "Survêtement de Cuir", 24.8, 49.8, typeof(Cloth), 1044455, 8, 1044287);
+            AddCraft(typeof(TabarCeinturon), 1111747, "Tabar à Ceinturon", 00.0, 25.0, typeof(Cloth), 1044455, 12, 1044287);
+            AddCraft(typeof(TenueForestiere), 1111747, "Tenue Forestière", 20.7, 45.7, typeof(Cloth), 1044455, 8, 1044287);
+            AddCraft(typeof(TuniqueCintree), 1111747, "Tunique Cintrée", 00.0, 25.0, typeof(Cloth), 1044455, 12, 1044287);
+            AddCraft(typeof(TuniqueCombat), 1111747, "Tunique de Combat", 00.0, 25.0, typeof(Cloth), 1044455, 12, 1044287);
+            AddCraft(typeof(TuniqueDefraichie), 1111747, "Tunique Défraîchie", 00.0, 25.0, typeof(Cloth), 1044455, 12, 1044287);
+            AddCraft(typeof(VesteFourrure), 1111747, "Veste de Fourrure", 20.7, 45.7, typeof(Cloth), 1044455, 8, 1044287);
+            AddCraft(typeof(VestonCuir), 1111747, "Veston de Cuir", 20.7, 45.7, typeof(Cloth), 1044455, 8, 1044287);
+            AddCraft(typeof(VestonColV), 1111747, "Veston à Col en V", 24.8, 49.8, typeof(Cloth), 1044455, 8, 1044287);
+            AddCraft(typeof(ChemiseOrnee), 1111747, "Chemise Ornée", 20.7, 45.7, typeof(Cloth), 1044455, 8, 1044287);
+            AddCraft(typeof(CorsetCuir), 1111747, "Corset de Cuir", 20.7, 45.7, typeof(Cloth), 1044455, 8, 1044287);
+            AddCraft(typeof(DoubletPaysan), 1111747, "Doublet de Paysan", 0, 25.0, typeof(Cloth), 1044455, 8, 1044287);
+            AddCraft(typeof(Gaine), 1111747, "Gaine", 0, 25.0, typeof(Cloth), 1044455, 8, 1044287);
+            AddCraft(typeof(Corsage), 1111747, "Corsage", 0, 25.0, typeof(Cloth), 1044455, 8, 1044287);
+            AddCraft(typeof(PetitCorset), 1111747, "Petit Corset", 0, 25.0, typeof(Cloth), 1044455, 8, 1044287);
+            AddCraft(typeof(PourpointNoble), 1111747, "Pourpoint Noble", 24.8, 49.8, typeof(Cloth), 1044455, 8, 1044287);
+            AddCraft(typeof(SoutienGorgeEchancre), 1111747, "Soutien Gorge Echancré", 20.7, 45.7, typeof(Cloth), 1044455, 8, 1044287);
+            AddCraft(typeof(SoutienGorgeTissu), 1111747, "Soutien Gorge en Tissu", 20.7, 45.7, typeof(Cloth), 1044455, 8, 1044287);
+            AddCraft(typeof(TuniqueCuir), 1111747, "Tunique de Cuir", 00.0, 25.0, typeof(Cloth), 1044455, 12, 1044287);
+            AddCraft(typeof(TuniqueForestier), 1111747, "Tunique de Forestier", 00.0, 25.0, typeof(Cloth), 1044455, 12, 1044287);
+            AddCraft(typeof(UniformeCapitaine), 1111747, "Uniforme de Capitaine", 00.0, 25.0, typeof(Cloth), 1044455, 12, 1044287);
+            AddCraft(typeof(VestonPirate), 1111747, "Veston Pirate", 00.0, 25.0, typeof(Cloth), 1044455, 12, 1044287);
+            AddCraft(typeof(VestonBum), 1111747, "Veston Bum", 00.0, 25.0, typeof(Cloth), 1044455, 12, 1044287);
+            AddCraft(typeof(RobeAubergiste), 1111747, "Robe Aubergiste", 24.8, 49.8, typeof(Cloth), 1044455, 8, 1044287);
+            AddCraft(typeof(RobeVoyage), 1111747, "Robe de Voyage", 53.9, 78.9, typeof(Cloth), 1044455, 16, 1044287);
+            AddCraft(typeof(RobeEquitation), 1111747, "Robe d'Equitation", 53.9, 78.9, typeof(Cloth), 1044455, 16, 1044287);
+            AddCraft(typeof(RobeSofistiquee), 1111747, "Robe Sofistiquée", 53.9, 78.9, typeof(Cloth), 1044455, 16, 1044287);
+            AddCraft(typeof(RobeVaporeuse), 1111747, "Robe Vaporeuse", 53.9, 78.9, typeof(Cloth), 1044455, 16, 1044287);
+            AddCraft(typeof(RobeVaporeuseManches), 1111747, "Robe Vaporeuse à Manches", 53.9, 78.9, typeof(Cloth), 1044455, 16, 1044287);
+            AddCraft(typeof(RobeAjustee), 1111747, "Robe Ajustée", 53.9, 78.9, typeof(Cloth), 1044455, 16, 1044287);
+            AddCraft(typeof(RobeBohemienne), 1111747, "Robe de Bohémienne", 24.8, 49.8, typeof(Cloth), 1044455, 8, 1044287);
+            AddCraft(typeof(RobeBourgeoise), 1111747, "Robe Bourgoise", 24.8, 49.8, typeof(Cloth), 1044455, 8, 1044287);
+            AddCraft(typeof(RobeDepravee), 1111747, "Robe Depravée", 53.9, 78.9, typeof(Cloth), 1044455, 16, 1044287);
+            AddCraft(typeof(RobeDrappee), 1111747, "Robe Drappée", 53.9, 78.9, typeof(Cloth), 1044455, 16, 1044287);
+            AddCraft(typeof(RobeMonastere), 1111747, "Robe de Monastère", 24.8, 49.8, typeof(Cloth), 1044455, 8, 1044287);
+            AddCraft(typeof(RobeNoble), 1111747, "Robe Noble", 24.8, 49.8, typeof(Cloth), 1044455, 8, 1044287);
+            AddCraft(typeof(RobePlissee), 1111747, "Robe Plissée", 53.9, 78.9, typeof(Cloth), 1044455, 16, 1044287);
+            AddCraft(typeof(RobeSansManches), 1111747, "Robe sans Manches", 53.9, 78.9, typeof(Cloth), 1044455, 16, 1044287);
+            AddCraft(typeof(TogeSombre), 1111747, "Toge Sombre", 53.9, 78.9, typeof(Cloth), 1044455, 16, 1044287);
+            AddCraft(typeof(RobePelerin), 1111747, "Robe de Pèlerin", 53.9, 78.9, typeof(Cloth), 1044455, 16, 1044287);
         }
 
         private void CutUpCloth(Mobile m, CraftItem craftItem, ITool tool)

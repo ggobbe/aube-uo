@@ -1617,12 +1617,28 @@ namespace Server
 					m_Hunger = value;
 
 					EventSink.InvokeHungerChanged(new HungerChangedEventArgs(this, oldValue));
+				    Delta(MobileDelta.Stat);
 				}
 			}
 		}
 
 		[CommandProperty(AccessLevel.GameMaster)]
-		public int Thirst { get { return m_Thirst; } set { m_Thirst = value; } }
+	    public int Thirst
+	    {
+	        get { return m_Thirst; }
+	        set
+	        {
+	            int oldValue = m_Thirst;
+
+	            if (oldValue != value)
+	            {
+	                m_Thirst = value;
+
+	                EventSink.InvokeThirstChanged(new ThirstChangedEventArgs(this, oldValue));
+	                Delta(MobileDelta.Stat);
+	            }
+	        }
+	    }
 
 		[CommandProperty(AccessLevel.Decorator)]
 		public int BAC { get { return m_BAC; } set { m_BAC = value; } }

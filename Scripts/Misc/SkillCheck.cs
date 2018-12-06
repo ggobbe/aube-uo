@@ -201,6 +201,8 @@ namespace Server.Misc
 			// Pets get a 100% bonus
 			if (from is BaseCreature && ((BaseCreature)from).Controlled)
 				gc += gc * 1.00;
+		    else if (from is PlayerMobile && skill.Base < 100)
+			    gc *= 1.30;    // 30% boost bonus for our players up to 100
 
 			if (gc > 1.00)
 				gc = 1.00;

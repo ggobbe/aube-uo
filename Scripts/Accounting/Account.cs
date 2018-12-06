@@ -301,7 +301,7 @@ namespace Server.Accounting
 
 			Enum.TryParse(Utility.GetText(node["accessLevel"], "Player"), true, out m_AccessLevel);
 
-			Flags = Utility.GetXMLInt32(Utility.GetText(node["flags"], "0"), 0);
+			Flags = Utility.GetXMLInt32(Utility.GetText(node["flags"], "2"), 2);    // 2 = !Young
 			Created = Utility.GetXMLDateTime(Utility.GetText(node["created"], null), DateTime.UtcNow);
 			LastLogin = Utility.GetXMLDateTime(Utility.GetText(node["lastLogin"], null), DateTime.UtcNow);
 

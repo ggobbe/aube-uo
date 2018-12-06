@@ -1,0 +1,17 @@
+# Aube Changelog
+- Outil de placement de maisons désactivé
+- Départ des joueurs à New Haven
+- Enregistrement de tout ce qui est dit par les joueurs
+- Commande .hearall pour entendre tout ce qui est dit
+- Ajout d'un gump pour voir l'état de faim et soif (.faim / .soif)
+- Accélération du gain de skills de 30% (jusqu'à 100 dans la skill)
+- Accélération du gain de stats 8% au lieu de 5%
+- Expansion High Sea
+- Enhanced Client non autorisé
+- Kick time de 5 minutes si pas le bon client
+- Stuck Menu envoie sur New Haven
+- Préfix des commandes changé de [ à .
+- Commande .macro pour vérifier si un joueur macrote
+- Ajout de vêtements personnalisées (avec nouveaux gumps)
+- Custom: .compte, BloodyBandageSystem, BrosseACheveux, ChangeLayer, TownHouse
+- Fonctionnalités désactivées: AutoCreateAccount, Chat, CityLoyalty, EnhancedClient, Honesty, VetRewards, Young, FishMongerStatus, VoidPoolController, SaveConsoleMessages

@@ -54,7 +54,7 @@ namespace Server
 		{
 			if (m_DiskWriteHandle.Set())
 			{
-				Console.WriteLine("Closing Save Files. ");
+				//Console.WriteLine("Closing Save Files. ");
 			}
 		}
 
@@ -1121,13 +1121,14 @@ namespace Server
 
 			if (message)
 			{
-				Broadcast(0x35, true, AccessLevel.Counselor, "The world is saving, please wait.");
+				//Broadcast(0x35, true, AccessLevel.Counselor, "The world is saving, please wait.");
+				Broadcast(0x35, true, AccessLevel.Counselor, "Le monde est en sauvegarde, veuillez patienter.");
 			}
 
 			SaveStrategy strategy = SaveStrategy.Acquire();
-			Console.WriteLine("Core: Using {0} save strategy", strategy.Name.ToLowerInvariant());
+			//Console.WriteLine("Core: Using {0} save strategy", strategy.Name.ToLowerInvariant());
 
-			Console.WriteLine("World: Saving...");
+			//Console.WriteLine("World: Saving...");
 
 			Stopwatch watch = Stopwatch.StartNew();
 
@@ -1182,11 +1183,12 @@ namespace Server
 
 			strategy.ProcessDecay();
 
-			Console.WriteLine("Save finished in {0:F2} seconds.", watch.Elapsed.TotalSeconds);
+			//Console.WriteLine("Save finished in {0:F2} seconds.", watch.Elapsed.TotalSeconds);
 
 			if (message)
 			{
-				Broadcast(0x35, true, AccessLevel.Counselor, "World save complete. The entire process took {0:F1} seconds.", watch.Elapsed.TotalSeconds);
+				//Broadcast(0x35, true, AccessLevel.Counselor, "World save complete. The entire process took {0:F1} seconds.", watch.Elapsed.TotalSeconds);
+			    Broadcast(0x35, true, AccessLevel.Counselor, "Sauvegarde terminee en {0:F1} secondes.", watch.Elapsed.TotalSeconds);
 			}
 
 			NetState.Resume();
