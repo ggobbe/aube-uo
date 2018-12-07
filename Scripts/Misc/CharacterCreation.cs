@@ -13,10 +13,10 @@ namespace Server.Misc
 	{
 		private static readonly CityInfo m_NewHavenInfo = new CityInfo(
 			"New Haven",
-			"The Bountiful Harvest Inn",
-			3503,
-			2574,
-			14,
+			"The Harbour",
+			3520,
+			2601,
+			1,
 			Map.Trammel);
 
 		private static readonly CityInfo m_SiegeInfo = new CityInfo(
@@ -277,9 +277,10 @@ namespace Server.Misc
 				newChar.BankBox.DropItem(ticket);
 			}
 
-		    var city = new CityInfo("New Haven", "New Haven Bank", 1150168, 3503, 2574, 14, Map.Trammel);
+			var city = m_NewHavenInfo;
+			var map = Siege.SiegeShard && city.Map == Map.Trammel ? Map.Felucca : city.Map;
 
-			newChar.MoveToWorld(city.Location, city.Map);
+			newChar.MoveToWorld(city.Location, map);
 
 			Utility.PushColor(ConsoleColor.Green);
 			Console.WriteLine("Login: {0}: New character being created (account={1})", state, args.Account.Username);

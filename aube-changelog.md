@@ -1,4 +1,5 @@
 # Aube Changelog
+- Ajout de nouvelles coiffures
 - Outil de placement de maisons désactivé
 - Départ des joueurs à New Haven
 - Enregistrement de tout ce qui est dit par les joueurs
@@ -9,9 +10,10 @@
 - Expansion High Sea
 - Enhanced Client non autorisé
 - Kick time de 5 minutes si pas le bon client
+- Saves toutes les 15 minutes
 - Stuck Menu envoie sur New Haven
 - Préfix des commandes changé de [ à .
 - Commande .macro pour vérifier si un joueur macrote
 - Ajout de vêtements personnalisées (avec nouveaux gumps)
 - Custom: .compte, BloodyBandageSystem, BrosseACheveux, ChangeLayer, TownHouse
-- Fonctionnalités désactivées: AutoCreateAccount, Chat, CityLoyalty, EnhancedClient, Honesty, VetRewards, Young, FishMongerStatus, VoidPoolController, SaveConsoleMessages
+- Fonctionnalités désactivées: AutoCreateAccount, Chat, CityLoyalty, EnhancedClient, Honesty, VetRewards, Young, FishMongerStatus, VoidPoolController, SaveConsoleMessages, Store, QuestRanking
