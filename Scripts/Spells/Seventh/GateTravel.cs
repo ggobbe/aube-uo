@@ -186,7 +186,7 @@ namespace Server.Spells.Seventh
 
             public override void UseGate(Mobile m)
             {
-                if (m_LinkedGate == null || !(m_LinkedGate is GateTravelSpell.InternalItem) || !((GateTravelSpell.InternalItem)m_LinkedGate).BoatGate || !m_LinkedGate.Deleted)
+                if (m_LinkedGate == null || !(m_LinkedGate is GateTravelSpell.InternalItem) || !m_LinkedGate.Deleted)
                 {
                     if (m_LinkedGate != null && ((GateTravelSpell.InternalItem)m_LinkedGate).BoatGate)
                     {

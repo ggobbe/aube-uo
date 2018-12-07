@@ -15,5 +15,6 @@
 - Préfix des commandes changé de [ à .
 - Commande .macro pour vérifier si un joueur macrote
 - Ajout de vêtements personnalisées (avec nouveaux gumps)
+- Bloque l'utilisation des Moongates crées avec le sort si l'autre Moongate a été supprimée
 - Custom: .compte, BloodyBandageSystem, BrosseACheveux, ChangeLayer, TownHouse
 - Fonctionnalités désactivées: AutoCreateAccount, Chat, CityLoyalty, EnhancedClient, Honesty, VetRewards, Young, FishMongerStatus, VoidPoolController, SaveConsoleMessages, Store, QuestRanking
