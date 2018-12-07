@@ -57,7 +57,7 @@ namespace Server.Aube.Commands
                 message = string.Format("{0}: {1}", args.Mobile.Name, args.Speech);
             }
 
-            foreach (var listener in _Listeners.Where(l => l.NetState != null))
+            foreach (var listener in _Listeners.Where(l => l.NetState != null && l != args.Mobile))
             {
                 listener.SendMessage(message);
             }
