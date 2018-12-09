@@ -57,7 +57,7 @@ namespace Server.Regions
 		}
 
 		[CommandProperty(AccessLevel.GameMaster)]
-		public bool Disabled { get { return true; } set { m_Disabled = value; } }
+		public bool Disabled { get { return m_Disabled; } set { m_Disabled = value; } }
 
 		[CommandProperty(AccessLevel.GameMaster)]
 		public virtual bool AllowReds { get { return Core.AOS; } }
