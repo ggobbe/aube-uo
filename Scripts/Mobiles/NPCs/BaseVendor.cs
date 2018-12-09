@@ -2322,7 +2322,7 @@ namespace Server.Mobiles
 			switch (version)
 			{
 			    case 4:
-			        m_IsStygianVendor = reader.ReadBool();
+			        IsStygianVendor = reader.ReadBool();
 			        goto case 3;
                 case 3:
                 case 2:

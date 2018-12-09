@@ -28,7 +28,7 @@ namespace Server.Mobiles
         }
         public override void InitSBInfo() 
         { 
-            //this.m_SBInfos.Add(new SBShipwright());
+            this.m_SBInfos.Add(new SBShipwright());
         }
 
         public override void InitOutfit()
@@ -36,6 +36,18 @@ namespace Server.Mobiles
             base.InitOutfit();
 
             this.AddItem(new Server.Items.SmithHammer());
+        }
+
+        public override void VendorBuy(Mobile from)
+        {
+            Say("Je n'ai pas de bateaux de construit pour le moment, revenez plus tard.");
+            return;
+        }
+
+        public override bool OnBuyItems(Mobile buyer, List<BuyItemResponse> list)
+        {
+            Say("Je n'ai pas de bateaux de construit pour le moment, revenez plus tard.");
+            return false;
         }
 
         public override void Serialize(GenericWriter writer) 
