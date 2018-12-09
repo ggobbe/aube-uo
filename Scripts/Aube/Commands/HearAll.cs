@@ -47,13 +47,7 @@ namespace Server.Aube.Commands
                 return;
             }
 
-            var region = "unknown";
-            if (args.Mobile.Region != null && !string.IsNullOrWhiteSpace(args.Mobile.Region.Name))
-            {
-                region = args.Mobile.Region.Name;
-            }
-
-            var message = string.Format("{0} ({1}): {2}", args.Mobile.Name, region, args.Speech);
+            var message = string.Format("{0}: {1}", args.Mobile.Name, args.Speech);
 
             foreach (var listener in _Listeners.Where(l => l.NetState != null && l != args.Mobile))
             {
