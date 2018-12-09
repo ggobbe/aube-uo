@@ -209,7 +209,8 @@ namespace Server.Items
                 return false;
             }
 
-            return true;
+            from.SendMessage("Ce parchemin semble être un faux, il n'a aucun effet.");
+            return false;
         }
 
         public override void Use(Mobile from)
