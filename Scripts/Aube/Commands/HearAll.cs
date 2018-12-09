@@ -63,7 +63,7 @@ namespace Server.Aube.Commands
 
         private static void CleanListeners()
         {
-            foreach (var listener in _Listeners.Where(l => l.NetState == null))
+            foreach (var listener in _Listeners.Where(l => l.NetState == null).ToList())
             {
                 RemoveListener(listener);
             }
