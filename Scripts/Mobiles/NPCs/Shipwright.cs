@@ -28,7 +28,7 @@ namespace Server.Mobiles
         }
         public override void InitSBInfo() 
         { 
-            this.m_SBInfos.Add(new SBShipwright()); 
+            //this.m_SBInfos.Add(new SBShipwright());
         }
 
         public override void InitOutfit()

@@ -14,9 +14,9 @@ namespace Server.Misc
 		private static readonly CityInfo m_NewHavenInfo = new CityInfo(
 			"New Haven",
 			"The Harbour",
-			3520,
-			2601,
-			1,
+			5863,
+			2465,
+			48,
 			Map.Trammel);
 
 		private static readonly CityInfo m_SiegeInfo = new CityInfo(
