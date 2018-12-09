@@ -1,4 +1,6 @@
 # Aube Changelog
+- Ajout commande bodymod pour changer le bodymod des mobiles
+- Le Shipwright ne vend plus rien pour l'instant
 - Ajout de nouvelles coiffures
 - Outil de placement de maisons désactivé
 - Départ des joueurs à New Haven
