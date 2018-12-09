@@ -18,14 +18,14 @@ namespace Server.Mobiles
 		private static readonly HairstylistBuyInfo[] m_SellList = new[]
 		{
 			new HairstylistBuyInfo(
-				"New Hair (1000 gold)",
-				1000,
+				"New Hair (50 gold)",
+				50,
 				false,
 				typeof(ChangeHairstyleGump),
 				new[] {From, Vendor, Price, false, ChangeHairstyleEntry.AubeHairEntries}),
 			new HairstylistBuyInfo(
-				"New Beard (500 gold)",
-				500,
+				"New Beard (50 gold)",
+				50,
 				true,
 				typeof(ChangeHairstyleGump),
 				new[] {From, Vendor, Price, true, ChangeHairstyleEntry.BeardEntries}),
@@ -70,8 +70,8 @@ namespace Server.Mobiles
         private static readonly HairstylistBuyInfo[] m_SellListElf = new[]
         {
             new HairstylistBuyInfo(
-                "New Hair (1000 gold)",
-				1000,
+                "New Hair (50 gold)",
+				50,
 				false,
 				typeof(ChangeHairstyleGump),
 				new[] {From, Vendor, Price, false, ChangeHairstyleEntry.HairEntriesElf}),
