@@ -51,6 +51,8 @@ namespace Server.Mobiles
 
 		private DateTime m_LastRestock;
 
+	    private bool m_IsStygianVendor;
+
 		public override bool CanTeach { get { return true; } }
 
 		public override bool BardImmune { get { return true; } }
@@ -368,7 +370,18 @@ namespace Server.Mobiles
 		public abstract void InitSBInfo();
 
 		public virtual bool IsTokunoVendor { get { return (Map == Map.Tokuno); } }
-        public virtual bool IsStygianVendor { get { return (Map == Map.TerMur); } }
+
+	    [CommandProperty(AccessLevel.GameMaster)]
+	    public virtual bool IsStygianVendor
+	    {
+	        get { return m_IsStygianVendor; }
+	        set
+	        {
+	            m_IsStygianVendor = value;
+	            LoadSBInfo();
+	        }
+	    }
+
 
 		protected void LoadSBInfo()
 		{
@@ -2226,7 +2239,9 @@ namespace Server.Mobiles
 		{
 			base.Serialize(writer);
 
-			writer.Write(3); // version
+			writer.Write(4); // version
+
+		    writer.Write(m_IsStygianVendor);
 
             writer.Write(BribeMultiplier);
             writer.Write(NextMultiplierDecay);
@@ -2306,6 +2321,9 @@ namespace Server.Mobiles
 
 			switch (version)
 			{
+			    case 4:
+			        m_IsStygianVendor = reader.ReadBool();
+			        goto case 3;
                 case 3:
                 case 2:
                     BribeMultiplier = reader.ReadInt();
