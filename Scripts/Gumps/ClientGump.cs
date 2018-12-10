@@ -144,7 +144,7 @@ namespace Server.Gumps
                 from.SendMessage("That character no longer exists.");
                 return;
             }
-            else if (from != focus && focus.Hidden && from.AccessLevel < focus.AccessLevel && (!(focus is PlayerMobile) || !((PlayerMobile)focus).VisibilityList.Contains(from)))
+            else if (from != focus && focus.Hidden && from.AccessLevel < focus.AccessLevel && (!(focus is PlayerMobile) || !((PlayerMobile)focus).VisibilityList.Contains(from)) && from.AccessLevel < AccessLevel.Counselor)
             {
                 from.SendMessage("That character is no longer visible.");
                 return;
