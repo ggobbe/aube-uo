@@ -1,4 +1,6 @@
 # Aube Changelog
+- Commande .say
+- Prix de rachat passe de 75% à 50%
 - Chivalry et Necromancy sont considérés comme malus l'un pour l'autre pour la difficulté de Cast
 - .who accessible aux joueurs
 - Ajout commande bodymod pour changer le bodymod des mobiles
