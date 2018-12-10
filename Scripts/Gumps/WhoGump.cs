@@ -69,8 +69,8 @@ namespace Server.Gumps
 
         public static void Initialize()
         {
-            CommandSystem.Register("Who", AccessLevel.Counselor, new CommandEventHandler(WhoList_OnCommand));
-            CommandSystem.Register("WhoList", AccessLevel.Counselor, new CommandEventHandler(WhoList_OnCommand));
+            CommandSystem.Register("Who", AccessLevel.Player, new CommandEventHandler(WhoList_OnCommand));
+            CommandSystem.Register("WhoList", AccessLevel.Player, new CommandEventHandler(WhoList_OnCommand));
         }
 
         public static List<Mobile> BuildList(Mobile owner, string filter)
@@ -87,7 +87,7 @@ namespace Server.Gumps
             {
                 Mobile m = states[i].Mobile;
 
-                if (m != null && (m == owner || !m.Hidden || owner.AccessLevel >= m.AccessLevel || (m is PlayerMobile && ((PlayerMobile)m).VisibilityList.Contains(owner))))
+                if (m != null && (m == owner || !m.Hidden || owner.AccessLevel >= m.AccessLevel || (m is PlayerMobile && ((PlayerMobile)m).VisibilityList.Contains(owner)) || owner.AccessLevel >= AccessLevel.Counselor))
                 {
                     if (filter != null && (m.Name == null || m.Name.ToLower().IndexOf(filter) < 0))
                         continue;
@@ -172,7 +172,7 @@ namespace Server.Gumps
                 if (SetGumpID != 0)
                     this.AddImageTiled(x, y, SetWidth, EntryHeight, SetGumpID);
 
-                if (m.NetState != null && !m.Deleted)
+                if (m.NetState != null && !m.Deleted && m_Owner.AccessLevel >= AccessLevel.Counselor)
                     this.AddButton(x + SetOffsetX, y + SetOffsetY, SetButtonID1, SetButtonID2, i + 3, GumpButtonType.Reply, 0);
             }
         }
@@ -203,6 +203,9 @@ namespace Server.Gumps
                     }
                 default:
                     {
+                        if (m_Owner.AccessLevel < AccessLevel.Counselor)
+                            return;
+
                         int index = (this.m_Page * EntryCount) + (info.ButtonID - 3);
 
                         if (index >= 0 && index < this.m_Mobiles.Count)
@@ -251,11 +254,9 @@ namespace Server.Gumps
                 case AccessLevel.CoOwner:
                 case AccessLevel.Developer:
                 case AccessLevel.Administrator: 
-					return EC ? 0x51D : 0x516;
                 case AccessLevel.Seer: 
-					return EC ? 0x142 : 0x144;
                 case AccessLevel.GameMaster: 
-					return EC ? 0x11 : 0x21;
+					return EC ? 0x51D : 0x516;
                 case AccessLevel.Decorator: 
 					return 0x2;
                 case AccessLevel.VIP:
