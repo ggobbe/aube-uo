@@ -1,4 +1,6 @@
 # Aube Changelog
+- Chivalry et Necromancy sont considérés comme malus l'un pour l'autre pour la difficulté de Cast
+- .who accessible aux joueurs
 - Ajout commande bodymod pour changer le bodymod des mobiles
 - Le Shipwright ne vend plus rien pour l'instant
 - Ajout de nouvelles coiffures
