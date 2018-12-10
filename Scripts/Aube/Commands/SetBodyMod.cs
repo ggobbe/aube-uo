@@ -2,20 +2,20 @@ using Server.Targeting;
 
 namespace Server.Commands
 {
-    public class BodyModCommand
+    public class SetBodyModCommand
     {
         public static void Initialize()
         {
-            CommandSystem.Register("BodyMod", AccessLevel.Counselor, BodyMod_OnCommand);
+            CommandSystem.Register("SetBodyMod", AccessLevel.GameMaster, BodyMod_OnCommand);
         }
 
-        [Usage("BodyMod [value]")]
+        [Usage("SetBodyMod [value]")]
         [Description("Change le BodyMod d'un mobile")]
         private static void BodyMod_OnCommand(CommandEventArgs arg)
         {
             if (arg.Length != 1)
             {
-                arg.Mobile.SendMessage("BodyMod <value>");
+                arg.Mobile.SendMessage("SetBodyMod <value>");
                 return;
             }
 

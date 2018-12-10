@@ -14,7 +14,7 @@ namespace Server.Aube.Commands
             EventSink.Speech += EventSink_OnSpeech;
 
             CommandSystem.Register("HearAll", AccessLevel.GameMaster, HearAll_OnCommand);
-            CommandSystem.Register("peep", AccessLevel.GameMaster, HearAll_OnCommand);
+            CommandSystem.Register("Peep", AccessLevel.GameMaster, HearAll_OnCommand);
 
             Timer.DelayCall(TimeSpan.FromMinutes(1), TimeSpan.FromMinutes(1), CleanListeners);
         }
