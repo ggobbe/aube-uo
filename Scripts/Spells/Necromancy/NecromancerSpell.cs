@@ -5,9 +5,12 @@ namespace Server.Spells.Necromancy
 {
     public abstract class NecromancerSpell : Spell
     {
+        private Mobile m_Caster;
+
         public NecromancerSpell(Mobile caster, Item scroll, SpellInfo info)
             : base(caster, scroll, info)
         {
+            m_Caster = caster;
         }
 
         public abstract double RequiredSkill { get; }
@@ -57,6 +60,13 @@ namespace Server.Spells.Necromancy
         {
             min = this.RequiredSkill;
             max = this.Scroll != null ? min : this.RequiredSkill + 40.0;
+
+            if (m_Caster.Skills.Chivalry.Base > 0)
+            {
+                var old = max;
+                max += m_Caster.Skills.Chivalry.Base;
+                Console.WriteLine("Necromancy VS Chivalry: max from {0} => {1}", old, max);
+            }
         }
 
         public override bool ConsumeReagents()

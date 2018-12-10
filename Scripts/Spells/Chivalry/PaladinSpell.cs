@@ -8,9 +8,13 @@ namespace Server.Spells.Chivalry
 {
 	public abstract class PaladinSpell : Spell
 	{
+	    private Mobile m_Caster;
+
 		public PaladinSpell(Mobile caster, Item scroll, SpellInfo info)
 			: base(caster, scroll, info)
-		{ }
+	    {
+	        m_Caster = caster;
+	    }
 
 		public abstract double RequiredSkill { get; }
 		public abstract int RequiredMana { get; }
@@ -128,6 +132,13 @@ namespace Server.Spells.Chivalry
 		{
 			min = RequiredSkill;
 			max = RequiredSkill + 50.0;
+
+		    if (m_Caster.Skills.Necromancy.Base > 0)
+		    {
+		        var old = max;
+		        max += m_Caster.Skills.Necromancy.Base;
+		        Console.WriteLine("Chilvary VS Necromancy: max from {0} => {1}", old, max);
+		    }
 		}
 
 		public override int GetMana()
