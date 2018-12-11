@@ -55,6 +55,7 @@ namespace Server.Mobiles
                 Add(new GenericBuyInfo(typeof(Apple), 3, 20, 0x9D0, 0, true));
                 Add(new GenericBuyInfo(typeof(SheafOfHay), 2, 20, 0xF36, 0));
                 Add(new GenericBuyInfo(typeof(Hoe), 5, 20, 3897, 0));
+                Add(new GenericBuyInfo(typeof(SeedingTool), 20, 20, 3897, 1269));
             }
         }
 

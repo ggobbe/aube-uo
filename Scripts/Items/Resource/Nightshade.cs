@@ -2,7 +2,7 @@ using System;
 
 namespace Server.Items
 {
-    public class Nightshade : BaseReagent, ICommodity
+    public class Nightshade : BaseReagent, ICommodity, ISeedable
     {
         [Constructable]
         public Nightshade()
@@ -35,6 +35,15 @@ namespace Server.Items
                 return true;
             }
         }
+
+        Item ISeedable.GetSeed()
+        {
+            return new HarvestableSeed(GetType(), HarvestableSeed.DefaultDelay, "Nightshade", 0xDCF, 0x18E5)
+            {
+                Hue = 707
+            };
+        }
+
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

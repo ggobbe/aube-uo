@@ -2,7 +2,7 @@ using System;
 
 namespace Server.Items
 {
-    public class Ginseng : BaseReagent, ICommodity
+    public class Ginseng : BaseReagent, ICommodity, ISeedable
     {
         [Constructable]
         public Ginseng()
@@ -35,6 +35,12 @@ namespace Server.Items
                 return true;
             }
         }
+
+        Item ISeedable.GetSeed()
+        {
+            return new HarvestableSeed(GetType(), HarvestableSeed.DefaultDelay, "Ginseng", 0x18EB, 0x18E9);
+        }
+
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
