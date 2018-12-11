@@ -2,7 +2,7 @@ using System;
 
 namespace Server.Items
 {
-    public class Garlic : BaseReagent, ICommodity
+    public class Garlic : BaseReagent, ICommodity, ISeedable
     {
         [Constructable]
         public Garlic()
@@ -35,6 +35,12 @@ namespace Server.Items
                 return true;
             }
         }
+
+        Item ISeedable.GetSeed()
+        {
+            return new HarvestableSeed(GetType(), HarvestableSeed.DefaultDelay, "Garlic", 0x18E3, 0x18E1);
+        }
+
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

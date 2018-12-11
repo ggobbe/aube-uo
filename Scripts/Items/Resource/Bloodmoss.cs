@@ -2,7 +2,7 @@ using System;
 
 namespace Server.Items
 {
-    public class Bloodmoss : BaseReagent, ICommodity
+    public class Bloodmoss : BaseReagent, ICommodity, ISeedable
     {
         [Constructable]
         public Bloodmoss()
@@ -35,6 +35,15 @@ namespace Server.Items
                 return true;
             }
         }
+
+        Item ISeedable.GetSeed()
+        {
+            return new HarvestableSeed(GetType(), HarvestableSeed.DefaultDelay, "Bloodmoss", 0x573D, 0xF7B)
+            {
+                Hue = 38
+            };
+        }
+
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

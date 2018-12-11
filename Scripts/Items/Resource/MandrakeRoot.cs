@@ -2,7 +2,7 @@ using System;
 
 namespace Server.Items
 {
-    public class MandrakeRoot : BaseReagent, ICommodity
+    public class MandrakeRoot : BaseReagent, ICommodity, ISeedable
     {
         [Constructable]
         public MandrakeRoot()
@@ -35,6 +35,12 @@ namespace Server.Items
                 return true;
             }
         }
+
+        Item ISeedable.GetSeed()
+        {
+            return new HarvestableSeed(GetType(), HarvestableSeed.DefaultDelay, "Mandrake Root", 0x18DD, 0x18DF);
+        }
+
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
