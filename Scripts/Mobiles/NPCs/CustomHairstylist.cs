@@ -74,7 +74,7 @@ namespace Server.Mobiles
 				50,
 				false,
 				typeof(ChangeHairstyleGump),
-				new[] {From, Vendor, Price, false, ChangeHairstyleEntry.HairEntriesElf}),
+				new[] {From, Vendor, Price, false, ChangeHairstyleEntry.AubeHairEntries}),
 			new HairstylistBuyInfo(
 			    "Normal Hair Dye (500 gold)",
 				500,
