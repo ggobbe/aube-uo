@@ -1,6 +1,6 @@
 # Aube Changelog
 - Système d'agriculture pour les réactifs
-- Commande .say
+- Commande .say & .emote/.emo
 - Prix de rachat passe de 75% à 50%
 - Chivalry et Necromancy sont considérés comme malus l'un pour l'autre pour la difficulté de Cast
 - .who accessible aux joueurs
