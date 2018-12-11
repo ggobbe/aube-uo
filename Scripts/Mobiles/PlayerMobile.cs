@@ -2355,7 +2355,7 @@ namespace Server.Mobiles
 
                 if (Core.SA)
                 {
-                    list.Add(new TitlesMenuEntry(this));
+                    //list.Add(new TitlesMenuEntry(this));
 
 					if (Alive)
 					{
