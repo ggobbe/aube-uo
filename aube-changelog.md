@@ -1,4 +1,5 @@
 # Aube Changelog
+- Retrait des quêtes proposées par Ryuichi et Hamato (Ninjitsu et Bushido)
 - Système d'agriculture pour les réactifs
 - Commande .say & .emote/.emo
 - Prix de rachat passe de 75% à 50%
