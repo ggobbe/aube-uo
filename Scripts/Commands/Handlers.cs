@@ -58,6 +58,9 @@ namespace Server.Commands
             Register("BC", AccessLevel.GameMaster, new CommandEventHandler(BroadcastMessage_OnCommand));
             Register("B", AccessLevel.GameMaster, new CommandEventHandler(BroadcastMessage_OnCommand));
 
+            Register("RolePlay", AccessLevel.GameMaster, new CommandEventHandler(RolePlayMessage_OnCommand));
+            Register("RP", AccessLevel.GameMaster, new CommandEventHandler(RolePlayMessage_OnCommand));
+
             Register("Bank", AccessLevel.GameMaster, new CommandEventHandler(Bank_OnCommand));
 
             Register("Echo", AccessLevel.Counselor, new CommandEventHandler(Echo_OnCommand));
@@ -437,6 +440,15 @@ namespace Server.Commands
         {
             BroadcastMessage(AccessLevel.Player, 0x482, String.Format("Staff message from {0}:", e.Mobile.Name));
             BroadcastMessage(AccessLevel.Player, 0x482, e.ArgString);
+        }
+
+        [Usage("RolePlay <text>")]
+        [Aliases("RP")]
+        [Description("Broadcasts a role play message to everyone online.")]
+        public static void RolePlayMessage_OnCommand(CommandEventArgs e)
+        {
+            BroadcastMessage(AccessLevel.Player, 0x152, String.Format("Message RP:"));
+            BroadcastMessage(AccessLevel.Player, 0x152, e.ArgString);
         }
 
         public static void BroadcastMessage(AccessLevel ac, int hue, string message) 

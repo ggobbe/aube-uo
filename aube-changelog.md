@@ -1,4 +1,5 @@
 # Aube Changelog
+- .rp broadcast pour messages RP
 - Retrait des quêtes proposées par Ryuichi et Hamato (Ninjitsu et Bushido)
 - Système d'agriculture pour les réactifs
 - Commande .say & .emote/.emo
