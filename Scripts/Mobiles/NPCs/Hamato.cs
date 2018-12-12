@@ -87,6 +87,8 @@ namespace Server.Engines.Quests
 		
         public override bool CanOffer()
         {
+            return false;
+
             #region Scroll of Alacrity
             PlayerMobile pm = this.Owner as PlayerMobile;
             if (pm.AcceleratedStart > DateTime.UtcNow)
@@ -128,7 +130,7 @@ namespace Server.Engines.Quests
             {
                 return new Type[] 
                 {
-                    typeof(TheWayOfTheSamuraiQuest)
+                    //typeof(TheWayOfTheSamuraiQuest)
                 };
             }
         }
@@ -164,12 +166,12 @@ namespace Server.Engines.Quests
 		
         public override void Advertise()
         {
-            this.Say(1078134); // Seek me to learn the way of the samurai.
+            //this.Say(1078134); // Seek me to learn the way of the samurai.
         }
 		
         public override void OnOfferFailed()
         { 
-            this.Say(1077772); // I cannot teach you, for you know all I can teach!
+            //this.Say(1077772); // I cannot teach you, for you know all I can teach!
         }
 		
         public override void InitBody()
