@@ -82,6 +82,8 @@ namespace Server.Engines.Quests
 
         public override bool CanOffer()
         {
+            return false;
+
             #region Scroll of Alacrity
             PlayerMobile pm = this.Owner as PlayerMobile;
             if (pm.AcceleratedStart > DateTime.UtcNow)
@@ -123,7 +125,7 @@ namespace Server.Engines.Quests
             {
                 return new Type[] 
                 {
-                    typeof(TheArtOfStealthQuest)
+                    //typeof(TheArtOfStealthQuest)
                 };
             }
         }
@@ -160,12 +162,12 @@ namespace Server.Engines.Quests
 		
         public override void Advertise()
         {
-            this.Say(1078155); // I can teach you Ninjitsu. The Art of Stealth.
+            //this.Say(1078155); // I can teach you Ninjitsu. The Art of Stealth.
         }
 		
         public override void OnOfferFailed()
         { 
-            this.Say(1077772); // I cannot teach you, for you know all I can teach!
+            //this.Say(1077772); // I cannot teach you, for you know all I can teach!
         }
 		
         public override void InitBody()
