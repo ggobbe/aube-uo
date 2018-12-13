@@ -75,6 +75,7 @@
     </Compile>
     <Compile Include="Aube\Alimentation\Feeding.cs" />
     <Compile Include="Aube\Alimentation\FeedingGump.cs" />
+    <Compile Include="Aube\Commands\ClearTitles.cs" />
     <Compile Include="Aube\Commands\HearAll.cs" />
     <Compile Include="Aube\Commands\Say.cs" />
     <Compile Include="Aube\Commands\SetBodyMod.cs" />
