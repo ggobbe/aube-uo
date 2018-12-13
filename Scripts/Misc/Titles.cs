@@ -230,6 +230,8 @@ namespace Server.Misc
                 title.Append(beheld.Name);
             }
 
+            return title.ToString();
+
             if (beheld is PlayerMobile && ((PlayerMobile)beheld).DisplayChampionTitle)
             {
                 PlayerMobile.ChampionTitleInfo info = ((PlayerMobile)beheld).ChampionTitles;
@@ -297,6 +299,8 @@ namespace Server.Misc
 
         public static string GetSkillTitle(Mobile mob)
         {
+            return null;
+
             Skill highest = GetHighestSkill(mob);// beheld.Skills.Highest;
 
             if (highest != null && highest.BaseFixedPoint >= 300)
@@ -480,6 +484,8 @@ namespace Server.Misc
 
         public static List<VeteranTitle> GetVeteranTitles(Mobile m)
         {
+            return null;
+
             Account a = m.Account as Account;
 
             if (a == null)
