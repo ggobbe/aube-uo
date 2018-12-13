@@ -84,6 +84,7 @@
     <Compile Include="Aube\Farming\HarvestableSeed.cs" />
     <Compile Include="Aube\Farming\SeedingTool.cs" />
     <Compile Include="Aube\Items\CustomClothes.cs" />
+    <Compile Include="Aube\Items\TransformationToken.cs" />
     <Compile Include="Aube\Misc\SpeechLogging.cs" />
     <Compile Include="Commands\AccountGoldCheck.cs" />
     <Compile Include="Commands\Add.cs">

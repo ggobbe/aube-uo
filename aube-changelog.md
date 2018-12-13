@@ -1,4 +1,5 @@
 # Aube Changelog
+- Add TransformationToken
 - Add .npChat command to control NPC
 - .ClearTitles pour retirer les titres des joueurs
 - .rp broadcast pour messages RP
