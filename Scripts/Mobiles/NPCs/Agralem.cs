@@ -90,7 +90,7 @@ namespace Server.Engines.Quests
 
         public override void Advertise()
         {
-            Say(1112688); // Daemons from the void! They must be vanquished!
+            //Say(1112688); // Daemons from the void! They must be vanquished!
         }
 
         public override Type[] Quests
@@ -99,7 +99,7 @@ namespace Server.Engines.Quests
             {
                 return new Type[] 
                 {
-                    typeof(IntoTheVoidQuest)
+                    //typeof(IntoTheVoidQuest)
                 };
             }
         }
