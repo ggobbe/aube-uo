@@ -1235,7 +1235,9 @@ namespace Server.Items
             else if (from == targ)
             {
                 if (from.Thirst < 20)
-                    from.Thirst += 1;
+                {
+                    from.Thirst += Math.Min(4, 20 - from.Thirst);
+                }
 
                 if (ContainsAlchohol)
                 {
