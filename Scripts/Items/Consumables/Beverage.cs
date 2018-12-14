@@ -1234,15 +1234,10 @@ namespace Server.Items
             }
             else if (from == targ)
             {
-                if (from.Thirst < 20)
-                {
-                    from.Thirst += Math.Min(4, 20 - from.Thirst);
-                }
+                int bac = 0;
 
                 if (ContainsAlchohol)
                 {
-                    int bac = 0;
-
                     switch( Content )
                     {
                         case BeverageType.Ale:
@@ -1265,6 +1260,12 @@ namespace Server.Items
                         from.BAC = 60;
 
                     CheckHeaveTimer(from);
+                }
+
+                if (from.Thirst < 20)
+                {
+                    int filling = 4 + (int)Quality + bac;
+                    from.Thirst += Math.Min(filling, 20 - from.Thirst);
                 }
 
                 from.PlaySound(Utility.RandomList(0x30, 0x2D6));

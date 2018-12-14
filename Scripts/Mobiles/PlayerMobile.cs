@@ -1220,6 +1220,14 @@ namespace Server.Mobiles
                  return Math.Min(resistance, GetMaxResistance(type));
             }
 
+            // Drinking makes you vulnerable
+            if (BAC >= 4)
+            {
+                var malus = BAC / 4;
+                resistance -= malus;
+                resistance = Math.Max(resistance, 0);
+            }
+
             return resistance;
         }
         #endregion

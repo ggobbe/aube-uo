@@ -1640,8 +1640,16 @@ namespace Server
 	        }
 	    }
 
-		[CommandProperty(AccessLevel.Decorator)]
-		public int BAC { get { return m_BAC; } set { m_BAC = value; } }
+	    [CommandProperty(AccessLevel.Decorator)]
+	    public int BAC
+	    {
+	        get { return m_BAC; }
+	        set
+	        {
+	            m_BAC = value;
+	            Delta(MobileDelta.Stat);
+	        }
+	    }
 
 		public virtual int DefaultBloodHue { get { return 0; } }
 
