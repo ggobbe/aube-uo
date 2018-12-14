@@ -5,24 +5,24 @@ using Server.Items;
 using Server.Targeting;
 using System.Collections.Generic;
 using Server.Gumps;
-using Server; 
+using Server;
 using Server.Commands;
-using System.IO; 
+using System.IO;
 using Server.Mobiles;
-using Server.Accounting; 
+using Server.Accounting;
 
 namespace Server.Gumps
 {
-   	public class ChangeLayer : Gump 
-   	{
-		
-		 public static Layer[] ValidLayers
+    public class ChangeLayer : Gump
+    {
+
+        public static Layer[] ValidLayers
         {
             get
             {
-                Layer[] lays = 
-                { 
-                    Layer.Arms, 
+                Layer[] lays =
+                {
+                    Layer.Arms,
                     Layer.Bracelet,
                     Layer.Cloak,
                     Layer.Earrings,
@@ -38,13 +38,13 @@ namespace Server.Gumps
                     Layer.Shirt,
                     Layer.Shoes,
                     Layer.Talisman,
-                    Layer.Waist 
+                    Layer.Waist
                 };
                 return lays;
             }
         }
-		
-		        public static bool IsValid( Layer lay)
+
+        public static bool IsValid(Layer lay)
         {
             for (int i = 0; i < ValidLayers.Length; i++)
                 if (ValidLayers[i] == lay)
@@ -52,51 +52,68 @@ namespace Server.Gumps
 
             return false;
         }
-		
-		
-      		public static void Initialize() 
-      		{ 
-         		CommandSystem.Register( "ChangeLayer", AccessLevel.Player, new CommandEventHandler( AccountLogin_OnCommand ) ); 
-      		} 
-			
-			[Usage( "ChangeLayer [<command>]" )]
-			[Description( "Permet de vérifier les informations de votre compte et de changer votre mot de passe" )]
 
-      		private static void AccountLogin_OnCommand( CommandEventArgs e ) 
-      		{ 
-				e.Mobile.Target = new ChangeLayerTarget();
-				
-      		}
 
-      		private Mobile m_From; 
+        public static void Initialize()
+        {
+            CommandSystem.Register("ChangeLayer", AccessLevel.Player, new CommandEventHandler(AccountLogin_OnCommand));
+        }
 
-      		public ChangeLayer( Mobile owner ) : base( 25,25 ) 
-      		{ 
+        [Usage("ChangeLayer [<command>]")]
+        [Description("Permet de vérifier les informations de votre compte et de changer votre mot de passe")]
 
-		}
-      		public override void OnResponse( NetState state, RelayInfo info ) 
-      		{ 
+        private static void AccountLogin_OnCommand(CommandEventArgs e)
+        {
+            e.Mobile.Target = new ChangeLayerTarget();
 
-        	
-                        	Mobile from = state.Mobile;
+        }
 
-			//		from.SendGump( new ChangeLayerGump( from ) );
-        	} 
-			
-			
-private class ChangeLayerTarget : Target
+        private Mobile m_From;
+
+        public ChangeLayer(Mobile owner) : base(25, 25)
+        {
+
+        }
+
+        public override void OnResponse(NetState state, RelayInfo info)
+        {
+
+
+            Mobile from = state.Mobile;
+
+            //		from.SendGump( new ChangeLayerGump( from ) );
+        }
+
+
+        private class ChangeLayerTarget : Target
         {
             public ChangeLayerTarget()
                 : base(-1, false, TargetFlags.None)
             {
             }
 
-            protected override void OnTarget( Mobile from, object target )
-		{
-
-            if (target is BaseClothing)
+            protected override void OnTarget(Mobile from, object target)
             {
-                BaseClothing clothing = (BaseClothing)target;
+
+                if (!(target is BaseClothing))
+                {
+                    from.SendMessage("Invalid target.");
+                    return;
+                }
+
+                BaseClothing clothing = (BaseClothing) target;
+
+                if (clothing is BaseHat && !clothing.PlayerConstructed)
+                {
+                    from.SendMessage("Invalid target..");
+                    return;
+                }
+
+                if (!clothing.SkillBonuses.IsEmpty || !clothing.Attributes.IsEmpty || !clothing.Resistances.IsEmpty || clothing.IsImbued)
+                {
+                    from.SendMessage("Invalid target...");
+                    return;
+                }
 
                 if ((clothing.RootParent != from) || !(clothing.IsChildOf(from.Backpack)))
                 {
@@ -117,16 +134,9 @@ private class ChangeLayerTarget : Target
 
                 from.SendGump(new ChangeLayerGump(clothing));
             }
-            else
-                from.SendMessage("Invalid target.");
-		}
         }
-			
-	}
-} 
-
-
-
+    }
+}
 
 
 namespace Server.Gumps
@@ -141,6 +151,7 @@ namespace Server.Gumps
             : this(cloth, Layer.Invalid)
         {
         }
+
         public ChangeLayerGump(BaseClothing cloth, Layer selection)
             : base(50, 50)
         {
@@ -164,6 +175,7 @@ namespace Server.Gumps
                     if ((lays.Length >= (i - 1) * 9 + j + 1) && (lays[(i - 1) * 9 + j] != m_selection))
                         AddButton(80, 117 + space * j, 1202, 1204, (i - 1) * 9 + j + 1, GumpButtonType.Reply, 0);
                 }
+
                 AddBackground(76, 116, 165, 225, 9200);
                 for (int j = 0; j < 9; j++)
                 {
@@ -184,13 +196,14 @@ namespace Server.Gumps
             }
 
         }
+
         private void AddBackground()
         {
             AddPage(0);
             AddBackground(4, 4, 244, 404, 9200);
             AddItem(18, 138, m_cloth.ItemID, m_cloth.Hue);
             AddLabel(49, 12, 0, @"Change Layer Menu");
-            AddLabel(20, 39, 0, @"Item Name: " + (String.IsNullOrEmpty(m_cloth.Name) ? m_cloth.GetType().Name : m_cloth.Name ));
+            AddLabel(20, 39, 0, @"Item Name: " + (String.IsNullOrEmpty(m_cloth.Name) ? m_cloth.GetType().Name : m_cloth.Name));
             AddLabel(13, 62, 0, @"Current Layer: " + m_cloth.Layer.ToString());
 
             if (m_selection != Layer.Invalid)
@@ -204,27 +217,28 @@ namespace Server.Gumps
             switch (info.ButtonID)
             {
                 case 0:
-                    {
-                        m_cloth.Movable = true;
-                        break;
-                    }
+                {
+                    m_cloth.Movable = true;
+                    break;
+                }
                 case 50:
+                {
+                    if (m_selection != Layer.Invalid)
                     {
-                        if (m_selection != Layer.Invalid)
-                        {
-                            m_cloth.Layer = m_selection;
-                            m_cloth.Movable = true;
-                        }
-                        break;
+                        m_cloth.Layer = m_selection;
+                        m_cloth.Movable = true;
                     }
-                default:
-                    {
-                        if (from.HasGump(typeof(ChangeLayerGump)))
-                            from.CloseGump(typeof(ChangeLayerGump));
 
-                        from.SendGump(new ChangeLayerGump(m_cloth, lays[info.ButtonID - 1]));
-                        break;
-                    }
+                    break;
+                }
+                default:
+                {
+                    if (from.HasGump(typeof(ChangeLayerGump)))
+                        from.CloseGump(typeof(ChangeLayerGump));
+
+                    from.SendGump(new ChangeLayerGump(m_cloth, lays[info.ButtonID - 1]));
+                    break;
+                }
 
             }
         }
