@@ -11,7 +11,7 @@ namespace Server.Items
 {
     public class RandomItemGenerator
     {
-        public static bool Enabled { get { return false; } }
+        public static bool Enabled { get { return Core.HS; } }
         public static int FeluccaLuckBonus { get; private set; }
         public static int FeluccaBudgetBonus { get; private set; }
 
@@ -73,7 +73,7 @@ namespace Server.Items
         }
 
         /// <summary>
-        /// 24000 is the normalized fame for MaxBaseBudget, ie Balron.
+        /// 24000 is the normalized fame for MaxBaseBudget, ie Balron.  
         /// Called in BaseCreature.cs virtual BaseLootBudget Property
         /// </summary>
         /// <param name="bc">Creature to be evaluated</param>
@@ -139,7 +139,7 @@ namespace Server.Items
                 new BossEntry(100, typeof(BaseRenowned), typeof(TRex), typeof(BaseShipCaptain), typeof(Navrey)));
 
             Entries.Add(
-                new BossEntry(150, typeof(BaseChampion), typeof(Impaler), typeof(DarknightCreeper), typeof(FleshRenderer),
+                new BossEntry(150, typeof(BaseChampion), typeof(Impaler), typeof(DarknightCreeper), typeof(FleshRenderer), 
                                    typeof(ShadowKnight), typeof(AbysmalHorror), typeof(AdrianTheGloriousLord), typeof(AndrosTheDreadLord)));
 
             Entries.Add(
