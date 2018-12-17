@@ -11991,6 +11991,18 @@
     <Compile Include="_Custom\townhouses\Misc\General.cs" />
     <Compile Include="_Custom\townhouses\Misc\GumpResponse.cs" />
     <Compile Include="_Custom\townhouses\RUOVersion.cs" />
+    <Compile Include="_Custom\XantosShrink\Shrink System\HitchingPost.cs" />
+    <Compile Include="_Custom\XantosShrink\Shrink System\PetLeash.cs" />
+    <Compile Include="_Custom\XantosShrink\Shrink System\ShrinkCommand.cs" />
+    <Compile Include="_Custom\XantosShrink\Shrink System\ShrinkConfig.cs" />
+    <Compile Include="_Custom\XantosShrink\Shrink System\ShrinkItem.cs" />
+    <Compile Include="_Custom\XantosShrink\Shrink System\ShrinkPotion.cs" />
+    <Compile Include="_Custom\XantosShrink\Utilities\ConfigParser.cs" />
+    <Compile Include="_Custom\XantosShrink\Utilities\findMobs.cs" />
+    <Compile Include="_Custom\XantosShrink\Utilities\Interfaces.cs" />
+    <Compile Include="_Custom\XantosShrink\Utilities\Misc.cs" />
+    <Compile Include="_Custom\XantosShrink\Utilities\Replace.cs" />
+    <Compile Include="_Custom\XantosShrink\Utilities\wipemobs.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Services\New Magincia\ReadMe.txt" />
@@ -12002,6 +12014,8 @@
     <Content Include="_Custom\townhouses\Optional Patches\InteriorDecoratorPatch.txt" />
     <Content Include="_Custom\townhouses\Optional Patches\READ.txt" />
     <Content Include="_Custom\townhouses\Read.doc" />
+    <Content Include="_Custom\XantosShrink\Shrink System\ReadMe.htm" />
+    <Content Include="_Custom\XantosShrink\XantosInfo.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Server\Server.csproj">
