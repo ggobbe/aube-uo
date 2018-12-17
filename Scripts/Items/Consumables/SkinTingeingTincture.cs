@@ -70,7 +70,7 @@ namespace Server.Items
             public override void AddGumpLayout()
             {
                 AddBackground(0, 0, 460, 300, 2620);
- 
+
                 int[] list = GetHueList();
 
                 int rows = User.Race == Race.Human ? 8 : 6;
