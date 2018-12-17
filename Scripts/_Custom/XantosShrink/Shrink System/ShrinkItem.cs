@@ -133,7 +133,7 @@ namespace Xanthos.ShrinkSystem
 				from.SendLocalizedMessage( 1042001 ); // That must be in your pack for you to use it.
 
 			else if ( m_Pet == null || m_Pet.Deleted || ItemID == 0xFAA )
-				from.SendMessage( "Due to unforseen circumstances your pet is lost forever." );
+				from.SendMessage( "Due to unforeseen circumstances your pet is lost forever." );
 
 			else if ( m_Locked && m_Owner != from )
 			{
@@ -162,7 +162,7 @@ namespace Xanthos.ShrinkSystem
 		{
 			m_Pet = pet;
 			m_Owner = pet.ControlMaster;
-				
+
 			if ( ShrinkConfig.LootStatus == ShrinkConfig.BlessStatus.All
 				|| ( m_Pet.IsBonded && ShrinkConfig.LootStatus == ShrinkConfig.BlessStatus.BondedOnly ))
 				LootType = LootType.Blessed;
@@ -234,7 +234,7 @@ namespace Xanthos.ShrinkSystem
 
 			if ( ShrinkConfig.AllowLocking || m_Locked )	// Only show lock status when locking enabled or already locked
 				list.Add( 1049644, ( m_Locked == true ) ? "Locked" : "Unlocked" );
-		
+
 			if ( ShrinkConfig.ShowPetDetails )
 			{
 				list.Add( 1060663, "Name\t{0} Breed: {1} Gender: {2}", m_Name, m_Breed, m_Gender );
@@ -258,7 +258,7 @@ namespace Xanthos.ShrinkSystem
 
 			m_IsBonded = m_Pet.IsBonded;
 			m_Name = m_Pet.Name;
-			
+
 			m_Gender = (m_Pet.Female ? "Female" : "Male");
 			m_Breed = Xanthos.Utilities.Misc.GetFriendlyClassName( m_Pet.GetType().Name );
 			m_RawStr = m_Pet.RawStr;
@@ -299,7 +299,7 @@ namespace Xanthos.ShrinkSystem
 			foreach ( Type packBreed in ShrinkConfig.PackAnimals )
 				if ( packBreed == breed )
 					return true;
-	
+
 			return false;
 		}
 
