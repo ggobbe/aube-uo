@@ -15,6 +15,8 @@ using CustomsFramework;
 
 using Server.Network;
 using System.Collections;
+using System.Globalization;
+
 #endregion
 
 namespace Server
@@ -104,7 +106,7 @@ namespace Server
 
 		public static MultiTextWriter MultiConsoleOut { get; private set; }
 
-		/* 
+		/*
 		 * DateTime.Now and DateTime.UtcNow are based on actual system clock time.
 		 * The resolution is acceptable but large clock jumps are possible and cause issues.
 		 * GetTickCount and GetTickCount64 have poor resolution.
@@ -145,7 +147,7 @@ namespace Server
 		public static int ProcessorCount { get; private set; }
 
 		public static bool Unix { get; private set; }
-		
+
 		public static string FindDataFile(string path)
 		{
 			if (DataDirectories.Count == 0)
@@ -370,6 +372,11 @@ namespace Server
 			Debug = true;
 #endif
 
+		    if (Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalSeparator != ".")
+		    {
+		        Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
+		    }
+
 			AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
 			AppDomain.CurrentDomain.ProcessExit += CurrentDomain_ProcessExit;
 
@@ -472,7 +479,7 @@ namespace Server
 
 			Version ver = Assembly.GetName().Version;
 			var buildDate = new DateTime(2000, 1, 1).AddDays(ver.Build).AddSeconds(ver.Revision * 2);
-			
+
 			Utility.PushColor(ConsoleColor.Cyan);
         #if DEBUG
             Console.WriteLine(
@@ -519,21 +526,21 @@ namespace Server
 					Is64Bit ? "64-bit " : "");
 				Utility.PopColor();
 			}
-			
+
 			string dotnet = null;
 
 			if (Type.GetType("Mono.Runtime") != null)
-			{	
+			{
 				MethodInfo displayName = Type.GetType("Mono.Runtime").GetMethod("GetDisplayName", BindingFlags.NonPublic | BindingFlags.Static);
 
 				if (displayName != null)
 				{
 					dotnet = displayName.Invoke(null, null).ToString();
-					
+
 					Utility.PushColor(ConsoleColor.Yellow);
 					Console.WriteLine("Core: Unix environment detected");
 					Utility.PopColor();
-					
+
 					Unix = true;
 				}
 			}
@@ -542,7 +549,7 @@ namespace Server
 				m_ConsoleEventHandler = OnConsoleEvent;
 				UnsafeNativeMethods.SetConsoleCtrlHandler(m_ConsoleEventHandler, true);
 			}
-            
+
             #if NETFX_30
                         dotnet = "3.0";
             #endif
@@ -585,7 +592,7 @@ namespace Server
 
             if (String.IsNullOrEmpty(dotnet))
                 dotnet = "MONO/CSC/Unknown";
-            
+
             Utility.PushColor(ConsoleColor.Green);
             Console.WriteLine("Core: Compiled for " + ( Unix ? "MONO and running on {0}" : ".NET {0}" ), dotnet);
             Utility.PopColor();
@@ -750,7 +757,7 @@ namespace Server
 		public static int GlobalUpdateRange { get; set; }
 		public static int GlobalMaxUpdateRange { get; set; }
         public static int GlobalRadarRange { get; set; }
-		
+
 		private static int m_ItemCount, m_MobileCount, m_CustomsCount;
 
 		public static int ScriptItems { get { return m_ItemCount; } }
@@ -928,7 +935,7 @@ namespace Server
 						new FileStream(FileName, append ? FileMode.Append : FileMode.Create, FileAccess.Write, FileShare.Read)))
 			{
 				writer.WriteLine(">>>Logging started on {0:f}.", DateTime.Now);
-				//f = Tuesday, April 10, 2001 3:51 PM 
+				//f = Tuesday, April 10, 2001 3:51 PM
 			}
 
 			_NewLine = true;
