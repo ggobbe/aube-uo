@@ -1,5 +1,6 @@
 using System;
 using Server.Items;
+using Xanthos.ShrinkSystem;
 
 namespace Server.Engines.Craft
 {
@@ -157,7 +158,7 @@ namespace Server.Engines.Craft
                 AddRes(index, typeof(MyrmidexEggsac), 1156725, 5, 1044253);
                 AddRecipe(index, (int)AlchemyRecipes.BarrabHemolymphConcentrate);
             }
-                
+
             // Enhancement
             index = AddCraft(typeof(AgilityPotion), 1116349, 1044540, 15.0, 65.0, typeof(Bloodmoss), 1044354, 1, 1044362);
             AddRes(index, typeof(Bottle), 1044529, 1, 500315);
@@ -181,7 +182,7 @@ namespace Server.Engines.Craft
                 AddRes(index, typeof(Nightshade), 1044358, 3, 1044366);
                 AddRecipe(index, (int)TinkerRecipes.InvisibilityPotion);
             }
-            
+
             if (Core.TOL)
             {
                 index = AddCraft(typeof(JukariBurnPoiltice), 1116349, 1156726, 51.0, 151.0, typeof(Bottle), 1044529, 1, 500315);
@@ -287,8 +288,15 @@ namespace Server.Engines.Craft
             }
 
             // Strange Brew
+            index = AddCraft(typeof(ShrinkPotion), 1116353, "Potion de rétrécissement", 80, 130, typeof(Bottle), 1044529, 1, 500315);
+            AddRes(index, typeof(Bloodmoss), 1044354, 1, 1044253);
+            AddRes(index, typeof(MandrakeRoot), 1015013, 1, 1044253);
+            AddRes(index, typeof(Ginseng), 1044356, 1, 1044364);
+            AddRes(index, typeof(Garlic), 1015013, 1, "Il vous manque un ingrédient soignant.");
+            AddRes(index, typeof(Nightshade), 1015013, 1, "Il vous  manque un ingrédient nocif.");
+
             if (Core.SE)
-            {                
+            {
                 index = AddCraft(typeof(SmokeBomb), 1116353, 1030248, 90.0, 120.0, typeof(Eggs), 1044477, 1, 1044253);
                 AddRes(index, typeof(Ginseng), 1044356, 3, 1044364);
             }
@@ -330,7 +338,7 @@ namespace Server.Engines.Craft
                 SetItemHue(index, 2625);
 
                 index = AddCraft(typeof(CrystalDust), 1044495, 1112328, 75.0, 100.0, typeof(CrystallineFragments), 1153988, 4, 1044253);
-                SetItemHue(index, 2103);               
+                SetItemHue(index, 2103);
 
                 index = AddCraft(typeof(SoftenedReeds), 1044495, 1112249, 75.0, 100.0, typeof(DryReeds), 1112248, 1, 1112250);
                 AddRes(index, typeof(ScouringToxin), 1112292, 2, 1112326);
