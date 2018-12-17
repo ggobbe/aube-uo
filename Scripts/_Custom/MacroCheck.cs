@@ -84,7 +84,7 @@ namespace Server.Commands
             AddImageTiled(9, 65, 308, 240, 2624);
             AddAlphaRegion(9, 65, 308, 240);
 
-            AddHtml(16, 10, 250, 50, string.Format("{0} vérifie si vous êtes entrain de macroter.", _jailor.Name), false, false);
+            AddHtml(16, 10, 250, 50, "Etes-vous en train de macroter ?", false, false);
 
             for (var i = 0; i < NumberOfButtons; i++)
             {
