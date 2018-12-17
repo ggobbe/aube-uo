@@ -11996,6 +11996,7 @@
     <Compile Include="_Custom\XantosShrink\Shrink System\ShrinkCommand.cs" />
     <Compile Include="_Custom\XantosShrink\Shrink System\ShrinkConfig.cs" />
     <Compile Include="_Custom\XantosShrink\Shrink System\ShrinkItem.cs" />
+    <Compile Include="_Custom\XantosShrink\Shrink System\ShrinkPotion.cs" />
     <Compile Include="_Custom\XantosShrink\Utilities\ConfigParser.cs" />
     <Compile Include="_Custom\XantosShrink\Utilities\findMobs.cs" />
     <Compile Include="_Custom\XantosShrink\Utilities\Interfaces.cs" />
