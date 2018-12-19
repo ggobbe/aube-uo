@@ -1,4 +1,8 @@
 # Aube Changelog
+- Change Elf skin hues on SkinTingeingTincture
+- Enable TOL BODs (e.g. Alchemy BODs, ...)
+- Add shrink potions
+- Disable new HS loot system (RandomItemGenerator)
 - Add TransformationToken
 - Add .npChat command to control NPC
 - .ClearTitles pour retirer les titres des joueurs
