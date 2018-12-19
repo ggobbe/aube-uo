@@ -7,7 +7,7 @@ namespace Server.Misc
     {
         private static readonly TimeSpan RestartDelay = TimeSpan.FromSeconds(10);  // how long the server should remain active before restart (period of 'server wars')
         private static readonly TimeSpan WarningDelay = TimeSpan.FromMinutes(1.0); // at what interval should the shutdown message be displayed?
-        
+
         public static DateTime RestartTime { get; private set; }
         public static bool Restarting { get; private set; }
         public static Timer Timer { get; private set; }
@@ -17,7 +17,7 @@ namespace Server.Misc
         public static int Hour = Config.Get("AutoRestart.Hour", 12);
         public static int Minutes = Config.Get("AutoRestart.Minute", 0);
         public static int Frequency = Config.Get("AutoRestart.Frequency", 24);
-        
+
         public AutoRestart()
             : base(TimeSpan.FromSeconds(1.0), TimeSpan.FromSeconds(1.0))
         {
@@ -71,6 +71,12 @@ namespace Server.Misc
 
 		public static void Shutdown_OnCommand(CommandEventArgs e)
 		{
+		    if (e.Length > 1)
+		    {
+		        e.Mobile.SendMessage("Shutdown <seconds>");
+		        return;
+		    }
+
 			if (Restarting)
 			{
 				e.Mobile.SendMessage("The server is already shutting down.");
@@ -78,6 +84,12 @@ namespace Server.Misc
 			else
 			{
 				e.Mobile.SendMessage("You have initiated server shutdown.");
+
+			    if (e.Length == 1)
+			    {
+			        ScheduledShutdown(e.GetInt32(0));
+			        return;
+			    }
 
                 StopTimer();
 
@@ -90,6 +102,41 @@ namespace Server.Misc
                 });
 			}
 		}
+
+        private static void ScheduledShutdown(int seconds)
+        {
+            var delay = TimeSpan.FromSeconds(seconds);
+            RestartTime = DateTime.UtcNow.Add(delay);
+            var warningInterval = delay >= TimeSpan.FromMinutes(15) ? TimeSpan.FromMinutes(5) :
+                delay >= TimeSpan.FromMinutes(5) ? TimeSpan.FromMinutes(1) :
+                TimeSpan.FromSeconds(30);
+
+            Timer.DelayCall(warningInterval, warningInterval, () =>
+            {
+                var remaining = RestartTime - DateTime.UtcNow;
+                BroadcastsShutdown(remaining);
+            });
+
+            BroadcastsShutdown(delay);
+            Timer.DelayCall(delay - RestartDelay, () => { TimedShutdown(false); });
+        }
+
+        private static void BroadcastsShutdown(TimeSpan delay)
+        {
+            if (delay < TimeSpan.FromSeconds(15))
+            {
+                return;
+            }
+
+            if (delay >= TimeSpan.FromMinutes(2))
+            {
+                World.Broadcast(0x22, true, "The server will be going down in about {0} minute{1}.", delay.TotalMinutes.ToString("F0"), delay.TotalMinutes == 1 ? "" : "s");
+            }
+            else
+            {
+                World.Broadcast(0x22, true, "The server will be going down in about {0} seconds!", delay.TotalSeconds.ToString("F0"));
+            }
+        }
 
         private static void BeginTimer()
         {
