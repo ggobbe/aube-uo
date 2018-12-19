@@ -44,6 +44,9 @@ namespace Server.Items
         Urali,
         Sakkhra,
         #endregion
+        // Aube Custom
+        Intelligence,
+        IntelligenceGreater,
     }
 
     public abstract class BasePotion : Item, ICraftable, ICommodity

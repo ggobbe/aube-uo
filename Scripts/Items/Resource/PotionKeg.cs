@@ -380,6 +380,12 @@ namespace Server.Items
 
                 case PotionEffect.Invisibility:
                     return new InvisibilityPotion();
+
+                case PotionEffect.Intelligence:
+                    return new IntelligencePotion();
+
+                case PotionEffect.IntelligenceGreater:
+                    return new GreaterIntelligencePotion();
             }
         }
     }

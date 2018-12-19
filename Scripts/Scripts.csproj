@@ -84,6 +84,15 @@
     <Compile Include="Aube\Farming\HarvestableSeed.cs" />
     <Compile Include="Aube\Farming\SeedingTool.cs" />
     <Compile Include="Aube\Items\CustomClothes.cs" />
+    <Compile Include="Aube\Items\IntelligencePotion\BaseIntelligencePotion.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Aube\Items\IntelligencePotion\GreaterIntelligencePotion.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Aube\Items\IntelligencePotion\IntelligencePotion.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Aube\Items\ShrinkPotion.cs" />
     <Compile Include="Aube\Items\TransformationToken.cs" />
     <Compile Include="Aube\Misc\SpeechLogging.cs" />

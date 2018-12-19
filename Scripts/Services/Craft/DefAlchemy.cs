@@ -175,6 +175,12 @@ namespace Server.Engines.Craft
             index = AddCraft(typeof(GreaterStrengthPotion), 1116349, 1044547, 45.0, 95.0, typeof(MandrakeRoot), 1044357, 5, 1044365);
             AddRes(index, typeof(Bottle), 1044529, 1, 500315);
 
+            index = AddCraft(typeof(IntelligencePotion), 1116349, "intelligence", 35.0, 85.0, typeof(Nightshade), 1044358, 3, 1044366);
+            AddRes(index, typeof(Bottle), 1044529, 1, 500315);
+
+            index = AddCraft(typeof(GreaterIntelligencePotion), 1116349, "greater intelligence", 55.0, 105.0, typeof(Nightshade), 1044358, 7, 1044366);
+            AddRes(index, typeof(Bottle), 1044529, 1, 500315);
+
             if (Core.ML)
             {
                 index = AddCraft(typeof(InvisibilityPotion), 1116349, 1074860, 65.0, 115.0, typeof(Bottle), 1044529, 1, 500315);
