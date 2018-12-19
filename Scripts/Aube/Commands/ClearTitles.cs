@@ -21,11 +21,14 @@ namespace Server.Commands
 
             foreach (var player in players)
             {
-                player.FameKarmaTitle = null;
                 player.PaperdollSkillTitle = null;
-                player.SubtitleSkillTitle = null;
                 player.CurrentChampTitle = null;
                 player.OverheadTitle = null;
+                player.DisplayGuildAbbr = false;
+                player.SubtitleSkillTitle = null;
+                player.SelectRewardTitle(-1, true);
+                player.CurrentVeteranTitle = -1;
+                player.DisplayGuildTitle = false;
             }
 
             args.Mobile.SendMessage("DONE");
