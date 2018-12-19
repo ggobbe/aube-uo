@@ -118,7 +118,13 @@ namespace Server.Misc
             });
 
             BroadcastsShutdown(delay);
-            Timer.DelayCall(delay - RestartDelay, () => { TimedShutdown(false); });
+            Timer.DelayCall(delay - RestartDelay, () =>
+            {
+                AutoSave.Save();
+                Restarting = true;
+
+                TimedShutdown(false);
+            });
         }
 
         private static void BroadcastsShutdown(TimeSpan delay)
