@@ -17,18 +17,18 @@ namespace Server.Commands
         {
             var players = World.Mobiles.Values.Where(m => m is PlayerMobile).Cast<PlayerMobile>().ToList();
 
-            args.Mobile.SendMessage("Removing titles for {0} PlayerMobiles", players.Count());
+            args.Mobile.SendMessage("Clearing titles for {0} PlayerMobiles", players.Count());
 
             foreach (var player in players)
             {
                 player.PaperdollSkillTitle = null;
                 player.CurrentChampTitle = null;
                 player.OverheadTitle = null;
-                player.DisplayGuildAbbr = false;
+                player.DisplayGuildAbbr = true;
                 player.SubtitleSkillTitle = null;
                 player.SelectRewardTitle(-1, true);
                 player.CurrentVeteranTitle = -1;
-                player.DisplayGuildTitle = false;
+                player.DisplayGuildTitle = true;
             }
 
             args.Mobile.SendMessage("DONE");
