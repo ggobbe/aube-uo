@@ -121,6 +121,10 @@ namespace Server.Items
             }
         }
 
+        public virtual void OnDye(Mobile from)
+        {
+        }
+
         private class InternalTarget : Target
         {
             private readonly DyeTub m_Tub;
@@ -144,7 +148,10 @@ namespace Server.Items
                         else if (item.Parent is Mobile)
                             from.SendLocalizedMessage(500861); // Can't Dye clothing that is being worn.
                         else if (((IDyable)item).Dye(from, m_Tub))
+                        {
                             from.PlaySound(0x23E);
+                            m_Tub.OnDye(from);
+                        }
                     }
                     else if ((FurnitureAttribute.Check(item) || (item is PotionKeg)) && m_Tub.AllowFurniture)
                     {
@@ -179,6 +186,7 @@ namespace Server.Items
                             {
                                 item.Hue = m_Tub.DyedHue;
                                 from.PlaySound(0x23E);
+                                m_Tub.OnDye(from);
                             }
                         }
                     }
@@ -196,6 +204,7 @@ namespace Server.Items
                         {
                             item.Hue = m_Tub.DyedHue;
                             from.PlaySound(0x23E);
+                            m_Tub.OnDye(from);
                         }
                     }
                     else if (item is MonsterStatuette && m_Tub.AllowStatuettes)
@@ -212,6 +221,7 @@ namespace Server.Items
                         {
                             item.Hue = m_Tub.DyedHue;
                             from.PlaySound(0x23E);
+                            m_Tub.OnDye(from);
                         }
                     }
                     else if ((item is BaseArmor && (((BaseArmor)item).MaterialType == ArmorMaterialType.Leather || ((BaseArmor)item).MaterialType == ArmorMaterialType.Studded) || item is ElvenBoots || item is WoodlandBelt) && m_Tub.AllowLeather)
@@ -232,6 +242,7 @@ namespace Server.Items
                         {
                             item.Hue = m_Tub.DyedHue;
                             from.PlaySound(0x23E);
+                            m_Tub.OnDye(from);
                         }
                     }
                     else if ((item is BaseArmor && (((BaseArmor)item).MaterialType == ArmorMaterialType.Chainmail || ((BaseArmor)item).MaterialType == ArmorMaterialType.Ringmail || ((BaseArmor)item).MaterialType == ArmorMaterialType.Plate)) && m_Tub.AllowMetal)
@@ -252,6 +263,7 @@ namespace Server.Items
                         {
                             item.Hue = m_Tub.DyedHue;
                             from.PlaySound(0x23E);
+                            m_Tub.OnDye(from);
                         }
                     }
                     else
