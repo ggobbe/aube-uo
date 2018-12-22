@@ -1,4 +1,6 @@
 # Aube Changelog
+- Log party speech
+- Add charges on Special Dye Tubs
 - Delayed Shutdown (e.g. .shutdown 120)
 - Change Elf skin hues on SkinTingeingTincture
 - Enable TOL BODs (e.g. Alchemy BODs, ...)
