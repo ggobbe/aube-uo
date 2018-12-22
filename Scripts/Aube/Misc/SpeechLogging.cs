@@ -12,11 +12,22 @@ namespace Server.Aube.Misc
         public static void Initialize()
         {
             EventSink.Speech += EventSink_OnSpeech;
+            EventSink.PartySpeech += EventSink_OnPartySpeech;
         }
 
         private static void EventSink_OnSpeech(SpeechEventArgs args)
         {
-            if (args.Mobile == null)
+            HandleSpeech(args.Mobile, args.Speech);
+        }
+
+        private static void EventSink_OnPartySpeech(PartySpeechEventArgs args)
+        {
+            HandleSpeech(args.Mobile, args.PartySpeech);
+        }
+
+        private static void HandleSpeech(Mobile m, string speech)
+        {
+            if (m == null)
             {
                 return;
             }
@@ -31,12 +42,12 @@ namespace Server.Aube.Misc
                 }
 
                 var region = "unknown";
-                if (args.Mobile.Region != null && !string.IsNullOrWhiteSpace(args.Mobile.Region.Name))
+                if (m.Region != null && !string.IsNullOrWhiteSpace(m.Region.Name))
                 {
-                    region = args.Mobile.Region.Name;
+                    region = m.Region.Name;
                 }
 
-                m_Output.WriteLine("[{0:s}] {1} ({2}): {3}", now, args.Mobile.Name, region, args.Speech);
+                m_Output.WriteLine("[{0:s}] {1} ({2}): {3}", now, m.Name, region, speech);
             }
             catch (Exception e)
             {
