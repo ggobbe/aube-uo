@@ -103,10 +103,6 @@ namespace Server.Items
                 }
                 case 1:
                     {
-                        if (version == 1)
-                        {
-                            m_UsesRemaining = 25;
-                        }
                         this.m_IsRewardItem = reader.ReadBool();
                         break;
                     }
