@@ -15,7 +15,7 @@ namespace Server.Items
         public SpecialDyeTub()
         {
             this.LootType = LootType.Blessed;
-            UsesRemaining = 25;
+            UsesRemaining = 0;
         }
 
         public SpecialDyeTub(Serial serial)
