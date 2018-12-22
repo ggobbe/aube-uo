@@ -467,6 +467,8 @@ namespace Server.Engines.PartySystem
         { 
             Packet p = null;
 
+            EventSink.InvokePartySpeech(new PartySpeechEventArgs(from, text));
+
             foreach (NetState ns in from.GetClientsInRange(8))
             {
                 Mobile mob = ns.Mobile;

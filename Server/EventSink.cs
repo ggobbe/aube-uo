@@ -29,6 +29,8 @@ namespace Server
 
 	public delegate void SpeechEventHandler(SpeechEventArgs e);
 
+    public delegate void PartySpeechEventHandler(PartySpeechEventArgs e);
+
 	public delegate void LoginEventHandler(LoginEventArgs e);
 
 	public delegate void ServerListEventHandler(ServerListEventArgs e);
@@ -1016,6 +1018,21 @@ namespace Server
 		}
 	}
 
+    public class PartySpeechEventArgs : EventArgs
+    {
+        private readonly Mobile m_Mobile;
+        private readonly int[] m_Keywords;
+
+        public Mobile Mobile { get { return m_Mobile; } }
+        public string PartySpeech { get; set; }
+
+        public PartySpeechEventArgs(Mobile mobile, string partySpeech)
+        {
+            m_Mobile = mobile;
+            PartySpeech = partySpeech;
+        }
+    }
+
 	public class LoginEventArgs : EventArgs
 	{
 		private readonly Mobile m_Mobile;
@@ -1395,6 +1412,7 @@ namespace Server
 		public static event CharacterCreatedEventHandler CharacterCreated;
 		public static event OpenDoorMacroEventHandler OpenDoorMacroUsed;
 		public static event SpeechEventHandler Speech;
+        public static event PartySpeechEventHandler PartySpeech;
 		public static event LoginEventHandler Login;
 		public static event ServerListEventHandler ServerList;
 		public static event MovementEventHandler Movement;
@@ -1822,6 +1840,14 @@ namespace Server
 				Speech(e);
 			}
 		}
+
+        public static void InvokePartySpeech(PartySpeechEventArgs e)
+        {
+            if (PartySpeech != null)
+            {
+                PartySpeech(e);
+            }
+        }
 
 		public static void InvokeCharacterCreated(CharacterCreatedEventArgs e)
 		{
