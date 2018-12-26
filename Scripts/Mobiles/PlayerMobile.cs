@@ -1780,12 +1780,11 @@ namespace Server.Mobiles
 		{
 			if (AccessLevel < AccessLevel.GameMaster && item.IsChildOf(Backpack))
 			{
-				int maxWeight = WeightOverloading.GetMaxWeight(this);
 				int curWeight = BodyWeight + TotalWeight;
 
-				if (curWeight > maxWeight)
+                if (curWeight > MaxWeight)
 				{
-					SendLocalizedMessage(1019035, true, String.Format(" : {0} / {1}", curWeight, maxWeight));
+                    SendLocalizedMessage(1019035, true, String.Format(" : {0} / {1}", curWeight, MaxWeight));
 				}
 			}
 		}
@@ -3612,8 +3611,6 @@ namespace Server.Mobiles
 			{
 				Confidence.StopRegenerating(this);
 			}
-
-			WeightOverloading.FatigueOnDamage(this, amount);
 
 			if (m_ReceivedHonorContext != null)
 			{
