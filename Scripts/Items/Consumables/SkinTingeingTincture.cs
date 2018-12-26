@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Server.Gumps;
 using Server.Mobiles;
 
@@ -7,6 +8,27 @@ namespace Server.Items
     public class SkinTingeingTincture : Item
     {
         public override int LabelNumber { get { return 1114770; } } //Skin Tingeing Tincture
+
+        public static void Initialize()
+        {
+            // Force elves to select a hue we like
+            EventSink.Login += (args) =>
+            {
+                var pm = args.Mobile as PlayerMobile;
+                if (pm == null)
+                {
+                    return;
+                }
+
+                var hues = InternalGump.ElfSkinHues.Select(h => pm.Race.ClipSkinHue(h & 0x3FFF) | 0x8000);
+                if (pm.Race == Race.Elf && !hues.Contains(pm.Hue))
+                {
+                    var tincture = new SkinTingeingTincture();
+                    pm.AddToBackpack(tincture);
+                    BaseGump.SendGump(new InternalGump(pm, tincture, true));
+                }
+            };
+        }
 
         [Constructable]
         public SkinTingeingTincture()
@@ -61,10 +83,12 @@ namespace Server.Items
             public SkinTingeingTincture Item { get; set; }
             public int SelectedHue { get; set; }
 
-            public InternalGump(PlayerMobile pm, SkinTingeingTincture item)
+            public InternalGump(PlayerMobile pm, SkinTingeingTincture item, bool force = false)
                 : base(pm, 50, 50)
             {
                 Item = item;
+                Closable = !force;
+                Dragable = !force;
             }
 
             public override void AddGumpLayout()

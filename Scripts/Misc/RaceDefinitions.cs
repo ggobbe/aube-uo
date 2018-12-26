@@ -166,10 +166,12 @@ namespace Server.Misc
         {
             private static readonly int[] m_SkinHues = new int[]
             {
-                0x4DE, 0x76C, 0x835, 0x430, 0x24D, 0x24E, 0x24F, 0x0BF,
-                0x4A7, 0x361, 0x375, 0x367, 0x3E8, 0x3DE, 0x353, 0x903,
-                0x76D, 0x384, 0x579, 0x3E9, 0x374, 0x389, 0x385, 0x376,
-                0x53F, 0x381, 0x382, 0x383, 0x76B, 0x3E5, 0x51D, 0x3E6
+                2307, 2309, 2311, 2312,  // peau
+                1447, 1449, 1451,        // (oliviatre)
+                1833, 1830, 1828,        // tan
+                2419, 2421, 2424,        // gris
+                1801, 1803, 1806,        // gris vert
+                1519, 1521, 1523         // rosé
             };
 
             private static readonly int[] m_HairHues = new int[]
