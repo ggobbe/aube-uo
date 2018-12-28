@@ -1,6 +1,7 @@
 #region References
 using System;
-
+using System.Linq;
+using Server.Engines.Craft;
 using Server.Items;
 using Server.Mobiles;
 #endregion
@@ -216,21 +217,21 @@ namespace Server
 		{
 			new LootPackItem(typeof(BaseWeapon), 219), new LootPackItem(typeof(BaseRanged), 55),
 			new LootPackItem(typeof(BaseArmor), 315), new LootPackItem(typeof(BaseShield), 41),
-			new LootPackItem(typeof(BaseJewel), 164)
+			new LootPackItem(typeof(BaseJewel), 164), new LootPackItem(typeof(RecipeScroll), 206)
 		};
 
 		public static readonly LootPackItem[] AosMagicItemsFilthyRichType2 = new[]
 		{
 			new LootPackItem(typeof(BaseWeapon), 239), new LootPackItem(typeof(BaseRanged), 60),
 			new LootPackItem(typeof(BaseArmor), 343), new LootPackItem(typeof(BaseShield), 90),
-			new LootPackItem(typeof(BaseJewel), 45)
+			new LootPackItem(typeof(BaseJewel), 45), new LootPackItem(typeof(RecipeScroll), 223)
 		};
 
 		public static readonly LootPackItem[] AosMagicItemsUltraRich = new[]
 		{
 			new LootPackItem(typeof(BaseWeapon), 276), new LootPackItem(typeof(BaseRanged), 69),
 			new LootPackItem(typeof(BaseArmor), 397), new LootPackItem(typeof(BaseShield), 52),
-			new LootPackItem(typeof(BaseJewel), 207)
+			new LootPackItem(typeof(BaseJewel), 207), new LootPackItem(typeof(RecipeScroll), 99)
 		};
 		#endregion
 
@@ -997,6 +998,13 @@ namespace Server
             return Loot.RandomScroll(minIndex, maxIndex, spellBookType);
 		}
 
+        public Item RandomRecipeScroll()
+        {
+            var recipes = Recipe.Recipes.Select(k => k.Key).ToList();
+            var id = recipes[Utility.Random(recipes.Count)];
+            return new RecipeScroll(id);
+        }
+
 		public Item Construct(bool inTokuno, bool isMondain, bool isStygian)
 		{
 			try
@@ -1043,6 +1051,10 @@ namespace Server
 				{
 					item = RandomScroll(8, 8);
 				}
+                else if (m_Type == typeof(RecipeScroll))
+                {
+                    item = RandomRecipeScroll();
+                }
 				else
 				{
 					item = Activator.CreateInstance(m_Type) as Item;
