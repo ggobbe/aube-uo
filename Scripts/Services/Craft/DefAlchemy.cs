@@ -296,7 +296,7 @@ namespace Server.Engines.Craft
             // Strange Brew
             index = AddCraft(typeof(ShrinkPotion), 1116353, "Potion de rétrécissement", 80, 130, typeof(Bottle), 1044529, 1, 500315);
             AddRes(index, typeof(Bloodmoss), 1044354, 1, 1044253);
-            AddRes(index, typeof(MandrakeRoot), 1015013, 1, 1044253);
+            AddRes(index, typeof(MandrakeRoot), 1015013, 1, 1044357);
             AddRes(index, typeof(Ginseng), 1044356, 1, 1044364);
             AddRes(index, typeof(Garlic), 1015013, 1, "Il vous manque un ingrédient soignant.");
             AddRes(index, typeof(Nightshade), 1015013, 1, "Il vous  manque un ingrédient nocif.");
