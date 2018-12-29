@@ -12,22 +12,22 @@ namespace Server.Items
         public static void Initialize()
         {
             // Force elves to select a hue we like
-            EventSink.Login += (args) =>
-            {
-                var pm = args.Mobile as PlayerMobile;
-                if (pm == null)
-                {
-                    return;
-                }
-
-                var hues = InternalGump.ElfSkinHues.Select(h => pm.Race.ClipSkinHue(h & 0x3FFF) | 0x8000);
-                if (pm.Race == Race.Elf && !hues.Contains(pm.Hue))
-                {
-                    var tincture = new SkinTingeingTincture();
-                    pm.AddToBackpack(tincture);
-                    BaseGump.SendGump(new InternalGump(pm, tincture, true));
-                }
-            };
+//            EventSink.Login += (args) =>
+//            {
+//                var pm = args.Mobile as PlayerMobile;
+//                if (pm == null)
+//                {
+//                    return;
+//                }
+//
+//                var hues = InternalGump.ElfSkinHues.Select(h => pm.Race.ClipSkinHue(h & 0x3FFF) | 0x8000);
+//                if (pm.Race == Race.Elf && !hues.Contains(pm.Hue))
+//                {
+//                    var tincture = new SkinTingeingTincture();
+//                    pm.AddToBackpack(tincture);
+//                    BaseGump.SendGump(new InternalGump(pm, tincture, true));
+//                }
+//            };
         }
 
         [Constructable]
