@@ -89,7 +89,6 @@ namespace Server.Gumps
 
         Mobile m_Owner;
         Mobile m_Speaker;
-        int x, y;
 
         public NPChat(Mobile owner, Mobile speaker)
             : this(owner, speaker, PropsConfig.GumpOffsetX, PropsConfig.GumpOffsetY)

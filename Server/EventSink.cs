@@ -1021,7 +1021,6 @@ namespace Server
     public class PartySpeechEventArgs : EventArgs
     {
         private readonly Mobile m_Mobile;
-        private readonly int[] m_Keywords;
 
         public Mobile Mobile { get { return m_Mobile; } }
         public string PartySpeech { get; set; }

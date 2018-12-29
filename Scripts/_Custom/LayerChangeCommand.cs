@@ -68,8 +68,6 @@ namespace Server.Gumps
 
         }
 
-        private Mobile m_From;
-
         public ChangeLayer(Mobile owner) : base(25, 25)
         {
 

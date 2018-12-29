@@ -83,17 +83,6 @@ namespace Server.Engines.Quests
         public override bool CanOffer()
         {
             return false;
-
-            #region Scroll of Alacrity
-            PlayerMobile pm = this.Owner as PlayerMobile;
-            if (pm.AcceleratedStart > DateTime.UtcNow)
-            {
-                this.Owner.SendLocalizedMessage(1077951); // You are already under the effect of an accelerated skillgain scroll.
-                return false;
-            }
-            #endregion
-            else
-                return this.Owner.Skills.Ninjitsu.Base < 50;
         }
 		
         public override void OnCompleted()
