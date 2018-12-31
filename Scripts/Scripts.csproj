@@ -84,6 +84,7 @@
     <Compile Include="Aube\Farming\HarvestableSeed.cs" />
     <Compile Include="Aube\Farming\SeedingTool.cs" />
     <Compile Include="Aube\Items\CustomClothes.cs" />
+    <Compile Include="Aube\Items\PeddlerLamp.cs" />
     <Compile Include="Aube\Items\IntelligencePotion\BaseIntelligencePotion.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -96,6 +97,10 @@
     <Compile Include="Aube\Items\ShrinkPotion.cs" />
     <Compile Include="Aube\Items\TransformationToken.cs" />
     <Compile Include="Aube\Misc\SpeechLogging.cs" />
+    <Compile Include="Aube\Mobiles\Vendors\Peddler.cs" />
+    <Compile Include="Aube\Mobiles\Vendors\SBInfos\SBPeddler.cs" />
+    <Compile Include="Aube\Mobiles\Vendors\SBInfos\SBPeddlerA.cs" />
+    <Compile Include="Aube\Mobiles\Vendors\SBInfos\SBPeddlerB.cs" />
     <Compile Include="Commands\AccountGoldCheck.cs" />
     <Compile Include="Commands\Add.cs">
       <SubType>Code</SubType>
