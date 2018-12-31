@@ -836,7 +836,7 @@ namespace Server.Engines.VendorSearching
         Skill4 = 1114258,
         Skill5 = 1114259,
         Skill6 = 1114260,
-        Sort = 1154695
+        Sort = 1154695,
     }
 
     public enum Misc
@@ -1049,7 +1049,10 @@ namespace Server.Engines.VendorSearching
             NegativeAttribute,
             SlayerName,
             String,
-            TalismanSlayerName
+            TalismanSlayerName,
+            TalismanSkill,
+            TalismanRemoval,
+            Int,
         }
 
         public object Attribute { get; set; }
@@ -1106,6 +1109,9 @@ namespace Server.Engines.VendorSearching
                 case 9: writer.Write((int)(SlayerName)Attribute); break;
                 case 10: writer.Write((string)Attribute); break;
                 case 11: writer.Write((int)(TalismanSlayerName)Attribute); break;
+                case 12: writer.Write((int)(TalismanSkill)Attribute); break;
+                case 13: writer.Write((int)(TalismanRemoval)Attribute); break;
+                case 14: writer.Write((int)Attribute); break;
             }
         }
 
@@ -1125,6 +1131,9 @@ namespace Server.Engines.VendorSearching
                 case 9: Attribute = (SlayerName)reader.ReadInt(); break;
                 case 10: Attribute = reader.ReadString(); break;
                 case 11: Attribute = (TalismanSlayerName)reader.ReadInt(); break;
+                case 12: Attribute = (TalismanSkill)reader.ReadInt(); break;
+                case 13: Attribute = (TalismanRemoval)reader.ReadInt(); break;
+                case 14: Attribute = reader.ReadInt(); break;
             }
         }
 
@@ -1162,6 +1171,15 @@ namespace Server.Engines.VendorSearching
 
             if (o is string)
                 return (int)AttributeID.String;
+
+            if (o is TalismanSkill)
+                return (int)AttributeID.TalismanSkill;
+
+            if (o is TalismanRemoval)
+                return (int)AttributeID.TalismanRemoval;
+
+            if (o is int)
+                return (int)AttributeID.Int;
 
             return (int)AttributeID.None;
         }
