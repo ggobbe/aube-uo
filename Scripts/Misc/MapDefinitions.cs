@@ -13,7 +13,7 @@ namespace Server.Misc
             * 3) Map 0xFF is reserved for core use.
             * 4) Changing or removing any predefined maps may cause server instability.
             */
-            if (Siege.SiegeShard)
+            if (Siege.SiegeShard || true)
             {
                 RegisterMap(0, 0, 0, 7168, 4096, 4, "Felucca", MapRules.FeluccaRules);
                 RegisterMap(1, 1, 1, 7168, 4096, 0, "Trammel", MapRules.FeluccaRules);
