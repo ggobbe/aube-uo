@@ -32,7 +32,7 @@ namespace Server.Mobiles
 
 		public override void InitOutfit()
 		{
-			AddItem( new Server.Items.MonksRobe( 0xB0 ) );
+			AddItem( new Server.Items.MonkRobe( 0xB0 ) );
 		        AddItem( new Server.Items.WildStaff() );
                   	AddItem( new Server.Items.Sandals() );
             }

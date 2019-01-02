@@ -2,7 +2,7 @@ using System;
 
 namespace Server.Spells
 {
-    public class Initializer
+    public class DruidSpellsInitializer
     {
         public static void Initialize()
         {
@@ -201,7 +201,7 @@ namespace Server.Spells
                     Register(689, typeof(Mystic.SpellPlagueSpell));
                     Register(690, typeof(Mystic.HailStormSpell));
                     Register(691, typeof(Mystic.NetherCycloneSpell));
-                    Register(692, typeof(Mystic.RisingColossusSpell));					
+                    Register(692, typeof(Mystic.RisingColossusSpell));
 
                     Register(700, typeof(SkillMasteries.InspireSpell));
                     Register(701, typeof(SkillMasteries.InvigorateSpell));

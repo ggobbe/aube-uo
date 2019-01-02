@@ -38,7 +38,7 @@ namespace Server.Commands
 
             CommandSystem.Register("LureStone", AccessLevel.Player, new CommandEventHandler(LureStone_OnCommand));
 
-            CommandSystem.Register("NaturesPassage", AccessLevel.Player, new CommandEventHandler(NaturesPassage_OnCommand));
+            CommandSystem.Register("Hurricane", AccessLevel.Player, new CommandEventHandler(Hurricane_OnCommand));
 
             CommandSystem.Register("MushroomGateway", AccessLevel.Player, new CommandEventHandler(MushroomGateway_OnCommand));
 
@@ -292,9 +292,9 @@ namespace Server.Commands
             }
         }
 
-        [Usage("NaturesPassage")]
-        [Description("Casts NaturesPassage spell.")]
-        public static void NaturesPassage_OnCommand(CommandEventArgs e)
+        [Usage("Hurricane")]
+        [Description("Casts Hurricane spell.")]
+        public static void Hurricane_OnCommand(CommandEventArgs e)
         {
             Mobile from = e.Mobile;
 
@@ -303,7 +303,7 @@ namespace Server.Commands
 
             if (HasSpell(from, 313))
             {
-                new NaturesPassageSpell(e.Mobile, null).Cast();
+                new HurricaneSpell(e.Mobile, null).Cast();
             }
             else
             {

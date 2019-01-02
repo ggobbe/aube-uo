@@ -26,7 +26,8 @@ namespace Server.Items
 		Samurai,
 		Arcanist,
 		Mystic,
-        SkillMasteries
+        SkillMasteries,
+        Druidic
 	}
 
 	public enum BookQuality
@@ -440,6 +441,10 @@ namespace Server.Items
             {
                 return SpellbookType.SkillMasteries;
             }
+            else if (spellID >= 301 && spellID < 320)
+            {
+                return SpellbookType.Druidic;
+            }
 
 			return SpellbookType.Invalid;
 		}
@@ -478,6 +483,11 @@ namespace Server.Items
 		{
 			return Find(from, -1, SpellbookType.Mystic);
 		}
+
+        public static Spellbook FindDruid(Mobile from)
+        {
+            return Find(from, -1, SpellbookType.Druidic);
+        }
 
 		public static Spellbook Find(Mobile from, int spellID)
 		{
@@ -1336,6 +1346,9 @@ namespace Server.Items
 				case 7:
 					type = SpellbookType.Mystic;
 					break;
+                case 8:
+                    type = SpellbookType.Druidic;
+                    break;
 			}
 
 			Spellbook book = Find(from, -1, type);

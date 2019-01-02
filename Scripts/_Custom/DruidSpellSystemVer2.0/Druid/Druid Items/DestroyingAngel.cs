@@ -6,7 +6,7 @@ namespace Server.Items
 {
    public class DestroyingAngel : BaseReagent, ICommodity
    {
-       int ICommodity.DescriptionNumber { get { return LabelNumber; } }
+       public TextDefinition Description { get { return LabelNumber; } }
        bool ICommodity.IsDeedable { get { return (Core.ML); } }
 
       [Constructable]

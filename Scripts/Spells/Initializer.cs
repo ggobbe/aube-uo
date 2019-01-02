@@ -121,6 +121,28 @@ namespace Server.Spells
                 Register(208, typeof(Chivalry.RemoveCurseSpell));
                 Register(209, typeof(Chivalry.SacredJourneySpell));
 
+                // Druid Spells
+                Register(301, typeof(Druid.ShieldOfEarthSpell));
+                Register(302, typeof(Druid.HollowReedSpell));
+                Register(303, typeof(Druid.PackOfBeastSpell));
+                Register(304, typeof(Druid.SpringOfLifeSpell));
+                Register(305, typeof(Druid.GraspingRootsSpell));
+                Register(306, typeof(Druid.CircleOfThornsSpell));
+                Register(307, typeof(Druid.SwarmOfInsectsSpell));
+                Register(308, typeof(Druid.VolcanicEruptionSpell));
+                Register(309, typeof(Druid.TreefellowSpell));
+                Register(310, typeof(Druid.DeadlySporesSpell));
+                Register(311, typeof(Druid.EnchantedGroveSpell));
+                Register(312, typeof(Druid.LureStoneSpell));
+                Register(313, typeof(Druid.HurricaneSpell));
+                Register(314, typeof(Druid.MushroomGatewaySpell));
+                Register(315, typeof(Druid.RestorativeSoilSpell));
+                Register(316, typeof(Druid.FireflySpell));
+                Register(317, typeof(Druid.ForestKinSpell));
+                Register(318, typeof(Druid.BarkSkinSpell));
+                Register(319, typeof(Druid.ManaSpringSpell));
+                Register(320, typeof(Druid.HibernateSpell));
+
                 if (Core.SE)
                 {
                     // Samurai abilities

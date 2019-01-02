@@ -136,7 +136,7 @@ namespace Server.Spells
                 sdiBonus -= Block.GetSpellReduction(target);
             }
 
-            // PvP spell damage increase cap of 15% from an item’s magic property, 30% if spell school focused.
+            // PvP spell damage increase cap of 15% from an itemâ€™s magic property, 30% if spell school focused.
             if (Core.SE && playerVsPlayer)
             {
                 sdiBonus = Math.Min(sdiBonus, PvPSpellDamageCap(caster, skill));

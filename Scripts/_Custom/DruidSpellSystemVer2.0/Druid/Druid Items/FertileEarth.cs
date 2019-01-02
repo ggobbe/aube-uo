@@ -6,7 +6,7 @@ namespace Server.Items
 {
    public class FertileEarth : BaseReagent, ICommodity
    {
-        int ICommodity.DescriptionNumber { get { return LabelNumber; } }
+        TextDefinition ICommodity.Description { get { return LabelNumber; } }
         bool ICommodity.IsDeedable { get { return (Core.ML); } }
 
       [Constructable]
