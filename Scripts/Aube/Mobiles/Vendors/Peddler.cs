@@ -19,9 +19,6 @@ namespace Server.Aube.Mobiles.Vendors
         [CommandProperty(AccessLevel.GameMaster)]
         public DateTime RestUntil { get; set; }
 
-        [CommandProperty(AccessLevel.GameMaster)]
-        public DateTime NextSBRefresh { get; set; }
-
         // la chanson du peddler
         public static List<string> Lyrics = new List<string>() {
             "Moi je viens d'un pays de désert infini,",
@@ -52,9 +49,9 @@ namespace Server.Aube.Mobiles.Vendors
         public static List<string> Speech = new List<string>()
         {
             "Aaaah, salam ! Je vous souhaite le bonsoir mon noble ami. Approchez, approchez, venez plus prêt...",
-            "TROP PRET! Un peu trop prêt, voilà.",
-            "Bienvenue à Agrabba, cité de la magie noire, des enchantements...",
-            "Et les plus belles marchandises du Jourdan en soldes aujourd'hui, profitez-en !",
+            "TROP PRÈS! Un peu trop près, voilà.",
+            "Bienvenue à Agrabba, cité de la magie noire, des enchantements,",
+            "et des plus belles marchandises du Jourdan en soldes aujourd'hui, profitez-en ! *rit*",
             "Regardez, oui, un combiné narguilé et cafetière qui fait aussi les pommes de terres frites !",
             "Incassable, incass... cassé.",
             "Ooooooh, regardez, c'est la première fois que j'en vois un aussi bien conservé,",
@@ -69,7 +66,8 @@ namespace Server.Aube.Mobiles.Vendors
             "Et ce jeune homme, tout comme cette lampe, valait beaucoup plus qu’on ne l’estimait...",
             "Un diamant d’innocence !",
             "Je vous raconte cette histoire ?",
-            "Elle commence par une nuit... noire, où l’on découvre un homme en noir, nourrissant de noirs desseins."
+            "Elle commence par une nuit... noire, où l’on découvre un homme en noir, nourrissant de noirs desseins...",
+            "*raconte ensuite son histoire pendant de longues heures*"
         };
 
 
@@ -102,6 +100,15 @@ namespace Server.Aube.Mobiles.Vendors
             }
 
             _SBInfos.Add(RandomSBInfos[which]);
+        }
+
+        public override TimeSpan RestockDelay { get { return TimeSpan.FromDays(1); } }
+
+        public override void Restock()
+        {
+            Emote("*arrange ses marchandises différement*");
+            LoadSBInfo();
+            base.Restock();
         }
 
         public Peddler(Serial serial)
@@ -160,15 +167,14 @@ namespace Server.Aube.Mobiles.Vendors
             protected override void OnTick()
             {
                 var now = DateTime.UtcNow;
-                if (now > _peddler.NextSBRefresh)
-                {
-                    _peddler.LoadSBInfo();
-                    _peddler.NextSBRefresh = now.AddHours(Utility.Random(1,12));
-                }
-
                 if (now < _peddler.RestUntil)
                 {
+                    Interval = TimeSpan.FromMinutes(1);
                     return;
+                }
+                else
+                {
+                    Interval = TimeSpan.FromSeconds(10);
                 }
 
                 var inRange = _peddler.GetMobilesInRange(16).Where(m => m is PlayerMobile && !m.Hidden).ToList();
