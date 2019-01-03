@@ -2,39 +2,31 @@ using System;
 
 namespace Server.Items
 {
-    public class ParrotWafer : Item
+    [FlipableAttribute(0x9A1C, 0x9A1D)]
+    public class JadeSkull : Item
     {
+        public override int LabelNumber { get { return 1123476; } } // Jade Skull
+
         [Constructable]
-        public ParrotWafer()
-            : base(0x2FD6)
-        {
-            Hue = 0x38;
-            Stackable = true;
+        public JadeSkull()
+            : base(0x9A1C)
+        {          
         }
 
-        public ParrotWafer(Serial serial)
+        public JadeSkull(Serial serial)
             : base(serial)
         {
         }
-
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1072904;
-            }
-        }// Parrot Wafers
+        
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write((int)0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
             int version = reader.ReadInt();
         }
     }

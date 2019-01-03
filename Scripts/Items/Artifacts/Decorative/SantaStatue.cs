@@ -2,39 +2,39 @@ using System;
 
 namespace Server.Items
 {
-    public class ParrotWafer : Item
+    [FlipableAttribute(0x4A9A, 0x4A9B)]
+    public class SantaStatue : MonsterStatuette
     {
+        public override int LabelNumber { get { return 1097968; } } // santa statue
+
         [Constructable]
-        public ParrotWafer()
-            : base(0x2FD6)
+        public SantaStatue()
+            : base(MonsterStatuetteType.Santa)
         {
-            Hue = 0x38;
-            Stackable = true;
+            Weight = 10.0;
         }
 
-        public ParrotWafer(Serial serial)
+        public SantaStatue(Serial serial)
             : base(serial)
         {
         }
 
-        public override int LabelNumber
+        public override bool ForceShowProperties
         {
             get
             {
-                return 1072904;
+                return ObjectPropertyList.Enabled;
             }
-        }// Parrot Wafers
+        }
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write((int)0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
             int version = reader.ReadInt();
         }
     }
