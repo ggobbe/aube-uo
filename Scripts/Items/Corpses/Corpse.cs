@@ -405,7 +405,7 @@ namespace Server.Items
 			BeginDecay(m_BoneDecayTime);
 		}
 
-		private static readonly TimeSpan m_DefaultDecayTime = TimeSpan.FromMinutes(7.0);
+		private static readonly TimeSpan m_DefaultDecayTime = TimeSpan.FromMinutes(20.0);
 		private static readonly TimeSpan m_BoneDecayTime = TimeSpan.FromMinutes(7.0);
 
 		private Timer m_DecayTimer;
