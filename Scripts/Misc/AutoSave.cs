@@ -11,6 +11,12 @@ namespace Server.Misc
 		
 		private static readonly string[] m_Backups = new string[]
         {
+            "Ninth Backup",
+            "Eighth Backup",
+            "Seventh Backup",
+            "Sixth Backup",
+            "Fifth Backup",
+            "Fourth Backup",
             "Third Backup",
             "Second Backup",
             "Most Recent"
