@@ -103,7 +103,7 @@ namespace Server.Items
             var item = targ as ISeedable;
             if (item == null)
             {
-                from.SendMessage("This must be something that you can extract seeds from");
+                from.SendMessage("This must be something that you can extract seeds from (try some reagents)");
                 return;
             }
 
