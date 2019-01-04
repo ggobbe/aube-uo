@@ -155,7 +155,8 @@ namespace Server.Spells
             "SkillMasteries"
             #endregion
             ,
-            "Druidic"
+            "Druidic",
+            "Cleric"
         };
 
         public static Spell NewSpell(string name, Mobile caster, Item scroll)

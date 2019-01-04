@@ -143,6 +143,20 @@ namespace Server.Spells
                 Register(319, typeof(Druidic.ManaSpringSpell));
                 Register(320, typeof(Druidic.HibernateSpell));
 
+                // Cleric Spells
+                Register(350, typeof(Cleric.AngelicFaithSpell));
+                Register(351, typeof(Cleric.BanishEvilSpell));
+                Register(352, typeof(Cleric.DampenSpiritSpell));
+                Register(353, typeof(Cleric.DivineFocusSpell));
+                Register(354, typeof(Cleric.HammerOfFaithSpell));
+                Register(355, typeof(Cleric.PurgeSpell));
+                Register(356, typeof(Cleric.RestorationSpell));
+                Register(357, typeof(Cleric.SacredBoonSpell));
+                Register(358, typeof(Cleric.SacrificeSpell));
+                Register(359, typeof(Cleric.SmiteSpell));
+                Register(360, typeof(Cleric.TouchOfLifeSpell));
+                Register(361, typeof(Cleric.TrialByFireSpell));
+
                 if (Core.SE)
                 {
                     // Samurai abilities
