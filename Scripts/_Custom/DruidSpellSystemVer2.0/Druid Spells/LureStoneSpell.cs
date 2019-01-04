@@ -174,7 +174,6 @@ namespace Server.Spells.Druid
                             }
                             else if (cret.Tamable && (cret.Combatant == null || !cret.Combatant.Alive || cret.Combatant.Deleted))
                             {
-
                                 if (cret.MinTameSkill <= (tamer + bonus) + 0.1)
                                     cret.TargetLocation = new Point2D(this.X, this.Y);
                             }
