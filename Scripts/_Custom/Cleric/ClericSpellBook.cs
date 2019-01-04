@@ -1,11 +1,13 @@
-using System;
-using Server.Items;
-using Server.Spells;
+using Server.Gumps.Cleric;
 
-namespace Server.ACC.CSS.Systems.Cleric
+namespace Server.Items.Cleric
 {
 	public class ClericSpellbook : Spellbook
 	{
+        public override SpellbookType SpellbookType{ get{ return SpellbookType.Cleric; } }
+        public override int BookOffset{ get{ return 350; } }
+        public override int BookCount{ get{ return 12; } }
+
 		[Constructable]
 		public ClericSpellbook() : this( (ulong)0, false )
 		{
@@ -35,9 +37,9 @@ namespace Server.ACC.CSS.Systems.Cleric
 				}
 			}
 
-			//from.CloseGump( typeof( ClericSpellbookGump ) );
-			//from.SendGump( new ClericSpellbookGump( this ) );
-		}
+            from.CloseGump(typeof(ClericSpellBookGump));
+            from.SendGump(new ClericSpellBookGump(from, this));
+        }
 
 		public ClericSpellbook( Serial serial ) : base( serial )
 		{

@@ -1,8 +1,4 @@
-using System;
-using Server;
-using Server.Items;
-
-namespace Server.ACC.CSS.Systems.Cleric
+namespace Server.Items.Cleric
 {
 	public class SacrificeScroll : SpellScroll
 	{

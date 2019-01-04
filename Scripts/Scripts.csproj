@@ -12020,9 +12020,9 @@
     <Compile Include="_Custom\AccountLogin\AccountInfo.cs" />
     <Compile Include="_Custom\AccountLogin\AccountLogin.cs" />
     <Compile Include="_Custom\BloodyBandageSystemV2.0\BloodyBandage.cs" />
+    <Compile Include="_Custom\Cleric\ClericSpellBook.cs" />
+    <Compile Include="_Custom\Cleric\ClericSpellBookGump.cs" />
     <Compile Include="_Custom\Cleric\Items\ClericBag.cs" />
-    <Compile Include="_Custom\Cleric\Items\ClericSpellBook.cs" />
-    <Compile Include="_Custom\Cleric\Items\ClericSpellBookGump.cs" />
     <Compile Include="_Custom\Cleric\Scrolls\AngelicFaithScroll.cs" />
     <Compile Include="_Custom\Cleric\Scrolls\BanishEvilScroll.cs" />
     <Compile Include="_Custom\Cleric\Scrolls\DampenSpiritScroll.cs" />
