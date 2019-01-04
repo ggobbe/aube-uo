@@ -65,13 +65,13 @@ namespace Server.Items
             m_IngredientTable.Add(new IngredientDropEntry(typeof(LeatherWolf), true, .2, typeof(ReflectiveWolfEye)));
 
             //Faery Dust - drop from silver sapling mini champ
-            m_IngredientTable.Add(new IngredientDropEntry(typeof(FairyDragon), true, "Abyss", .25, typeof(FaeryDust)));
-            m_IngredientTable.Add(new IngredientDropEntry(typeof(Pixie), true, "Abyss", .25, typeof(FaeryDust)));
-            m_IngredientTable.Add(new IngredientDropEntry(typeof(SAPixie), true, "Abyss", .25, typeof(FaeryDust)));
-            m_IngredientTable.Add(new IngredientDropEntry(typeof(Wisp), true, "Abyss", .25, typeof(FaeryDust)));
-            m_IngredientTable.Add(new IngredientDropEntry(typeof(DarkWisp), true, "Abyss", .25, typeof(FaeryDust)));
+            m_IngredientTable.Add(new IngredientDropEntry(typeof(FairyDragon), true, .25, typeof(FaeryDust)));
+            m_IngredientTable.Add(new IngredientDropEntry(typeof(Pixie), true, .25, typeof(FaeryDust)));
+            m_IngredientTable.Add(new IngredientDropEntry(typeof(SAPixie), true, .25, typeof(FaeryDust)));
+            m_IngredientTable.Add(new IngredientDropEntry(typeof(Wisp), true, .25, typeof(FaeryDust)));
+            m_IngredientTable.Add(new IngredientDropEntry(typeof(DarkWisp), true, .25, typeof(FaeryDust)));
 
-            m_IngredientTable.Add(new IngredientDropEntry(typeof(FairyDragon), true, "Abyss", .25, typeof(FeyWings)));
+            m_IngredientTable.Add(new IngredientDropEntry(typeof(FairyDragon), true, .25, typeof(FeyWings)));
 
             //Boura Pelt
             m_IngredientTable.Add(new IngredientDropEntry(typeof(RuddyBoura), true, .05, typeof(BouraPelt)));
@@ -79,7 +79,7 @@ namespace Server.Items
             m_IngredientTable.Add(new IngredientDropEntry(typeof(HighPlainsBoura), true, 1.0, typeof(BouraPelt)));
 
             //Silver snake skin
-            m_IngredientTable.Add(new IngredientDropEntry(typeof(SilverSerpent), true, "TerMur", .10, typeof(SilverSnakeSkin)));
+            m_IngredientTable.Add(new IngredientDropEntry(typeof(SilverSerpent), true, .10, typeof(SilverSnakeSkin)));
 
             //Void Orb/Vial of Vitriol
             m_IngredientTable.Add(new IngredientDropEntry(typeof(BaseVoidCreature), true, .05, typeof(VoidOrb)));
@@ -132,7 +132,7 @@ namespace Server.Items
 
             m_IngredientTable.Add(new IngredientDropEntry(typeof(ChaosVortex), true, .25, typeof(ChagaMushroom)));
 
-            m_IngredientTable.Add(new IngredientDropEntry(typeof(BaseCreature), false, "Cavern of the Discarded", .05, typeof(DelicateScales),
+            m_IngredientTable.Add(new IngredientDropEntry(typeof(BaseCreature), false, "Ankh Dungeon", .05, typeof(DelicateScales),
                 typeof(ArcanicRuneStone), typeof(PowderedIron), typeof(EssenceBalance), typeof(CrushedGlass), typeof(CrystallineBlackrock),
                 typeof(ElvenFletching), typeof(CrystalShards), typeof(Lodestone), typeof(AbyssalCloth), typeof(SeedOfRenewal)));
 
@@ -238,11 +238,11 @@ namespace Server.Items
             }
         }
 
-        public static Type[] ImbuingGems = 
+        public static Type[] ImbuingGems =
         {
-            typeof(FireRuby), 
-            typeof(WhitePearl), 
-            typeof(BlueDiamond), 
+            typeof(FireRuby),
+            typeof(WhitePearl),
+            typeof(BlueDiamond),
 			typeof(Turquoise)
         };
     }
