@@ -39,7 +39,10 @@ namespace Server.Spells.Druid
 
         public override void OnCast()
         {
-            Caster.Target = new InternalTarget(this);
+            if (Caster.AccessLevel >= AccessLevel.Counselor)
+            {
+                Caster.Target = new InternalTarget(this);
+            }
         }
 
         public void Target(IPoint3D p)

@@ -1,26 +1,22 @@
-using System;
-using Server;
-using Server.Items;
-
 namespace Server.Items
 {
-   public class HurricaneScroll : SpellScroll
+   public class NaturesPassageScroll : SpellScroll
    {
       [Constructable]
-      public HurricaneScroll() : this( 1 )
+      public NaturesPassageScroll() : this( 1 )
       {
       }
 
       [Constructable]
-      public HurricaneScroll( int amount ) : base( 314, 0xE39 )
+      public NaturesPassageScroll( int amount ) : base( 313, 0xE39 )
       {
-         Name = "Mushroom Gateway";
+         Name = "Nature's Passage";
          Hue = 0x58B;
       }
 
-      public HurricaneScroll( Serial serial ) : base( serial )
+      public NaturesPassageScroll( Serial serial ) : base( serial )
       {
-      	
+
       }
 
       public override void Serialize( GenericWriter writer )
@@ -36,10 +32,5 @@ namespace Server.Items
 
          int version = reader.ReadInt();
       }
-
-     // public override Item Dupe( int amount )
-     // {
-        // return base.Dupe( new HurricaneScroll( amount ), amount );
-      //}
    }
 }

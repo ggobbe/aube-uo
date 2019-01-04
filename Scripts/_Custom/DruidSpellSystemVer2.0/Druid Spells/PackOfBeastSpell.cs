@@ -22,7 +22,7 @@ namespace Server.Spells.Druid
           {
               return "Summons a pack of beasts to fight for the Druid. Spell length increases with skill.";
           }
-      }   
+      }
       public override TimeSpan CastDelayBase { get { return TimeSpan.FromSeconds( 1 ); } }
       public override SpellCircle Circle { get { return SpellCircle.Third; } }
       public override double RequiredSkill{ get{ return 40.0; } }

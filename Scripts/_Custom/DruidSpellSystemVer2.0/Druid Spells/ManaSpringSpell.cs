@@ -16,7 +16,7 @@ namespace Server.Spells.Druid
             266,
             9040,
             false,
-            Reagent.FertileDirt,
+            Reagent.FertileEarth,
             Reagent.SpringWater,
             Reagent.FenMoss
             );

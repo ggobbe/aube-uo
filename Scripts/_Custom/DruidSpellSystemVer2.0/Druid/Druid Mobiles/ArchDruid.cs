@@ -209,7 +209,7 @@ namespace Server.DruidSystem.Mobiles
                 case 0: c.DropItem(new SwarmOfInsectsScroll()); break;
                 case 1: c.DropItem(new FireflyScroll()); break;
                 case 2: c.DropItem(new LureStoneScroll()); break;
-                case 3: c.DropItem(new HurricaneScroll()); break;
+                case 3: c.DropItem(new NaturesPassageScroll()); break;
                 case 4: c.DropItem(new ShieldOfEarthScroll()); break;
                 case 5: c.DropItem(new TreefellowScroll()); break;
                 case 6: c.DropItem(new ForestKinScroll()); break;

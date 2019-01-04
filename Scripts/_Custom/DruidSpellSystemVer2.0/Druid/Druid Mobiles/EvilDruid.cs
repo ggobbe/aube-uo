@@ -76,11 +76,8 @@ namespace Server.DruidSystem.Mobiles
             AddItem(new Sandals());
             AddItem(new WizardsHat(hue));
 
-            PackGold(900, 999);
-
             switch (Utility.Random(36))
             {
-
                 case 0: PackItem(new CircleOfThornsScroll()); break;
                 case 1: PackItem(new GraspingRootsScroll()); break;
                 case 2: PackItem(new MushroomGatewayScroll()); break;
@@ -94,23 +91,18 @@ namespace Server.DruidSystem.Mobiles
                 case 10: PackItem(new SwarmOfInsectsScroll()); break;
                 case 11: PackItem(new FireflyScroll()); break;
                 case 12: PackItem(new LureStoneScroll()); break;
-                case 13: PackItem(new HurricaneScroll()); break;
+                case 13: PackItem(new NaturesPassageScroll()); break;
                 case 14: PackItem(new ShieldOfEarthScroll()); break;
                 case 15: PackItem(new TreefellowScroll()); break;
                 case 16: PackItem(new HibernateScroll()); break;
                 case 17: PackItem(new BarkSkinScroll()); break;
-                
-
-
             }
 
             switch (Utility.Random(3))
             {
-
                 case 0: PackItem(new PetrifiedWood(Utility.Random(10) + 3)); break;
                 case 1: PackItem(new Pumice(Utility.Random(10) + 3)); break;
                 case 2: PackItem(new SpringWater(Utility.Random(10) + 3)); break;
-
             }
 
             if (0.003 > Utility.RandomDouble())
@@ -123,7 +115,6 @@ namespace Server.DruidSystem.Mobiles
         public override bool AlwaysMurderer { get { return true; } }
 
         public override bool InitialInnocent { get { return true; } }
-
 
         public override int GetHurtSound()
         {
@@ -218,20 +209,11 @@ namespace Server.DruidSystem.Mobiles
             }
         }
 
-
-
-
         public override void OnDeath(Container c)
         {
-
-            if (0.02 > Utility.RandomDouble())
+            if (0.01 >= Utility.RandomDouble())
             {
-
-                {
-                    c.DropItem(new DruidicSpellbook());
-
-                }
-
+                c.DropItem(new DruidicSpellbook());
             }
 
             base.OnDeath(c);

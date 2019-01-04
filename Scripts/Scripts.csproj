@@ -12027,6 +12027,7 @@
     <Compile Include="_Custom\DruidSpellSystemVer2.0\Druid Spells\LureStoneSpell.cs" />
     <Compile Include="_Custom\DruidSpellSystemVer2.0\Druid Spells\ManaSpringSpell.cs" />
     <Compile Include="_Custom\DruidSpellSystemVer2.0\Druid Spells\MushroomGatewaySpell.cs" />
+    <Compile Include="_Custom\DruidSpellSystemVer2.0\Druid Spells\NaturesPassageSpell.cs" />
     <Compile Include="_Custom\DruidSpellSystemVer2.0\Druid Spells\PackOfBeastSpell.cs" />
     <Compile Include="_Custom\DruidSpellSystemVer2.0\Druid Spells\RestorativeSoilSpell.cs" />
     <Compile Include="_Custom\DruidSpellSystemVer2.0\Druid Spells\ShieldOfEarthSpell.cs" />
@@ -12061,7 +12062,7 @@
     <Compile Include="_Custom\DruidSpellSystemVer2.0\Druid\Druid Scrolls\GraspingRootsScroll.cs" />
     <Compile Include="_Custom\DruidSpellSystemVer2.0\Druid\Druid Scrolls\HibernateScroll.cs" />
     <Compile Include="_Custom\DruidSpellSystemVer2.0\Druid\Druid Scrolls\HollowReedScroll.cs" />
-    <Compile Include="_Custom\DruidSpellSystemVer2.0\Druid\Druid Scrolls\HurricaneScroll.cs" />
+    <Compile Include="_Custom\DruidSpellSystemVer2.0\Druid\Druid Scrolls\NaturesPassageScroll.cs" />
     <Compile Include="_Custom\DruidSpellSystemVer2.0\Druid\Druid Scrolls\LureStoneScroll.cs" />
     <Compile Include="_Custom\DruidSpellSystemVer2.0\Druid\Druid Scrolls\ManaSpringScroll.cs" />
     <Compile Include="_Custom\DruidSpellSystemVer2.0\Druid\Druid Scrolls\MushroomGatewayScroll.cs" />

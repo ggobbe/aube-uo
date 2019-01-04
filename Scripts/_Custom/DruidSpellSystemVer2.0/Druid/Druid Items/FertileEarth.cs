@@ -17,7 +17,7 @@ namespace Server.Items
       [Constructable]
       public FertileEarth( int amount ) : base( 0xF81, amount )
       {
-       
+          Name = "Fearth Earth";
       }
 
       public FertileEarth(Serial serial)

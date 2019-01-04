@@ -38,7 +38,9 @@ namespace Server.Commands
 
             CommandSystem.Register("LureStone", AccessLevel.Player, new CommandEventHandler(LureStone_OnCommand));
 
-            CommandSystem.Register("Hurricane", AccessLevel.Player, new CommandEventHandler(Hurricane_OnCommand));
+            CommandSystem.Register("Hurricane", AccessLevel.Counselor, new CommandEventHandler(Hurricane_OnCommand));
+
+            CommandSystem.Register("NaturesPassage", AccessLevel.Player, new CommandEventHandler(NaturesPassage_OnCommand));
 
             CommandSystem.Register("MushroomGateway", AccessLevel.Player, new CommandEventHandler(MushroomGateway_OnCommand));
 
@@ -301,9 +303,29 @@ namespace Server.Commands
             if (!Multis.DesignContext.Check(e.Mobile))
                 return; // They are customizing
 
-            if (HasSpell(from, 313))
+            //if (HasSpell(from, 313))
+            if(from.AccessLevel >= AccessLevel.Counselor)
             {
                 new HurricaneSpell(e.Mobile, null).Cast();
+            }
+            else
+            {
+                from.SendLocalizedMessage(500015); // You do not have that spell!
+            }
+        }
+
+        [Usage("NaturesPassage")]
+        [Description("Casts Nature's Passage spell.")]
+        public static void NaturesPassage_OnCommand(CommandEventArgs e)
+        {
+            Mobile from = e.Mobile;
+
+            if (!Multis.DesignContext.Check(e.Mobile))
+                return; // They are customizing
+
+            if (HasSpell(from, 313))
+            {
+                new NaturesPassageSpell(e.Mobile, null).Cast();
             }
             else
             {

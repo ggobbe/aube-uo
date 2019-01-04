@@ -134,7 +134,7 @@ namespace Server.Spells
                 Register(310, typeof(Druid.DeadlySporesSpell));
                 Register(311, typeof(Druid.EnchantedGroveSpell));
                 Register(312, typeof(Druid.LureStoneSpell));
-                Register(313, typeof(Druid.HurricaneSpell));
+                Register(313, typeof(Druid.NaturesPassageSpell));
                 Register(314, typeof(Druid.MushroomGatewaySpell));
                 Register(315, typeof(Druid.RestorativeSoilSpell));
                 Register(316, typeof(Druid.FireflySpell));
