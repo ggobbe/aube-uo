@@ -61,8 +61,10 @@ namespace Server.Spells.Cleric
 
 			public override int AosStrengthReq{ get{ return 10; } }
 			public override int AosMinDamage{ get{ return 17; } }
-			public override int AosMaxDamage{ get{ return 18; } }
+			public override int AosMaxDamage{ get{ return 20; } }
 			public override int AosSpeed{ get{ return 28; } }
+
+            public override float MlSpeed{ get{ return 3.75f; } }
 
 			public override int OldStrengthReq{ get{ return 40; } }
 			public override int OldMinDamage{ get{ return 8; } }
@@ -77,6 +79,7 @@ namespace Server.Spells.Cleric
 			[Constructable]
 			public HammerOfFaith( Mobile owner ) : base( 0x1439 )
 			{
+                // based on war hammer
 				m_Owner = owner;
 				Weight = 10.0;
 				Layer = Layer.TwoHanded;
@@ -91,6 +94,15 @@ namespace Server.Spells.Cleric
 
 				m_Timer.Start();
 			}
+
+            public override bool CheckEquip(Mobile m, bool message)
+            {
+                if (m != m_Owner)
+                {
+                    return false;
+                }
+                return base.CheckEquip(m, message);
+            }
 
             public override void GetDamageTypes(Mobile wielder, out int phys, out int fire, out int cold, out int pois, out int nrgy, out int chaos, out int direct)
             {
@@ -151,7 +163,7 @@ namespace Server.Spells.Cleric
 			private HammerOfFaith m_Hammer;
 			private DateTime m_Expire;
 
-			public InternalTimer( HammerOfFaith hammer, DateTime expire ) : base( TimeSpan.Zero, TimeSpan.FromSeconds( 0.1 ) )
+			public InternalTimer( HammerOfFaith hammer, DateTime expire ) : base( TimeSpan.FromSeconds(1), TimeSpan.FromSeconds( 1 ) )
 			{
 				m_Hammer = hammer;
 				m_Expire = expire;
