@@ -1,11 +1,7 @@
 /* Modified by Talow */
-using System; 
-using System.Collections; 
-using Server; 
-using Server.Items; 
-using Server.Network; 
+using Server.Items;
+using Server.Network;
 using Server.Spells;
-using Server.Prompts;
 
 namespace Server.Gumps
 {
@@ -68,14 +64,14 @@ namespace Server.Gumps
                         AddButton(296, 4, 0x89E, 0x89E, m_Book.BookCount + 2, GumpButtonType.Page, page);
 
                     AddLabel(50, 27, gth, spell.Info.Name);
-                    
+
                     AddLabel(195, 27, gth, "Reagents:");
                     for (var r = 0; r < spell.Reagents.Length; r++)
                     {
                         AddLabel(195, 47 + (r * 20), gth, spell.Reagents[r].Name);
                     }
 
-                    var dspell = spell as Spells.Druid.DruidicSpell;
+                    var dspell = spell as Spells.Druidic.DruidicSpell;
                     if (dspell != null)
                     {
                         AddHtml(30, 49, 123, 132, dspell.SpellDescription, false, false);

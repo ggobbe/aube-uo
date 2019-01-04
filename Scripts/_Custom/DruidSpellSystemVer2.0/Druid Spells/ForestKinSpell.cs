@@ -7,14 +7,12 @@ using Server.Gumps;
 using Server.Mobiles;
 
 
-namespace Server.Spells.Druid
+namespace Server.Spells.Druidic
 {
     public class ForestKinSpell : DruidicSpell
     {
-        private static SpellInfo m_Info = new SpellInfo
-            (
+        private static SpellInfo m_Info = new SpellInfo(
              "Forest Kin", "Lore Sec En Sepa Ohm",
-            //SpellCircle.Sixth,
              203,
              9031,
              Reagent.FertileEarth,
@@ -77,7 +75,7 @@ namespace Server.Spells.Druid
 			new DruidFamiliarEntry( typeof( DryadFamiliar ), "Dryad", 80.0, 80.0 ),
 			new DruidFamiliarEntry( typeof( WispFamiliar ), "Wisp", 100.0, 100.0 ),
 			new DruidFamiliarEntry( typeof( WaterSpiritFamiliar ), "Water Spirit", 115.0, 115.0 ),
-				
+
 		};
 
         public static DruidFamiliarEntry[] Entries { get { return m_Entries; } }

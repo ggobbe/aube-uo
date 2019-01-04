@@ -5,13 +5,12 @@ using Server.Network;
 using Server.Misc;
 using Server.Items;
 
-namespace Server.Spells.Druid
+namespace Server.Spells.Druidic
 {
     public class HurricaneSpell : DruidicSpell
     {
         private static SpellInfo m_Info = new SpellInfo(
                 "Hurricane", "In Xen Hur",
-          //      SpellCircle.Fourth,
                 215,
                 9041,
                 false,

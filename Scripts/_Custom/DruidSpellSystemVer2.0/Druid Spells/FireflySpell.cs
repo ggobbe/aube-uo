@@ -3,13 +3,12 @@ using Server.Mobiles;
 using Server.Network;
 using Server.Targeting;
 
-namespace Server.Spells.Druid
+namespace Server.Spells.Druidic
 {
     public class FireflySpell : DruidicSpell
     {
         private static SpellInfo m_Info = new SpellInfo(
                 "Summon Firefly", "Kes En Crur",
-            //SpellCircle.First,
                 269,
                 9020,
                 false,

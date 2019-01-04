@@ -2,13 +2,12 @@ using System;
 using Server.Targeting;
 using Server.Network;
 
-namespace Server.Spells.Druid
+namespace Server.Spells.Druidic
 {
    public class HollowReedSpell : DruidicSpell
    {
       private static SpellInfo m_Info = new SpellInfo(
             "Hollow Reed", "En Crur Aeta Sec En Ess ",
-       //     SpellCircle.Second,
             203,
             9061,
             false,

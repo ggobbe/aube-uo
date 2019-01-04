@@ -3,13 +3,12 @@ using Server.Mobiles;
 using Server.Network;
 using Server.Targeting;
 
-namespace Server.Spells.Druid
+namespace Server.Spells.Druidic
 {
 	public class TreefellowSpell : DruidicSpell
 	{
 		private static SpellInfo m_Info = new SpellInfo(
 				"Summon Treefellow", "Kes En Sepa Ohm",
-	//			SpellCircle.Eighth,
 				269,
 				9020,
 				false,
@@ -22,7 +21,7 @@ namespace Server.Spells.Druid
             {
                 return "Summons a powerful woodland spirit to fight for the Druid.";
             }
-        } 
+        }
 		public TreefellowSpell( Mobile caster, Item scroll ) : base( caster, scroll, m_Info )
 		{
 		}

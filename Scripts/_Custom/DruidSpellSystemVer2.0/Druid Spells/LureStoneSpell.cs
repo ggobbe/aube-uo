@@ -5,7 +5,7 @@ using Server.Misc;
 using Server.Items;
 using Server.Mobiles;
 
-namespace Server.Spells.Druid
+namespace Server.Spells.Druidic
 {
     public class LureStoneSpell : DruidicSpell
     {
@@ -14,7 +14,6 @@ namespace Server.Spells.Druid
         private LureStone m_Circlec;
         private static SpellInfo m_Info = new SpellInfo(
                 "Lure Stone", "En Kes Ohm Crur",
-            //SpellCircle.Second,
                 269,
                 9020,
                 false,

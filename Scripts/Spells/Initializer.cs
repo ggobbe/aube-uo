@@ -122,26 +122,26 @@ namespace Server.Spells
                 Register(209, typeof(Chivalry.SacredJourneySpell));
 
                 // Druid Spells
-                Register(301, typeof(Druid.ShieldOfEarthSpell));
-                Register(302, typeof(Druid.HollowReedSpell));
-                Register(303, typeof(Druid.PackOfBeastSpell));
-                Register(304, typeof(Druid.SpringOfLifeSpell));
-                Register(305, typeof(Druid.GraspingRootsSpell));
-                Register(306, typeof(Druid.CircleOfThornsSpell));
-                Register(307, typeof(Druid.SwarmOfInsectsSpell));
-                Register(308, typeof(Druid.VolcanicEruptionSpell));
-                Register(309, typeof(Druid.TreefellowSpell));
-                Register(310, typeof(Druid.DeadlySporesSpell));
-                Register(311, typeof(Druid.EnchantedGroveSpell));
-                Register(312, typeof(Druid.LureStoneSpell));
-                Register(313, typeof(Druid.NaturesPassageSpell));
-                Register(314, typeof(Druid.MushroomGatewaySpell));
-                Register(315, typeof(Druid.RestorativeSoilSpell));
-                Register(316, typeof(Druid.FireflySpell));
-                Register(317, typeof(Druid.ForestKinSpell));
-                Register(318, typeof(Druid.BarkSkinSpell));
-                Register(319, typeof(Druid.ManaSpringSpell));
-                Register(320, typeof(Druid.HibernateSpell));
+                Register(301, typeof(Druidic.ShieldOfEarthSpell));
+                Register(302, typeof(Druidic.HollowReedSpell));
+                Register(303, typeof(Druidic.PackOfBeastSpell));
+                Register(304, typeof(Druidic.SpringOfLifeSpell));
+                Register(305, typeof(Druidic.GraspingRootsSpell));
+                Register(306, typeof(Druidic.CircleOfThornsSpell));
+                Register(307, typeof(Druidic.SwarmOfInsectsSpell));
+                Register(308, typeof(Druidic.VolcanicEruptionSpell));
+                Register(309, typeof(Druidic.TreefellowSpell));
+                Register(310, typeof(Druidic.DeadlySporesSpell));
+                Register(311, typeof(Druidic.EnchantedGroveSpell));
+                Register(312, typeof(Druidic.LureStoneSpell));
+                Register(313, typeof(Druidic.NaturesPassageSpell));
+                Register(314, typeof(Druidic.MushroomGatewaySpell));
+                Register(315, typeof(Druidic.RestorativeSoilSpell));
+                Register(316, typeof(Druidic.FireflySpell));
+                Register(317, typeof(Druidic.ForestKinSpell));
+                Register(318, typeof(Druidic.BarkSkinSpell));
+                Register(319, typeof(Druidic.ManaSpringSpell));
+                Register(320, typeof(Druidic.HibernateSpell));
 
                 if (Core.SE)
                 {

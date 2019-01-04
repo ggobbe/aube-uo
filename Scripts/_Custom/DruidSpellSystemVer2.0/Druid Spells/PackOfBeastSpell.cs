@@ -3,13 +3,12 @@ using Server.Mobiles;
 using Server.Network;
 using Server.Targeting;
 
-namespace Server.Spells.Druid
+namespace Server.Spells.Druidic
 {
    public class PackOfBeastSpell : DruidicSpell
    {
       private static SpellInfo m_Info = new SpellInfo(
             "Pack Of Beast", "En Sec Ohm Ess Sepa",
-            //SpellCircle.Third,
             266,
             9040,
             false,

@@ -1,17 +1,13 @@
 using System;
 using System.Collections;
-using Server.Network;
-using Server.Items;
 using Server.Targeting;
-using Server.Spells.Druid;
 
-namespace Server.Spells.Druid
+namespace Server.Spells.Druidic
 {
    public class SpringOfLifeSpell : DruidicSpell
    {
       private static SpellInfo m_Info = new SpellInfo(
             "Spring Of Life", "En Sepa Aete",
-       //     SpellCircle.Fourth,
             204,
             9061,
             false,
@@ -24,7 +20,7 @@ namespace Server.Spells.Druid
           {
               return "Creates a magical spring that heals the Druid and their party.";
           }
-      } 
+      }
       public override TimeSpan CastDelayBase { get { return TimeSpan.FromSeconds(2); } }
       public override SpellCircle Circle { get { return SpellCircle.Fourth; } }
       public override double RequiredSkill{ get{ return 40.0; } }
@@ -114,8 +110,8 @@ namespace Server.Spells.Druid
          protected override void OnTick()
          {
             m_Owner.EndAction( typeof( SpringOfLifeSpell ) );
-        
-           
+
+
          }
       }
 

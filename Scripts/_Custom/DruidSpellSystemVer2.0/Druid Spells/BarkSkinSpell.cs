@@ -1,25 +1,12 @@
 using System;
-using System.Collections;
-using Server;
-using Server.Mobiles;
-using Server.Network;
-using Server.Items;
-using Server.Targeting;
-using Server.Multis;
-using Server.Misc;
-using Server.Regions;
-using Server.Gumps;
-using Server.Spells.Druid;
 
-
-namespace Server.Spells.Druid
+namespace Server.Spells.Druidic
 {
     public class BarkSkinSpell : DruidicSpell
     {
         private static SpellInfo m_Info = new SpellInfo
             (
              "Bark Skin", "Porm Helma",
-            //SpellCircle.First,
              224,
              9011,
             Reagent.PetrifiedWood,

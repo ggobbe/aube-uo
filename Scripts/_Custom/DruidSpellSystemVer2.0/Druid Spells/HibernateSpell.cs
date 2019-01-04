@@ -5,7 +5,7 @@ using Server.Targeting;
 using Server.Items;
 using Server.Mobiles;
 
-namespace Server.Spells.Druid
+namespace Server.Spells.Druidic
 {
     public class HibernateSpell : DruidicSpell
     {
@@ -13,7 +13,6 @@ namespace Server.Spells.Druid
         private bool m_Blessed;
         private static SpellInfo m_Info = new SpellInfo(
                 "Hibernate", "En Xen Zu",
-            //SpellCircle.Third,
                 206,
                 9002,
                 Reagent.PetrifiedWood,

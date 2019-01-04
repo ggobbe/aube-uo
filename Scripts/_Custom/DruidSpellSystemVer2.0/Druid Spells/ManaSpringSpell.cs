@@ -6,13 +6,12 @@ using Server.Items;
 using System.Collections;
 using Server.Mobiles;
 
-namespace Server.Spells.Druid
+namespace Server.Spells.Druidic
 {
     public class ManaSpringSpell : DruidicSpell
     {
         private static SpellInfo m_Info = new SpellInfo(
             "Mana Spring", "En Sepa Aete",
-            //SpellCircle.Eighth,
             266,
             9040,
             false,

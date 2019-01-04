@@ -4,13 +4,12 @@ using Server.Network;
 using Server.Items;
 using Server.Targeting;
 
-namespace Server.Spells.Druid
+namespace Server.Spells.Druidic
 {
    public class VolcanicEruptionSpell : DruidicSpell
    {
       private static SpellInfo m_Info = new SpellInfo(
             "Volcanic Eruption", "Vauk Ohm En Tia Crur",
-            //SpellCircle.Eighth,
             245,
             9042,
             false,
@@ -23,7 +22,7 @@ namespace Server.Spells.Druid
           {
               return "A blast of molten lava bursts from the ground, hitting every enemy nearby.";
           }
-      } 
+      }
       public override TimeSpan CastDelayBase { get { return TimeSpan.FromSeconds(2); } }
       public override SpellCircle Circle { get { return SpellCircle.Eighth; } }
       public override double RequiredSkill{ get{ return 94.0; } }

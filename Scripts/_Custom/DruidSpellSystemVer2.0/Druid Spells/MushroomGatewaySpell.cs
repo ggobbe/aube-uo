@@ -6,13 +6,12 @@ using Server.Targeting;
 using Server.Misc;
 using Server.Regions;
 
-namespace Server.Spells.Druid
+namespace Server.Spells.Druidic
 {
     public class MushroomGatewaySpell : DruidicSpell
     {
         private static SpellInfo m_Info = new SpellInfo(
                 "Mushroom Gateway", "Vauk Sepa Ohm",
-            //SpellCircle.Seventh,
                 263,
                 9032,
                 Reagent.FenMoss,

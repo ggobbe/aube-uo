@@ -4,13 +4,12 @@ using Server.Network;
 using Server.Misc;
 using Server.Items;
 
-namespace Server.Spells.Druid
+namespace Server.Spells.Druidic
 {
     public class ShieldOfEarthSpell : DruidicSpell
     {
         private static SpellInfo m_Info = new SpellInfo(
               "Shield Of Earth", "Kes En Sepa Ohm",
-            //SpellCircle.First,
               227,
               9011,
               false,
@@ -23,7 +22,7 @@ namespace Server.Spells.Druid
             {
                 return "A quick-growing wall of foliage springs up at the bidding of the Druid.";
             }
-        } 
+        }
         public override TimeSpan CastDelayBase { get { return TimeSpan.FromSeconds(1); } }
         public override SpellCircle Circle { get { return SpellCircle.First; } }
         public override double RequiredSkill { get { return 20.0; } }

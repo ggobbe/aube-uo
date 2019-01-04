@@ -6,7 +6,7 @@ using Server.Items;
 using Server.Targeting;
 using Server.Mobiles;
 
-namespace Server.Spells.Druid
+namespace Server.Spells.Druidic
 {
     public class CircleOfThornsSpell : DruidicSpell
     {
@@ -15,7 +15,6 @@ namespace Server.Spells.Druid
         private static SpellInfo m_Info = new SpellInfo
             (
               "CircleOfThorns", "En Ess Ohm",
-            //SpellCircle.Sixth,
               266,
               9040,
               false,

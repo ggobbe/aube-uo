@@ -4,13 +4,12 @@ using Server.Network;
 using Server.Misc;
 using Server.Items;
 
-namespace Server.Spells.Druid
+namespace Server.Spells.Druidic
 {
     public class GraspingRootsSpell : DruidicSpell
     {
         private static SpellInfo m_Info = new SpellInfo(
               "Grasping Roots", "En Ohm Sepa Tia Kes",
-            //SpellCircle.Fifth,
               218,
               9012,
               false,

@@ -7,7 +7,7 @@ using Server.Regions;
 using Server.Mobiles;
 using Server.Spells;
 
-namespace Server.Spells.Druid
+namespace Server.Spells.Druidic
 {
 	public class NaturesPassageSpell : DruidicSpell
 	{

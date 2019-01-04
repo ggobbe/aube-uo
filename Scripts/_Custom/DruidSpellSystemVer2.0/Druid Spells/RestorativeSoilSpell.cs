@@ -6,13 +6,12 @@ using Server.Items;
 using Server.Mobiles;
 using Server.Gumps;
 
-namespace Server.Spells.Druid
+namespace Server.Spells.Druidic
 {
     public class RestorativeSoilSpell : DruidicSpell
     {
         private static SpellInfo m_Info = new SpellInfo(
             "Restorative Soil", "Ohm Sepa Ante",
-            //		SpellCircle.Eighth,
             269,
             9020,
         Reagent.PetrifiedWood,
@@ -26,7 +25,7 @@ namespace Server.Spells.Druid
             {
                 return "Saturates a patch of land with power, causing healing mud to seep through . The mud can restore the dead to life.";
             }
-        } 
+        }
         public RestorativeSoilSpell(Mobile caster, Item scroll)
             : base(caster, scroll, m_Info)
         {

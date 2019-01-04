@@ -6,20 +6,19 @@ using Server.Items;
 using System.Collections;
 using Server.Mobiles;
 
-namespace Server.Spells.Druid
+namespace Server.Spells.Druidic
 {
     public class EnchantedGroveSpell : DruidicSpell
     {
         private static SpellInfo m_Info = new SpellInfo(
-                "Enchanted Grove", "En Ante Ohm Sepa",
-            // SpellCircle.Eighth,
+            "Enchanted Grove", "En Ante Ohm Sepa",
             266,
             9040,
             false,
             Reagent.DestroyingAngel,
             Reagent.PetrifiedWood,
             Reagent.SpringWater
-         );
+        );
         public override string SpellDescription
         {
             get

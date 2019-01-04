@@ -1,7 +1,7 @@
 using System;
 using Server;
 
-namespace Server.Spells.Druid
+namespace Server.Spells.Druidic
 {
     public abstract class DruidicSpell : Spell
     {

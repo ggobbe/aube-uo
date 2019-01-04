@@ -4,13 +4,12 @@ using Server.Network;
 using Server.Items;
 using Server.Targeting;
 
-namespace Server.Spells.Druid
+namespace Server.Spells.Druidic
 {
    public class SwarmOfInsectsSpell : DruidicSpell
    {
       private static SpellInfo m_Info = new SpellInfo(
             "Swarm Of Insects", "Ess Ohm En Sec Tia",
-            //SpellCircle.Seventh,
             263,
             9032,
             false,
@@ -24,7 +23,7 @@ namespace Server.Spells.Druid
           {
               return "Summons a swarm of insects that bite and sting the Druid's enemies.";
           }
-      } 
+      }
       public override TimeSpan CastDelayBase { get { return TimeSpan.FromSeconds(2); } }
       public override SpellCircle Circle { get { return SpellCircle.Seventh; } }
       public override double RequiredSkill{ get{ return 20.0; } }
