@@ -28,8 +28,9 @@ namespace Server.Spells
             typeof( PetrifiedWood ),
             typeof( SpringWater ),
             typeof( FenMoss ),
-            typeof( DestroyingAngel ),
-            typeof( FertileEarth )
+			typeof( DestroyingAngel ),
+            typeof( FertileEarth ) 
+
         };
         public static Type BlackPearl
         {
@@ -218,21 +219,22 @@ namespace Server.Spells
                 m_Types[16] = value;
             }
         }
-        public static Type Pumice
-        {
-            get { return m_Types[17]; }
-            set { m_Types[17] = value; }
-        }
+   		public static Type Pumice
+		{
+			get{ return m_Types[17]; }
+			set{ m_Types[17] = value; }
+		}
+               
         public static Type PetrifiedWood
-        {
-            get { return m_Types[18]; }
-            set { m_Types[18] = value; }
-        }
-        public static Type SpringWater
-        {
-            get { return m_Types[19]; }
-            set { m_Types[19] = value; }
-        }
+		{
+			get{ return m_Types[18]; }
+			set{ m_Types[18] = value; }
+		}
+		public static Type SpringWater
+		{
+			get{ return m_Types[19]; }
+			set{ m_Types[19] = value; }
+		}
         public static Type FenMoss
         {
             get { return m_Types[20]; }
