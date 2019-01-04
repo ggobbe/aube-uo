@@ -63,9 +63,7 @@ namespace Server.Spells.Necromancy
 
             if (m_Caster.Skills.Chivalry.Base > 0)
             {
-                var old = max;
                 max += m_Caster.Skills.Chivalry.Base;
-                Console.WriteLine("Necromancy VS Chivalry: max from {0} => {1}", old, max);
             }
         }
 
