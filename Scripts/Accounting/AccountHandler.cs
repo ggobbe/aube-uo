@@ -411,21 +411,7 @@ namespace Server.Misc
 
         public static bool CheckAccount(Mobile mobCheck, Mobile accCheck)
         {
-            if (accCheck != null)
-            {
-                Account a = accCheck.Account as Account;
-
-                if (a != null)
-                {
-                    for (int i = 0; i < a.Length; ++i)
-                    {
-                        if (a[i] == mobCheck)
-                            return true;
-                    }
-                }
-            }
-
-            return false;
+            return mobCheck == accCheck;
         }
 
         private static void EventSink_DeleteRequest(DeleteRequestEventArgs e)
