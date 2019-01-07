@@ -1942,7 +1942,7 @@ namespace Server.Multis
                 bool valid = m_House != null && Sextant.Format(m_House.Location, m_House.Map, ref xLong, ref yLat, ref xMins, ref yMins, ref xEast, ref ySouth);
 
                 if (valid)
-                    location = String.Format("{0}° {1}'{2}, {3}° {4}'{5}", yLat, yMins, ySouth ? "S" : "N", xLong, xMins, xEast ? "E" : "W");
+                    location = String.Format("{0}Â° {1}'{2}, {3}Â° {4}'{5}", yLat, yMins, ySouth ? "S" : "N", xLong, xMins, xEast ? "E" : "W");
                 else
                     location = "unknown";
 
@@ -4033,22 +4033,7 @@ namespace Server.Multis
 
         public static int GetAccountHouseCount(Mobile m)
         {
-            Account a = m.Account as Account;
-
-            if (a == null)
-                return 0;
-
-            int count = 0;
-
-            for (int i = 0; i < a.Length; ++i)
-            {
-                if (a[i] != null)
-                {
-                    count += GetHouseCount(a[i]);
-                }
-            }
-
-            return count;
+            return GetHouseCount(m);
         }
 
         public static int GetHouseCount(Mobile m)
