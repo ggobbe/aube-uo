@@ -44,6 +44,11 @@ namespace Server.Mobiles
             VirtualArmor = 55;
 
             SetWeaponAbility(WeaponAbility.ConcussionBlow);
+
+            if (Utility.RandomBool())
+            {
+                PackItem(new DaemonBone());
+            }
         }
 
         public ArcaneDaemon(Serial serial)

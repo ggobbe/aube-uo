@@ -62,6 +62,7 @@ namespace Server.Mobiles
                     break;
             }
 
+            PackItem(new DaemonBone(Utility.Random(1, 5)));
 
             ControlSlots = Core.SE ? 4 : 5;
         }

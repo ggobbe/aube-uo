@@ -132,20 +132,20 @@ namespace Server.Items
 
             m_IngredientTable.Add(new IngredientDropEntry(typeof(ChaosVortex), true, .25, typeof(ChagaMushroom)));
 
-            m_IngredientTable.Add(new IngredientDropEntry(typeof(BaseCreature), false, "Ankh Dungeon", .05, typeof(DelicateScales),
+            m_IngredientTable.Add(new IngredientDropEntry(typeof(BaseCreature), false, "Ilshenar", .05, typeof(DelicateScales),
                 typeof(ArcanicRuneStone), typeof(PowderedIron), typeof(EssenceBalance), typeof(CrushedGlass), typeof(CrystallineBlackrock),
                 typeof(ElvenFletching), typeof(CrystalShards), typeof(Lodestone), typeof(AbyssalCloth), typeof(SeedOfRenewal)));
 
-            m_IngredientTable.Add(new IngredientDropEntry(typeof(BaseCreature), false, "Passage of Tears", .05, typeof(EssenceSingularity)));
-            m_IngredientTable.Add(new IngredientDropEntry(typeof(BaseCreature), false, "Fairy Dragon Lair", .05, typeof(EssenceDiligence)));
-            m_IngredientTable.Add(new IngredientDropEntry(typeof(BaseCreature), false, "Abyssal Lair", .05, typeof(EssenceAchievement)));
-            m_IngredientTable.Add(new IngredientDropEntry(typeof(BaseCreature), false, "Crimson Veins", .05, typeof(EssencePrecision)));
-            m_IngredientTable.Add(new IngredientDropEntry(typeof(BaseCreature), false, "Lava Caldera", .05, typeof(EssencePassion)));
-            m_IngredientTable.Add(new IngredientDropEntry(typeof(BaseCreature), false, "Fire Temple Ruins", .05, typeof(EssenceOrder)));
-            m_IngredientTable.Add(new IngredientDropEntry(typeof(BaseCreature), false, "Enslaved Goblins", .05, typeof(GoblinBlood), typeof(EssenceControl)));
-            m_IngredientTable.Add(new IngredientDropEntry(typeof(BaseCreature), false, "Lands of the Lich", .05, typeof(EssenceDirection)));
-            m_IngredientTable.Add(new IngredientDropEntry(typeof(BaseCreature), false, "Secret Garden", .05, typeof(EssenceFeeling)));
-            m_IngredientTable.Add(new IngredientDropEntry(typeof(BaseCreature), false, "Skeletal Dragon", .05, typeof(EssencePersistence)));
+            m_IngredientTable.Add(new IngredientDropEntry(typeof(BaseCreature), false, "Ilshenar", .05, typeof(EssenceSingularity)));
+            m_IngredientTable.Add(new IngredientDropEntry(typeof(BaseCreature), false, "Ilshenar", .05, typeof(EssenceDiligence)));
+            m_IngredientTable.Add(new IngredientDropEntry(typeof(BaseCreature), false, "Ilshenar", .05, typeof(EssenceAchievement)));
+            m_IngredientTable.Add(new IngredientDropEntry(typeof(BaseCreature), false, "Ilshenar", .05, typeof(EssencePrecision)));
+            m_IngredientTable.Add(new IngredientDropEntry(typeof(BaseCreature), false, "Ilshenar", .05, typeof(EssencePassion)));
+            m_IngredientTable.Add(new IngredientDropEntry(typeof(BaseCreature), false, "Ilshenar", .05, typeof(EssenceOrder)));
+            m_IngredientTable.Add(new IngredientDropEntry(typeof(BaseCreature), false, "Ilshenar", .05, typeof(GoblinBlood), typeof(EssenceControl)));
+            m_IngredientTable.Add(new IngredientDropEntry(typeof(BaseCreature), false, "Ilshenar", .05, typeof(EssenceDirection)));
+            m_IngredientTable.Add(new IngredientDropEntry(typeof(BaseCreature), false, "Ilshenar", .05, typeof(EssenceFeeling)));
+            m_IngredientTable.Add(new IngredientDropEntry(typeof(BaseCreature), false, "Ilshenar", .05, typeof(EssencePersistence)));
         }
 
         public static void OnCreatureDeath(CreatureDeathEventArgs e)
@@ -181,11 +181,15 @@ namespace Server.Items
                         {
                             continue;
                         }
+                        else if (reg == "Ilshenar" && c.Map != Map.Ilshenar)
+                        {
+                            continue;
+                        }
                         else if (reg == "Abyss" && (c.Map != Map.TerMur || c.X < 235 || c.X > 1155 || c.Y < 40 || c.Y > 1040))
                         {
                             continue;
                         }
-                        else if (reg != "TerMur" && reg != "Abyss")
+                        else if (reg != "TerMur" && reg != "Abyss" && reg != "Ilshenar")
                         {
                             Server.Region r = Server.Region.Find(c.Location, c.Map);
 
