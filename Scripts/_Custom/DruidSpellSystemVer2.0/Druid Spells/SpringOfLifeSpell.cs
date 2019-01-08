@@ -24,7 +24,7 @@ namespace Server.Spells.Druidic
       public override TimeSpan CastDelayBase { get { return TimeSpan.FromSeconds(2); } }
       public override SpellCircle Circle { get { return SpellCircle.Fourth; } }
       public override double RequiredSkill{ get{ return 40.0; } }
-      public override int RequiredMana{ get{ return 30; } }
+      public override int RequiredMana{ get{ return 40; } }
 
       public SpringOfLifeSpell( Mobile caster, Item scroll ) : base( caster, scroll, m_Info )
       {
@@ -74,8 +74,8 @@ namespace Server.Spells.Druidic
                      Caster.DoBeneficial( m );
                      m.FixedParticles( 0x375A, 9, 20, 5027, EffectLayer.Head );
 
-                     int toHeal = (int)(Caster.Skills[DamageSkill].Value * 1.5);
-                     toHeal += Utility.Random( 5, 15 );
+                     int toHeal = (int)(Caster.Skills[DamageSkill].Value * 0.6);
+                     toHeal += Utility.Random( 1, 10 );
 
                      m.Heal( toHeal );
 
@@ -98,8 +98,8 @@ namespace Server.Spells.Druidic
          public InternalTimer( Mobile target, Mobile caster, int val ) : base( TimeSpan.FromSeconds( 0 ) )
          {
             double time = caster.Skills[SkillName.AnimalLore].Value * 1.2;
-            if ( time > 0 )
-               time = 00;
+            if ( time > 300 )
+               time = 300;
             Delay = TimeSpan.FromSeconds( time );
             Priority = TimerPriority.TwoFiftyMS;
 
@@ -110,8 +110,6 @@ namespace Server.Spells.Druidic
          protected override void OnTick()
          {
             m_Owner.EndAction( typeof( SpringOfLifeSpell ) );
-
-
          }
       }
 
