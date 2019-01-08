@@ -12021,9 +12021,10 @@
     <Compile Include="_Custom\AccountLogin\AccountInfo.cs" />
     <Compile Include="_Custom\AccountLogin\AccountLogin.cs" />
     <Compile Include="_Custom\BloodyBandageSystemV2.0\BloodyBandage.cs" />
+    <Compile Include="_Custom\Cleric\ClericBag.cs" />
+    <Compile Include="_Custom\Cleric\ClericSpell.cs" />
     <Compile Include="_Custom\Cleric\ClericSpellBook.cs" />
     <Compile Include="_Custom\Cleric\ClericSpellBookGump.cs" />
-    <Compile Include="_Custom\Cleric\Items\ClericBag.cs" />
     <Compile Include="_Custom\Cleric\Scrolls\AngelicFaithScroll.cs" />
     <Compile Include="_Custom\Cleric\Scrolls\BanishEvilScroll.cs" />
     <Compile Include="_Custom\Cleric\Scrolls\DampenSpiritScroll.cs" />
@@ -12038,7 +12039,6 @@
     <Compile Include="_Custom\Cleric\Scrolls\TrialByFireScroll.cs" />
     <Compile Include="_Custom\Cleric\Spells\AngelicFaithSpell.cs" />
     <Compile Include="_Custom\Cleric\Spells\BanishEvilSpell.cs" />
-    <Compile Include="_Custom\Cleric\Spells\ClericSpell.cs" />
     <Compile Include="_Custom\Cleric\Spells\DampenSpiritSpell.cs" />
     <Compile Include="_Custom\Cleric\Spells\DivineFocusSpell.cs" />
     <Compile Include="_Custom\Cleric\Spells\HammerOfFaithSpell.cs" />

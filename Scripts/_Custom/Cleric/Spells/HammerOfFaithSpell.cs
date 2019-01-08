@@ -106,8 +106,9 @@ namespace Server.Spells.Cleric
 
             public override void GetDamageTypes(Mobile wielder, out int phys, out int fire, out int cold, out int pois, out int nrgy, out int chaos, out int direct)
             {
-                phys = fire = cold = pois = chaos = direct = 0;
-                nrgy = 100;
+                fire = cold = pois = direct = nrgy = 0;
+                chaos = 90;
+                phys = 10;
             }
 
 			public override void OnDelete()
