@@ -1,86 +1,89 @@
-using System;
-using System.Collections;
 using Server.Targeting;
-using Server.Network;
-using Server.Mobiles;
-using Server.Spells;
 
 namespace Server.Spells.Cleric
 {
-	public class TouchOfLifeSpell : ClericSpell
-	{
-		public override int SpellLevel{ get{ return 3; } }
-
-		private static SpellInfo m_Info = new SpellInfo(
-			"Touch of Life", "Tactus Vitalis",
-			212,
-			9041
-		   );
-
-		public override int RequiredTithing{ get{ return 10; } }
-		public override double RequiredSkill{ get{ return 30.0; } }
-        public override string SpellDescription
+    public class TouchOfLifeSpell : ClericSpell
+    {
+        public override int SpellLevel
         {
-            get
-            {
-                return "The caster's target is healed by the heavens for a significant amount.";
-            }
+            get { return 3; }
         }
 
-		public TouchOfLifeSpell( Mobile caster, Item scroll ) : base( caster, scroll, m_Info )
-		{
-		}
+        private static SpellInfo m_Info = new SpellInfo(
+            "Touch of Life", "Tactus Vitalis",
+            212,
+            9041
+        );
 
-		public override void OnCast()
-		{
-			Caster.Target = new InternalTarget( this );
-		}
+        public override int RequiredTithing
+        {
+            get { return 10; }
+        }
 
-		public void Target( Mobile m )
-		{
-			if ( !Caster.CanSee( m ) )
-			{
-				Caster.SendLocalizedMessage( 500237 ); // Target can not be seen.
-			}
-			else if ( CheckBSequence( m, false ) )
-			{
-				SpellHelper.Turn( Caster, m );
+        public override double RequiredSkill
+        {
+            get { return 30.0; }
+        }
 
-				m.PlaySound( 0x202 );
-				m.FixedParticles( 0x376A, 1, 62, 0x480, 3, 3, EffectLayer.Waist );
-				m.FixedParticles( 0x3779, 1, 46, 0x481, 5, 3, EffectLayer.Waist );
+        public override string SpellDescription
+        {
+            get { return "The caster's target is healed by the heavens for a significant amount."; }
+        }
 
-				double toHeal = Caster.Skills[SkillName.SpiritSpeak].Value / 2.0 + Utility.Random( 5 );
+        public TouchOfLifeSpell(Mobile caster, Item scroll) : base(caster, scroll, m_Info)
+        {
+        }
 
-				toHeal *= DivineFocusSpell.GetScalar( Caster );
+        public override void OnCast()
+        {
+            Caster.Target = new InternalTarget(this);
+        }
 
-				m.Heal( (int)toHeal );
-			}
+        public void Target(Mobile m)
+        {
+            if (!Caster.CanSee(m))
+            {
+                Caster.SendLocalizedMessage(500237); // Target can not be seen.
+            }
+            else if (CheckBSequence(m, false))
+            {
+                SpellHelper.Turn(Caster, m);
 
-			FinishSequence();
-		}
+                m.PlaySound(0x202);
+                m.FixedParticles(0x376A, 1, 62, 0x480, 3, 3, EffectLayer.Waist);
+                m.FixedParticles(0x3779, 1, 46, 0x481, 5, 3, EffectLayer.Waist);
 
-		private class InternalTarget : Target
-		{
-			private TouchOfLifeSpell m_Owner;
+                double toHeal = Caster.Skills[SkillName.SpiritSpeak].Value / 2.0 + Utility.Random(5);
 
-			public InternalTarget( TouchOfLifeSpell owner ) : base( 12, false, TargetFlags.Beneficial )
-			{
-				m_Owner = owner;
-			}
+                toHeal *= DivineFocusSpell.GetScalar(Caster);
 
-			protected override void OnTarget( Mobile from, object o )
-			{
-				if ( o is Mobile )
-				{
-					m_Owner.Target( (Mobile)o );
-				}
-			}
+                m.Heal((int) toHeal);
+            }
 
-			protected override void OnTargetFinish( Mobile from )
-			{
-				m_Owner.FinishSequence();
-			}
-		}
-	}
+            FinishSequence();
+        }
+
+        private class InternalTarget : Target
+        {
+            private TouchOfLifeSpell m_Owner;
+
+            public InternalTarget(TouchOfLifeSpell owner) : base(12, false, TargetFlags.Beneficial)
+            {
+                m_Owner = owner;
+            }
+
+            protected override void OnTarget(Mobile from, object o)
+            {
+                if (o is Mobile)
+                {
+                    m_Owner.Target((Mobile) o);
+                }
+            }
+
+            protected override void OnTargetFinish(Mobile from)
+            {
+                m_Owner.FinishSequence();
+            }
+        }
+    }
 }

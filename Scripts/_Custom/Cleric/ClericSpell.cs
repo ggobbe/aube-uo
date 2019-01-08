@@ -1,15 +1,16 @@
 using System;
-using Server;
-using Server.Spells;
 using Server.Network;
 
 namespace Server.Spells.Cleric
 {
-	public abstract class ClericSpell : Spell
-	{
-		public virtual int SpellLevel{ get{ return 1; } }
+    public abstract class ClericSpell : Spell
+    {
+        public virtual int SpellLevel
+        {
+            get { return 1; }
+        }
 
-		private static int[] m_ManaTable = new int[] { 0, 4, 6, 9, 11, 14, 20, 40, 50 };
+        private static int[] m_ManaTable = new int[] {0, 4, 6, 9, 11, 14, 20, 40, 50};
 
         public abstract int RequiredTithing { get; }
 
@@ -17,122 +18,126 @@ namespace Server.Spells.Cleric
 
         public abstract string SpellDescription { get; }
 
-		public override int GetMana()
-		{
-			return m_ManaTable[SpellLevel];
-		}
+        public override int GetMana()
+        {
+            return m_ManaTable[SpellLevel];
+        }
 
-		public override TimeSpan CastDelayBase
-		{
-			get
-			{
-				return TimeSpan.FromSeconds( (3 + SpellLevel) * CastDelaySecondsPerTick );
-			}
-		}
+        public override TimeSpan CastDelayBase
+        {
+            get { return TimeSpan.FromSeconds((3 + SpellLevel) * CastDelaySecondsPerTick); }
+        }
 
-		public override SkillName CastSkill{ get{ return SkillName.Forensics; } }
-		public override bool ClearHandsOnCast{ get{ return false; } }
+        public override SkillName CastSkill
+        {
+            get { return SkillName.Forensics; }
+        }
 
-		public ClericSpell( Mobile caster, Item scroll, SpellInfo info ) : base( caster, scroll, info )
-		{
-		}
+        public override bool ClearHandsOnCast
+        {
+            get { return false; }
+        }
 
-		public override bool CheckCast()
-		{
-			if ( !base.CheckCast() )
-				return false;
+        public ClericSpell(Mobile caster, Item scroll, SpellInfo info) : base(caster, scroll, info)
+        {
+        }
 
-			if ( Caster.Skills[CastSkill].Value < RequiredSkill )
-			{
-				Caster.SendMessage( "You must have at least " + RequiredSkill + " Spirit Speak to invoke this prayer" );
-				return false;
-			}
-			else if ( Caster.TithingPoints < RequiredTithing )
-			{
-				Caster.SendMessage( "You must have at least " + RequiredTithing + " Piety to invoke this prayer." );
-				return false;
-			}
-			else if ( Caster.Mana < ScaleMana( GetMana() ) )
-			{
-				Caster.SendMessage( "You must have at least " + GetMana() + " Mana to invoke this prayer." );
-				return false;
-			}
+        public override bool CheckCast()
+        {
+            if (!base.CheckCast())
+                return false;
 
-			return true;
-		}
+            if (Caster.Skills[CastSkill].Value < RequiredSkill)
+            {
+                Caster.SendMessage("You must have at least " + RequiredSkill + " Spirit Speak to invoke this prayer");
+                return false;
+            }
+            else if (Caster.TithingPoints < RequiredTithing)
+            {
+                Caster.SendMessage("You must have at least " + RequiredTithing + " Piety to invoke this prayer.");
+                return false;
+            }
+            else if (Caster.Mana < ScaleMana(GetMana()))
+            {
+                Caster.SendMessage("You must have at least " + GetMana() + " Mana to invoke this prayer.");
+                return false;
+            }
 
-		public override bool CheckFizzle()
-		{
-			if ( !base.CheckFizzle() )
-				return false;
+            return true;
+        }
 
-			int tithing = RequiredTithing;
-			double min, max;
+        public override bool CheckFizzle()
+        {
+            if (!base.CheckFizzle())
+                return false;
 
-			GetCastSkills( out min, out max );
+            int tithing = RequiredTithing;
+            double min, max;
 
-			if ( AosAttributes.GetValue( Caster, AosAttribute.LowerRegCost ) > Utility.Random( 100 ) )
-				tithing = 0;
+            GetCastSkills(out min, out max);
 
-			int mana = ScaleMana( GetMana() );
+            if (AosAttributes.GetValue(Caster, AosAttribute.LowerRegCost) > Utility.Random(100))
+                tithing = 0;
 
-			if ( Caster.Skills[CastSkill].Value < RequiredSkill )
-			{
-				Caster.SendMessage( "You must have at least " + RequiredSkill + " Spirit Speak to invoke this prayer." );
-				return false;
-			}
-			else if ( Caster.TithingPoints < tithing )
-			{
-				Caster.SendMessage( "You must have at least " + tithing + " Piety to invoke this prayer." );
-				return false;
-			}
-			else if ( Caster.Mana < mana )
-			{
-				Caster.SendMessage( "You must have at least " + mana + " Mana to invoke this prayer." );
-				return false;
-			}
+            int mana = ScaleMana(GetMana());
 
-			Caster.TithingPoints -= tithing;
+            if (Caster.Skills[CastSkill].Value < RequiredSkill)
+            {
+                Caster.SendMessage("You must have at least " + RequiredSkill + " Spirit Speak to invoke this prayer.");
+                return false;
+            }
+            else if (Caster.TithingPoints < tithing)
+            {
+                Caster.SendMessage("You must have at least " + tithing + " Piety to invoke this prayer.");
+                return false;
+            }
+            else if (Caster.Mana < mana)
+            {
+                Caster.SendMessage("You must have at least " + mana + " Mana to invoke this prayer.");
+                return false;
+            }
 
-			return true;
-		}
+            Caster.TithingPoints -= tithing;
 
-		public override void SayMantra()
-		{
-			Caster.PublicOverheadMessage( MessageType.Regular, 0x3B2, false, Info.Mantra );
-			Caster.PlaySound( 0x24A );
-		}
+            return true;
+        }
 
-		public override void DoFizzle()
-		{
-			Caster.PlaySound( 0x1D6 );
-			Caster.NextSpellTime = Core.TickCount;
-		}
+        public override void SayMantra()
+        {
+            Caster.PublicOverheadMessage(MessageType.Regular, 0x3B2, false, Info.Mantra);
+            Caster.PlaySound(0x24A);
+        }
 
-		public override void DoHurtFizzle()
-		{
-			Caster.PlaySound( 0x1D6 );
-		}
+        public override void DoFizzle()
+        {
+            Caster.PlaySound(0x1D6);
+            Caster.NextSpellTime = Core.TickCount;
+        }
 
-		public override void OnDisturb( DisturbType type, bool message )
-		{
-			base.OnDisturb( type, message );
+        public override void DoHurtFizzle()
+        {
+            Caster.PlaySound(0x1D6);
+        }
 
-			if ( message )
-				Caster.PlaySound( 0x1D6 );
-		}
+        public override void OnDisturb(DisturbType type, bool message)
+        {
+            base.OnDisturb(type, message);
 
-		public override void OnBeginCast()
-		{
-			base.OnBeginCast();
+            if (message)
+                Caster.PlaySound(0x1D6);
+        }
 
-			Caster.FixedEffect( 0x37C4, 10, 42, 4, 3 );
-		}
+        public override void OnBeginCast()
+        {
+            base.OnBeginCast();
 
-		public override void GetCastSkills( out double min, out double max )
-		{
-			min = RequiredSkill;
-			max = RequiredSkill + 40.0;
-		}
-	}
+            Caster.FixedEffect(0x37C4, 10, 42, 4, 3);
+        }
+
+        public override void GetCastSkills(out double min, out double max)
+        {
+            min = RequiredSkill;
+            max = RequiredSkill + 40.0;
+        }
+    }
 }

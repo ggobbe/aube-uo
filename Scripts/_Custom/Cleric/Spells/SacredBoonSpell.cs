@@ -2,154 +2,160 @@ using System;
 using System.Collections;
 using Server.Targeting;
 using Server.Network;
-using Server.Mobiles;
-using Server.Spells;
 
 namespace Server.Spells.Cleric
 {
-	public class SacredBoonSpell : ClericSpell
-	{
-		public override int SpellLevel{ get{ return 4; } }
+    public class SacredBoonSpell : ClericSpell
+    {
+        public override int SpellLevel
+        {
+            get { return 4; }
+        }
 
-		private static SpellInfo m_Info = new SpellInfo(
-			"Sacred Boon", "Vir Consolatio",
-			212,
-			9041
-		   );
+        private static SpellInfo m_Info = new SpellInfo(
+            "Sacred Boon", "Vir Consolatio",
+            212,
+            9041
+        );
 
-		private static Hashtable m_Table = new Hashtable();
+        private static Hashtable m_Table = new Hashtable();
 
-		public override int RequiredTithing{ get{ return 15; } }
-		public override double RequiredSkill{ get{ return 25.0; } }
+        public override int RequiredTithing
+        {
+            get { return 15; }
+        }
+
+        public override double RequiredSkill
+        {
+            get { return 25.0; }
+        }
+
         public override string SpellDescription
         {
-            get
+            get { return "The caster's target is surrounded by a divine wind that heals small amounts of lost life over time."; }
+        }
+
+        public SacredBoonSpell(Mobile caster, Item scroll) : base(caster, scroll, m_Info)
+        {
+        }
+
+        public static bool HasEffect(Mobile m)
+        {
+            return (m_Table[m] != null);
+        }
+
+        public static void RemoveEffect(Mobile m)
+        {
+            Timer t = (Timer) m_Table[m];
+
+            if (t != null)
             {
-                return "The caster's target is surrounded by a divine wind that heals small amounts of lost life over time.";
+                t.Stop();
+                m_Table.Remove(m);
             }
         }
 
-		public SacredBoonSpell( Mobile caster, Item scroll ) : base( caster, scroll, m_Info )
-		{
-		}
+        public override void OnCast()
+        {
+            Caster.Target = new InternalTarget(this);
+        }
 
-		public static bool HasEffect( Mobile m )
-		{
-			return ( m_Table[m] != null );
-		}
+        public void Target(Mobile m)
+        {
+            if (!Caster.CanSee(m))
+            {
+                Caster.SendLocalizedMessage(500237); // Target can not be seen.
+            }
 
-		public static void RemoveEffect( Mobile m )
-		{
-			Timer t = (Timer)m_Table[m];
+            if (m_Table.Contains(m))
+            {
+                Caster.LocalOverheadMessage(MessageType.Regular, 0x481, false, "That target already has this affect.");
+            }
 
-			if ( t != null )
-			{
-				t.Stop();
-				m_Table.Remove( m );
-			}
-		}
+            else if (CheckBSequence(m, false))
+            {
+                SpellHelper.Turn(Caster, m);
 
-		public override void OnCast()
-		{
-			Caster.Target = new InternalTarget( this );
-		}
+                Timer t = new InternalTimer(m, Caster);
+                t.Start();
+                m_Table[m] = t;
+                m.PlaySound(0x202);
+                m.FixedParticles(0x376A, 1, 62, 9923, 3, 3, EffectLayer.Waist);
+                m.FixedParticles(0x3779, 1, 46, 9502, 5, 3, EffectLayer.Waist);
+                m.SendMessage("A magic aura surrounds you causing your wounds to heal faster.");
+            }
 
-		public void Target( Mobile m )
-		{
-			if ( !Caster.CanSee( m ) )
-			{
-				Caster.SendLocalizedMessage( 500237 ); // Target can not be seen.
-			}
+            FinishSequence();
+        }
 
-			if ( m_Table.Contains( m ) )
-			{
-				Caster.LocalOverheadMessage( MessageType.Regular, 0x481, false, "That target already has this affect." );
-			}
+        private class InternalTarget : Target
+        {
+            private SacredBoonSpell m_Owner;
 
-			else if ( CheckBSequence( m, false ) )
-			{
-				SpellHelper.Turn( Caster, m );
+            public InternalTarget(SacredBoonSpell owner) : base(12, false, TargetFlags.Beneficial)
+            {
+                m_Owner = owner;
+            }
 
-				Timer t = new InternalTimer( m, Caster );
-				t.Start();
-				m_Table[m] = t;
-				m.PlaySound( 0x202 );
-				m.FixedParticles( 0x376A, 1, 62, 9923, 3, 3, EffectLayer.Waist );
-				m.FixedParticles( 0x3779, 1, 46, 9502, 5, 3, EffectLayer.Waist );
-				m.SendMessage( "A magic aura surrounds you causing your wounds to heal faster." );
-			}
+            protected override void OnTarget(Mobile from, object o)
+            {
+                if (o is Mobile)
+                {
+                    m_Owner.Target((Mobile) o);
+                }
+            }
 
-			FinishSequence();
-		}
+            protected override void OnTargetFinish(Mobile from)
+            {
+                m_Owner.FinishSequence();
+            }
+        }
 
-		private class InternalTarget : Target
-		{
-			private SacredBoonSpell m_Owner;
+        private class InternalTimer : Timer
+        {
+            private Mobile dest, source;
+            private DateTime NextTick;
+            private DateTime Expire;
 
-			public InternalTarget( SacredBoonSpell owner ) : base( 12, false, TargetFlags.Beneficial )
-			{
-				m_Owner = owner;
-			}
+            public InternalTimer(Mobile m, Mobile from) : base(TimeSpan.FromSeconds(0.1), TimeSpan.FromSeconds(0.1))
+            {
+                dest = m;
+                source = from;
+                Priority = TimerPriority.FiftyMS;
+                Expire = DateTime.Now + TimeSpan.FromSeconds(30.0);
+            }
 
-			protected override void OnTarget( Mobile from, object o )
-			{
-				if ( o is Mobile )
-				{
-					m_Owner.Target( (Mobile)o );
-				}
-			}
+            protected override void OnTick()
+            {
+                if (!dest.CheckAlive())
+                {
+                    Stop();
+                    m_Table.Remove(dest);
+                }
 
-			protected override void OnTargetFinish( Mobile from )
-			{
-				m_Owner.FinishSequence();
-			}
-		}
+                if (DateTime.Now < NextTick)
+                    return;
 
-		private class InternalTimer : Timer
-		{
-			private Mobile dest, source;
-			private DateTime NextTick;
-			private DateTime Expire;
+                if (DateTime.Now >= NextTick)
+                {
+                    double heal = Utility.RandomMinMax(6, 9) + source.Skills[SkillName.Magery].Value / 50.0;
+                    heal *= DivineFocusSpell.GetScalar(source);
 
-			public InternalTimer( Mobile m, Mobile from ) : base( TimeSpan.FromSeconds( 0.1 ), TimeSpan.FromSeconds( 0.1 ) )
-			{
-				dest = m;
-				source = from;
-				Priority = TimerPriority.FiftyMS;
-				Expire = DateTime.Now + TimeSpan.FromSeconds( 30.0 );
-			}
+                    dest.Heal((int) heal);
 
-			protected override void OnTick()
-			{
-				if ( !dest.CheckAlive() )
-				{
-					Stop();
-					m_Table.Remove( dest );
-				}
+                    dest.PlaySound(0x202);
+                    dest.FixedParticles(0x376A, 1, 62, 9923, 3, 3, EffectLayer.Waist);
+                    dest.FixedParticles(0x3779, 1, 46, 9502, 5, 3, EffectLayer.Waist);
+                    NextTick = DateTime.Now + TimeSpan.FromSeconds(4);
+                }
 
-				if ( DateTime.Now < NextTick )
-					return;
-
-				if ( DateTime.Now >= NextTick )
-				{
-					double heal = Utility.RandomMinMax( 6, 9 ) + source.Skills[SkillName.Magery].Value / 50.0;
-					heal *= DivineFocusSpell.GetScalar( source );
-
-					dest.Heal( (int)heal );
-
-					dest.PlaySound( 0x202 );
-					dest.FixedParticles( 0x376A, 1, 62, 9923, 3, 3, EffectLayer.Waist );
-					dest.FixedParticles( 0x3779, 1, 46, 9502, 5, 3, EffectLayer.Waist );
-					NextTick = DateTime.Now + TimeSpan.FromSeconds( 4 );
-				}
-
-				if ( DateTime.Now >= Expire )
-				{
-					Stop();
-					if ( m_Table.Contains( dest ) )
-						m_Table.Remove( dest );
-				}
-			}
-		}
-	}
+                if (DateTime.Now >= Expire)
+                {
+                    Stop();
+                    if (m_Table.Contains(dest))
+                        m_Table.Remove(dest);
+                }
+            }
+        }
+    }
 }

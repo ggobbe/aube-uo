@@ -8,99 +8,107 @@ using Server.Spells;
 
 namespace Server.Spells.Cleric
 {
-	public class PurgeSpell : ClericSpell
-	{
-		public override int SpellLevel{ get{ return 2; } }
-
-		private static SpellInfo m_Info = new SpellInfo(
-			"Purge", "Repurgo",
-			212,
-			9041
-		   );
-
-		public override int RequiredTithing{ get{ return 5; } }
-		public override double RequiredSkill{ get{ return 10.0; } }
-        public override string SpellDescription
+    public class PurgeSpell : ClericSpell
+    {
+        public override int SpellLevel
         {
-            get
-            {
-                return "The target is cured of all poisons and has all negative stat curses removed.";
-            }
+            get { return 2; }
         }
 
-		public PurgeSpell( Mobile caster, Item scroll ) : base( caster, scroll, m_Info )
-		{
-		}
+        private static SpellInfo m_Info = new SpellInfo(
+            "Purge", "Repurgo",
+            212,
+            9041
+        );
 
-		public override void OnCast()
-		{
-			Caster.Target = new InternalTarget( this );
-		}
+        public override int RequiredTithing
+        {
+            get { return 5; }
+        }
 
-		public void Target( Mobile m )
-		{
-			if ( !Caster.CanSee( m ) )
-			{
-				Caster.SendLocalizedMessage( 500237 ); // Target can not be seen.
-			}
-			else if ( CheckBSequence( m, false ) )
-			{
-				SpellHelper.Turn( Caster, m );
+        public override double RequiredSkill
+        {
+            get { return 10.0; }
+        }
 
-				m.PlaySound( 0xF6 );
-				m.PlaySound( 0x1F7 );
-				m.FixedParticles( 0x3709, 1, 30, 9963, 13, 3, EffectLayer.Head );
+        public override string SpellDescription
+        {
+            get { return "The target is cured of all poisons and has all negative stat curses removed."; }
+        }
 
-				IEntity from = new Entity( Serial.Zero, new Point3D( m.X, m.Y, m.Z - 10 ), Caster.Map );
-				IEntity to = new Entity( Serial.Zero, new Point3D( m.X, m.Y, m.Z + 50 ), Caster.Map );
-				Effects.SendMovingParticles( from, to, 0x2255, 1, 0, false, false, 13, 3, 9501, 1, 0, EffectLayer.Head, 0x100 );
+        public PurgeSpell(Mobile caster, Item scroll) : base(caster, scroll, m_Info)
+        {
+        }
 
-				StatMod mod;
+        public override void OnCast()
+        {
+            Caster.Target = new InternalTarget(this);
+        }
 
-				mod = m.GetStatMod( "[Magic] Str Offset" );
-				if ( mod != null && mod.Offset < 0 )
-					m.RemoveStatMod( "[Magic] Str Offset" );
+        public void Target(Mobile m)
+        {
+            if (!Caster.CanSee(m))
+            {
+                Caster.SendLocalizedMessage(500237); // Target can not be seen.
+            }
+            else if (CheckBSequence(m, false))
+            {
+                SpellHelper.Turn(Caster, m);
 
-				mod = m.GetStatMod( "[Magic] Dex Offset" );
-				if ( mod != null && mod.Offset < 0 )
-					m.RemoveStatMod( "[Magic] Dex Offset" );
+                m.PlaySound(0xF6);
+                m.PlaySound(0x1F7);
+                m.FixedParticles(0x3709, 1, 30, 9963, 13, 3, EffectLayer.Head);
 
-				mod = m.GetStatMod( "[Magic] Int Offset" );
-				if ( mod != null && mod.Offset < 0 )
-					m.RemoveStatMod( "[Magic] Int Offset" );
+                IEntity from = new Entity(Serial.Zero, new Point3D(m.X, m.Y, m.Z - 10), Caster.Map);
+                IEntity to = new Entity(Serial.Zero, new Point3D(m.X, m.Y, m.Z + 50), Caster.Map);
+                Effects.SendMovingParticles(from, to, 0x2255, 1, 0, false, false, 13, 3, 9501, 1, 0, EffectLayer.Head, 0x100);
 
-				m.Paralyzed = false;
-				m.CurePoison( Caster );
+                StatMod mod;
 
-				EvilOmenSpell.TryEndEffect( m );
-				StrangleSpell.RemoveCurse( m );
-				CorpseSkinSpell.RemoveCurse( m );
-			}
+                mod = m.GetStatMod("[Magic] Str Offset");
+                if (mod != null && mod.Offset < 0)
+                    m.RemoveStatMod("[Magic] Str Offset");
 
-			FinishSequence();
-		}
+                mod = m.GetStatMod("[Magic] Dex Offset");
+                if (mod != null && mod.Offset < 0)
+                    m.RemoveStatMod("[Magic] Dex Offset");
 
-		private class InternalTarget : Target
-		{
-			private PurgeSpell m_Owner;
+                mod = m.GetStatMod("[Magic] Int Offset");
+                if (mod != null && mod.Offset < 0)
+                    m.RemoveStatMod("[Magic] Int Offset");
 
-			public InternalTarget( PurgeSpell owner ) : base( 12, false, TargetFlags.Beneficial )
-			{
-				m_Owner = owner;
-			}
+                m.Paralyzed = false;
+                m.CurePoison(Caster);
 
-			protected override void OnTarget( Mobile from, object o )
-			{
-				if ( o is Mobile )
-				{
-					m_Owner.Target( (Mobile)o );
-				}
-			}
+                EvilOmenSpell.TryEndEffect(m);
+                StrangleSpell.RemoveCurse(m);
+                CorpseSkinSpell.RemoveCurse(m);
+            }
 
-			protected override void OnTargetFinish( Mobile from )
-			{
-				m_Owner.FinishSequence();
-			}
-		}
-	}
+            FinishSequence();
+        }
+
+        private class InternalTarget : Target
+        {
+            private PurgeSpell m_Owner;
+
+            public InternalTarget(PurgeSpell owner) : base(12, false, TargetFlags.Beneficial)
+            {
+                m_Owner = owner;
+            }
+
+            protected override void OnTarget(Mobile from, object o)
+            {
+                if (o is Mobile)
+                {
+                    m_Owner.Target((Mobile) o);
+                }
+            }
+
+            protected override void OnTargetFinish(Mobile from)
+            {
+                m_Owner.FinishSequence();
+            }
+        }
+    }
 }
