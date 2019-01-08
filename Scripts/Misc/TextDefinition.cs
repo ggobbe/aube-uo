@@ -30,6 +30,12 @@ namespace Server
             this.m_String = text;
         }
 
+        public TextDefinition(Item item)
+        {
+            m_Number = string.IsNullOrEmpty(item.Name) ? item.LabelNumber : 0;
+            m_String = item.Name;
+        }
+
         public int Number
         {
             get
