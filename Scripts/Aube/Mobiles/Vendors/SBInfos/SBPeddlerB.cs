@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Server.Aube.Items;
 using Server.Items;
 using Server.Mobiles;
 
@@ -21,7 +20,9 @@ namespace Server.Aube.Mobiles.Vendors.SBInfos
         {
             public InternalBuyInfo()
             {
-                Add(new GenericBuyInfo("Quelque chose", typeof(Carrot), 30, 1, 0x49C2, 0));
+                Add(new GenericBuyInfo(typeof(PottedPlant), 1200, 3, 0x11CA, 0));
+                Add(new GenericBuyInfo(typeof(PottedPlant1), 1200, 3, 0x11CB, 0));
+                Add(new GenericBuyInfo(typeof(PottedPlant2), 1200, 3, 0x11CC, 0));
             }
         }
 

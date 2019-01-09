@@ -102,6 +102,8 @@
     <Compile Include="Aube\Mobiles\Vendors\SBInfos\SBPeddler.cs" />
     <Compile Include="Aube\Mobiles\Vendors\SBInfos\SBPeddlerA.cs" />
     <Compile Include="Aube\Mobiles\Vendors\SBInfos\SBPeddlerB.cs" />
+    <Compile Include="Aube\Mobiles\Vendors\SBInfos\SBPeddlerC.cs" />
+    <Compile Include="Aube\Mobiles\Vendors\SBInfos\SBPeddlerD.cs" />
     <Compile Include="Aube\PlayerEvent.cs" />
     <Compile Include="Commands\AccountGoldCheck.cs" />
     <Compile Include="Commands\Add.cs">

@@ -8,7 +8,7 @@ namespace Server.Aube.Mobiles.Vendors
 {
     public class Peddler : BaseVendor
     {
-        private static readonly SBInfo[] RandomSBInfos = {new SBMage(), new SBHealer(), new SBVagabond()};
+        private static readonly SBInfo[] RandomSBInfos = {new SBPeddlerA(), new SBPeddlerB(), new SBPeddlerC(), new SBPeddlerD()};
 
         private Timer _peddlerSpeech;    // le timer pour qu'il parle
 
