@@ -44,13 +44,13 @@ namespace Server.Spells.Cleric
         public void Target(Mobile m)
         {
             SlayerEntry undead = SlayerGroup.GetEntryByName(SlayerName.Silver);
-            SlayerEntry demon = SlayerGroup.GetEntryByName(SlayerName.DaemonDismissal);
+            SlayerEntry demon = SlayerGroup.GetEntryByName(SlayerName.Exorcism);
 
             if (!Caster.CanSee(m))
             {
                 Caster.SendLocalizedMessage(500237); // Target can not be seen.
             }
-            else if (!undead.Slays(m) && !demon.Slays(m))
+            else if ((undead == null || !undead.Slays(m)) && (demon == null || !demon.Slays(m)))
             {
                 Caster.SendMessage("This spell cannot be used on this type of creature.");
             }
