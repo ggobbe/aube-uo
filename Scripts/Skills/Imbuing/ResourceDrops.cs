@@ -204,6 +204,17 @@ namespace Server.Items
                     }
 
                     double toBeat = entry.Chance;
+
+                    if (entry.Region == "Ilshenar")
+                    {
+                        const int minFame = 17000;
+                        if (bc.Fame < minFame)
+                        {
+                            continue;
+                        }
+                        toBeat *= (bc.Fame - minFame) / 10000.0;
+                    }
+
                     List<Item> drops = new List<Item>();
 
                     if (bc is BaseVoidCreature)
