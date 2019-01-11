@@ -82,7 +82,7 @@ namespace Server.Items
             m_IngredientTable.Add(new IngredientDropEntry(typeof(SilverSerpent), true, .10, typeof(SilverSnakeSkin)));
 
             //Harpsichord Roll
-            m_IngredientTable.Add(new IngredientDropEntry(typeof(BaseCreature), true, "TerMur", .05, typeof(HarpsichordRoll)));
+            m_IngredientTable.Add(new IngredientDropEntry(typeof(BaseCreature), true, "Ilshenar", .05, typeof(HarpsichordRoll)));
 
             //Void Orb/Vial of Vitriol
             m_IngredientTable.Add(new IngredientDropEntry(typeof(BaseVoidCreature), true, .05, typeof(VoidOrb)));
