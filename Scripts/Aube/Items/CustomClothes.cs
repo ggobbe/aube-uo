@@ -2529,4 +2529,765 @@ namespace Server.Aube.Items
             int version = reader.ReadInt();
         }
     }
+
+    public class BandageAbdomen : BaseWaist
+    {
+        [Constructable]
+        public BandageAbdomen() : this(0)
+        {
+        }
+
+        [Constructable]
+        public BandageAbdomen(int hue) : base(0x2E48, hue)
+        {
+            Name = "Bandage Abdomen";
+            Weight = 2.0;
+        }
+
+        public BandageAbdomen(Serial serial) : base(serial)
+        {
+        }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int) 0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+    }
+
+    public class BandagePoignets : BaseClothing
+    {
+        [Constructable]
+        public BandagePoignets() : this(0)
+        {
+        }
+
+        [Constructable]
+        public BandagePoignets(int hue) : base(0x2E49, Layer.Arms, hue)
+        {
+            Name = "Bandage Poignets";
+            Weight = 2.0;
+        }
+
+        public BandagePoignets(Serial serial) : base(serial)
+        {
+        }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int) 0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+    }
+
+    public class BandagePieds : BaseClothing
+    {
+        [Constructable]
+        public BandagePieds() : this(0)
+        {
+        }
+
+        [Constructable]
+        public BandagePieds(int hue) : base(0x2E4A, Layer.InnerLegs, hue)
+        {
+            Name = "Bandages Pieds";
+            Weight = 2.0;
+        }
+
+        public BandagePieds(Serial serial) : base(serial)
+        {
+        }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int) 0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+    }
+
+    public class Carquois : ElvenQuiver
+    {
+        [Constructable]
+        public Carquois() : this(0)
+        {
+        }
+
+        [Constructable]
+        public Carquois(int hue) : base()
+        {
+            Name = "Carquois";
+            ItemID = 0x2E4B;
+            Hue = hue;
+            Weight = 2.0;
+        }
+
+        public Carquois(Serial serial) : base(serial)
+        {
+        }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int) 0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+    }
+
+    public class CeintureCouteaux : BaseWaist
+    {
+        [Constructable]
+        public CeintureCouteaux() : this(0)
+        {
+        }
+
+        [Constructable]
+        public CeintureCouteaux(int hue) : base(0x2E4C, hue)
+        {
+            Name = "Ceinture à Couteaux";
+            Weight = 2.0;
+        }
+
+        public CeintureCouteaux(Serial serial) : base(serial)
+        {
+        }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int) 0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+    }
+
+    public class CeinturePochette : BaseWaist
+    {
+        [Constructable]
+        public CeinturePochette() : this(0)
+        {
+        }
+
+        [Constructable]
+        public CeinturePochette(int hue) : base(0x2E4D, hue)
+        {
+            Name = "Ceinture à Pochette";
+            Weight = 2.0;
+        }
+
+        public CeinturePochette(Serial serial) : base(serial)
+        {
+        }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int) 0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+    }
+
+    public class CeintureBarbare : BaseWaist
+    {
+        [Constructable]
+        public CeintureBarbare() : this(0)
+        {
+        }
+
+        [Constructable]
+        public CeintureBarbare(int hue) : base(0x2E4E, hue)
+        {
+            Name = "Ceinture Barbare";
+            Weight = 2.0;
+        }
+
+        public CeintureBarbare(Serial serial) : base(serial)
+        {
+        }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int) 0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+    }
+
+    public class CeintureCloutee : BaseWaist
+    {
+        [Constructable]
+        public CeintureCloutee() : this(0)
+        {
+        }
+
+        [Constructable]
+        public CeintureCloutee(int hue) : base(0x2E4F, hue)
+        {
+            Name = "Ceinture Cloutée";
+            Weight = 2.0;
+        }
+
+        public CeintureCloutee(Serial serial) : base(serial)
+        {
+        }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int) 0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+    }
+
+    public class CeintureCorsaire : BaseWaist
+    {
+        [Constructable]
+        public CeintureCorsaire() : this(0)
+        {
+        }
+
+        [Constructable]
+        public CeintureCorsaire(int hue) : base(0x2E50, hue)
+        {
+            Name = "Ceinture de Corsaire";
+            Weight = 2.0;
+        }
+
+        public CeintureCorsaire(Serial serial) : base(serial)
+        {
+        }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int) 0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+    }
+
+    public class CeintureVoyage : BaseWaist
+    {
+        [Constructable]
+        public CeintureVoyage() : this(0)
+        {
+        }
+
+        [Constructable]
+        public CeintureVoyage(int hue) : base(0x2E51, hue)
+        {
+            Name = "Ceinture de Voyage";
+            Weight = 2.0;
+        }
+
+        public CeintureVoyage(Serial serial) : base(serial)
+        {
+        }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int) 0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+    }
+
+    public class CeintureOssuaire : BaseWaist
+    {
+        [Constructable]
+        public CeintureOssuaire() : this(0)
+        {
+        }
+
+        [Constructable]
+        public CeintureOssuaire(int hue) : base(0x2E52, hue)
+        {
+            Name = "Ceinture d'Ossuaire";
+            Weight = 2.0;
+        }
+
+        public CeintureOssuaire(Serial serial) : base(serial)
+        {
+        }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int) 0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+    }
+
+    public class CeintureDouble : BaseWaist
+    {
+        [Constructable]
+        public CeintureDouble() : this(0)
+        {
+        }
+
+        [Constructable]
+        public CeintureDouble(int hue) : base(0x2E53, hue)
+        {
+            Name = "Deinture Double";
+            Weight = 2.0;
+        }
+
+        public CeintureDouble(Serial serial) : base(serial)
+        {
+        }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int) 0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+    }
+
+    public class CeintureEcharpe : BaseWaist
+    {
+        [Constructable]
+        public CeintureEcharpe() : this(0)
+        {
+        }
+
+        [Constructable]
+        public CeintureEcharpe(int hue) : base(0x2E54, hue)
+        {
+            Name = "Ceinture en Echarpe";
+            Weight = 2.0;
+        }
+
+        public CeintureEcharpe(Serial serial) : base(serial)
+        {
+        }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int) 0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+    }
+
+    public class CeintureGitane : BaseWaist
+    {
+        [Constructable]
+        public CeintureGitane() : this(0)
+        {
+        }
+
+        [Constructable]
+        public CeintureGitane(int hue) : base(0x2E55, hue)
+        {
+            Name = "Ceinture Gitane";
+            Weight = 2.0;
+        }
+
+        public CeintureGitane(Serial serial) : base(serial)
+        {
+        }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int) 0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+    }
+
+    public class CeintureGuerriere : BaseWaist
+    {
+        [Constructable]
+        public CeintureGuerriere() : this(0)
+        {
+        }
+
+        [Constructable]
+        public CeintureGuerriere(int hue) : base(0x2E56, hue)
+        {
+            Name = "Ceinture Guerriere";
+            Weight = 2.0;
+        }
+
+        public CeintureGuerriere(Serial serial) : base(serial)
+        {
+        }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int) 0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+    }
+
+    public class CeintureLacee : BaseWaist
+    {
+        [Constructable]
+        public CeintureLacee() : this(0)
+        {
+        }
+
+        [Constructable]
+        public CeintureLacee(int hue) : base(0x2E57, hue)
+        {
+            Name = "Ceinture Lacée";
+            Weight = 2.0;
+        }
+
+        public CeintureLacee(Serial serial) : base(serial)
+        {
+        }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int) 0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+    }
+
+    public class CeintureRenforcee : BaseWaist
+    {
+        [Constructable]
+        public CeintureRenforcee() : this(0)
+        {
+        }
+
+        [Constructable]
+        public CeintureRenforcee(int hue) : base(0x2E58, hue)
+        {
+            Name = "Ceinture renforcée";
+            Weight = 2.0;
+        }
+
+        public CeintureRenforcee(Serial serial) : base(serial)
+        {
+        }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int) 0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+    }
+
+    public class CeintureRoublarde : BaseWaist
+    {
+        [Constructable]
+        public CeintureRoublarde() : this(0)
+        {
+        }
+
+        [Constructable]
+        public CeintureRoublarde(int hue) : base(0x2E59, hue)
+        {
+            Name = "Ceinture Roublarde";
+            Weight = 2.0;
+        }
+
+        public CeintureRoublarde(Serial serial) : base(serial)
+        {
+        }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int) 0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+    }
+
+    public class Ceinturon : BaseWaist
+    {
+        [Constructable]
+        public Ceinturon() : this(0)
+        {
+        }
+
+        [Constructable]
+        public Ceinturon(int hue) : base(0x2E5A, hue)
+        {
+            Name = "Ceinturon";
+            Weight = 2.0;
+        }
+
+        public Ceinturon(Serial serial) : base(serial)
+        {
+        }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int) 0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+    }
+
+    public class EpaulettesCorne : BaseWaist
+    {
+        [Constructable]
+        public EpaulettesCorne() : this(0)
+        {
+        }
+
+        [Constructable]
+        public EpaulettesCorne(int hue) : base(0x2E5B, hue)
+        {
+            Name = "Epaulettes à Corne";
+            Weight = 2.0;
+        }
+
+        public EpaulettesCorne(Serial serial) : base(serial)
+        {
+        }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int) 0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+    }
+
+    public class FixationCroisee : BaseWaist
+    {
+        [Constructable]
+        public FixationCroisee() : this(0)
+        {
+        }
+
+        [Constructable]
+        public FixationCroisee(int hue) : base(0x2E5C, hue)
+        {
+            Name = "Fixation Croisée";
+            Weight = 2.0;
+        }
+
+        public FixationCroisee(Serial serial) : base(serial)
+        {
+        }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int) 0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+    }
+
+    public class GardeEpeeTransversale : BaseWaist
+    {
+        [Constructable]
+        public GardeEpeeTransversale() : this(0)
+        {
+        }
+
+        [Constructable]
+        public GardeEpeeTransversale(int hue) : base(0x2E5D, hue)
+        {
+            Name = "Garde d'Epée Transversale";
+            Weight = 2.0;
+        }
+
+        public GardeEpeeTransversale(Serial serial) : base(serial)
+        {
+        }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int) 0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+    }
+
+    public class VoileProtecteur : BaseWaist
+    {
+        [Constructable]
+        public VoileProtecteur() : this(0)
+        {
+        }
+
+        [Constructable]
+        public VoileProtecteur(int hue) : base(0x2E5E, hue)
+        {
+            Name = "Voile Protecteur";
+            Weight = 2.0;
+        }
+
+        public VoileProtecteur(Serial serial) : base(serial)
+        {
+        }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int) 0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+    }
 }

@@ -45,7 +45,7 @@ namespace Server.Engines.Craft
 
         KrampusMinionHat = 586,
         KrampusMinionBoots = 587,
-        KrampusMinionTalons = 588,        
+        KrampusMinionTalons = 588,
     }
 
     public class DefTailoring : CraftSystem
@@ -204,7 +204,7 @@ namespace Server.Engines.Craft
             }
 
             #endregion
-            
+
             #region Hats
             AddCraft(typeof(SkullCap), 1011375, 1025444, 0.0, 25.0, typeof(Cloth), 1044455, 2, 1044287);
             AddCraft(typeof(Bandana), 1011375, 1025440, 0.0, 25.0, typeof(Cloth), 1044455, 2, 1044287);
@@ -226,7 +226,7 @@ namespace Server.Engines.Craft
             {
                 index = AddCraft(typeof(ClothNinjaHood), 1011375, 1030202, 80.0, 105.0, typeof(Cloth), 1044455, 13, 1044287);
 
-                index = AddCraft(typeof(Kasa), 1011375, 1030211, 60.0, 85.0, typeof(Cloth), 1044455, 12, 1044287);	
+                index = AddCraft(typeof(Kasa), 1011375, 1030211, 60.0, 85.0, typeof(Cloth), 1044455, 12, 1044287);
             }
 
             AddCraft(typeof(OrcMask), 1011375, 1025147, 75.0, 100.0, typeof(Cloth), 1044455, 12, 1044287);
@@ -287,7 +287,7 @@ namespace Server.Engines.Craft
             AddCraft(typeof(LongPants), 1111747, 1025433, 24.8, 49.8, typeof(Cloth), 1044455, 8, 1044287);
             AddCraft(typeof(Kilt), 1111747, 1025431, 20.7, 45.7, typeof(Cloth), 1044455, 8, 1044287);
             AddCraft(typeof(Skirt), 1111747, 1025398, 29.0, 54.0, typeof(Cloth), 1044455, 10, 1044287);
-            
+
             if (Core.AOS)
                 AddCraft(typeof(FurSarong), 1111747, 1028971, 35.0, 60.0, typeof(Cloth), 1044455, 12, 1044287);
 
@@ -419,7 +419,7 @@ namespace Server.Engines.Craft
 
                 index = AddCraft(typeof(BrocadeSquareGozaMatSouthDeed), 1015283, 1030410, 55.0, 80.0, typeof(Cloth), 1044455, 25, 1044287);
             }
-            
+
             #endregion
 
             #region Footwear
@@ -708,7 +708,7 @@ namespace Server.Engines.Craft
             #region Bone Armor
             index = AddCraft(typeof(BoneHelm), 1049149, 1025206, 85.0, 110.0, typeof(Leather), 1044462, 4, 1044463);
             AddRes(index, typeof(Bone), 1049064, 2, 1049063);
-			
+
             index = AddCraft(typeof(BoneGloves), 1049149, 1025205, 89.0, 114.0, typeof(Leather), 1044462, 6, 1044463);
             AddRes(index, typeof(Bone), 1049064, 2, 1049063);
 
@@ -717,7 +717,7 @@ namespace Server.Engines.Craft
 
             index = AddCraft(typeof(BoneLegs), 1049149, 1025202, 95.0, 120.0, typeof(Leather), 1044462, 10, 1044463);
             AddRes(index, typeof(Bone), 1049064, 6, 1049063);
-		
+
             index = AddCraft(typeof(BoneChest), 1049149, 1025199, 96.0, 121.0, typeof(Leather), 1044462, 12, 1044463);
             AddRes(index, typeof(Bone), 1049064, 10, 1049063);
 
@@ -829,6 +829,29 @@ namespace Server.Engines.Craft
             AddCraft(typeof(RobeSansManches), 1111747, "Robe sans Manches", 53.9, 78.9, typeof(Cloth), 1044455, 16, 1044287);
             AddCraft(typeof(TogeSombre), 1111747, "Toge Sombre", 53.9, 78.9, typeof(Cloth), 1044455, 16, 1044287);
             AddCraft(typeof(RobePelerin), 1111747, "Robe de Pèlerin", 53.9, 78.9, typeof(Cloth), 1044455, 16, 1044287);
+            AddCraft(typeof(BandageAbdomen), 1015283, "Bandage Abdomen", 20.0, 45.0, typeof(Cloth), 1044455, 6, 1044287);
+            AddCraft(typeof(BandagePoignets), 1015283, "Bandage Poignets", 20.0, 45.0, typeof(Cloth), 1044455, 6, 1044287);
+            AddCraft(typeof(BandagePieds), 1015283, "Bandages Pieds", 20.0, 45.0, typeof(Cloth), 1044455, 6, 1044287);
+            AddCraft(typeof(Carquois), 1015283, "Carquois", 65.0, 115.0, typeof(Leather), 1044462, 28, 1044463);
+            AddCraft(typeof(CeintureCouteaux), 1015283, "Ceinture à Couteaux", 20.0, 45.0, typeof(Cloth), 1044455, 6, 1044287);
+            AddCraft(typeof(CeinturePochette), 1015283, "Ceinture à Pochette", 20.0, 45.0, typeof(Cloth), 1044455, 6, 1044287);
+            AddCraft(typeof(CeintureBarbare), 1015283, "Ceinture Barbare", 20.0, 45.0, typeof(Cloth), 1044455, 6, 1044287);
+            AddCraft(typeof(CeintureCloutee), 1015283, "Ceinture Cloutée", 20.0, 45.0, typeof(Cloth), 1044455, 6, 1044287);
+            AddCraft(typeof(CeintureCorsaire), 1015283, "Ceinture de Corsaire", 20.0, 45.0, typeof(Cloth), 1044455, 6, 1044287);
+            AddCraft(typeof(CeintureVoyage), 1015283, "Ceinture de Voyage", 20.0, 45.0, typeof(Cloth), 1044455, 6, 1044287);
+            AddCraft(typeof(CeintureOssuaire), 1015283, "Ceinture d'Ossuaire", 20.0, 45.0, typeof(Cloth), 1044455, 6, 1044287);
+            AddCraft(typeof(CeintureDouble), 1015283, "Deinture Double", 20.0, 45.0, typeof(Cloth), 1044455, 6, 1044287);
+            AddCraft(typeof(CeintureEcharpe), 1015283, "Ceinture en Echarpe", 20.0, 45.0, typeof(Cloth), 1044455, 6, 1044287);
+            AddCraft(typeof(CeintureGitane), 1015283, "Ceinture Gitane", 20.0, 45.0, typeof(Cloth), 1044455, 6, 1044287);
+            AddCraft(typeof(CeintureGuerriere), 1015283, "Ceinture Guerriere", 20.0, 45.0, typeof(Cloth), 1044455, 6, 1044287);
+            AddCraft(typeof(CeintureLacee), 1015283, "Ceinture Lacée", 20.0, 45.0, typeof(Cloth), 1044455, 6, 1044287);
+            AddCraft(typeof(CeintureRenforcee), 1015283, "Ceinture renforcée", 20.0, 45.0, typeof(Cloth), 1044455, 6, 1044287);
+            AddCraft(typeof(CeintureRoublarde), 1015283, "Ceinture Roublarde", 20.0, 45.0, typeof(Cloth), 1044455, 6, 1044287);
+            AddCraft(typeof(Ceinturon), 1015283, "Ceinturon", 20.0, 45.0, typeof(Cloth), 1044455, 6, 1044287);
+            AddCraft(typeof(EpaulettesCorne), 1015283, "Epaulettes à Corne", 20.0, 45.0, typeof(Cloth), 1044455, 6, 1044287);
+            AddCraft(typeof(FixationCroisee), 1015283, "Fixation Croisée", 20.0, 45.0, typeof(Cloth), 1044455, 6, 1044287);
+            AddCraft(typeof(GardeEpeeTransversale), 1015283, "Garde d'Epée Transversale", 20.0, 45.0, typeof(Cloth), 1044455, 6, 1044287);
+            AddCraft(typeof(VoileProtecteur), 1015283, "Voile Protecteur", 20.0, 45.0, typeof(Cloth), 1044455, 6, 1044287);
         }
 
         private void CutUpCloth(Mobile m, CraftItem craftItem, ITool tool)
