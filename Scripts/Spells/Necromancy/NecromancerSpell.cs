@@ -59,12 +59,13 @@ namespace Server.Spells.Necromancy
         public override void GetCastSkills(out double min, out double max)
         {
             min = this.RequiredSkill;
-            max = this.Scroll != null ? min : this.RequiredSkill + 40.0;
 
             if (m_Caster.Skills.Chivalry.Base > 0)
             {
-                max += m_Caster.Skills.Chivalry.Base;
+                min += m_Caster.Skills.Chivalry.Base;
             }
+
+            max = this.Scroll != null ? min : this.RequiredSkill + 40.0;
         }
 
         public override bool ConsumeReagents()

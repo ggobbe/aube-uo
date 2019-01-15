@@ -131,13 +131,13 @@ namespace Server.Spells.Chivalry
 		public override void GetCastSkills(out double min, out double max)
 		{
 			min = RequiredSkill;
-			max = RequiredSkill + 50.0;
 
 		    if (m_Caster.Skills.Necromancy.Base > 0)
 		    {
 		        min += m_Caster.Skills.Necromancy.Base;
-		        max += m_Caster.Skills.Necromancy.Base;
 		    }
+
+			max = RequiredSkill + 50.0;
 		}
 
 		public override int GetMana()
