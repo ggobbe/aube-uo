@@ -325,7 +325,7 @@ namespace Server.Items
             if (Quantity > 0 && Content == BeverageType.Coffee)
             {
                 from.PublicOverheadMessage(Network.MessageType.Regular, 0x3B2, 1155739); // *You sip from the mug*
-                Pour_OnTarget(from, from);                
+                Pour_OnTarget(from, from);
             }
             else
             {
@@ -1318,7 +1318,7 @@ namespace Server.Items
                         if (!m_Drunk.Mounted)
                         {
                             // turn in a random direction
-                            m_Drunk.Direction = (Direction)Utility.Random(8);
+                            //m_Drunk.Direction = (Direction)Utility.Random(8);
 
                             // heave
                             if (Core.SA)
@@ -1434,7 +1434,7 @@ namespace Server.Items
             else if (targ is BaseWaterContainer)
             {
                 BaseWaterContainer bwc = targ as BaseWaterContainer;
-				
+
                 if (Content != BeverageType.Water)
                 {
                     from.SendLocalizedMessage(500842); // Can't pour that in there.
@@ -1444,7 +1444,7 @@ namespace Server.Items
                     from.SendLocalizedMessage(500841); // That has something in it.
                 }
                 else
-                { 
+                {
                     int itNeeds = Math.Min((bwc.MaxQuantity - bwc.Quantity), Quantity);
 
                     if (itNeeds > 0)
