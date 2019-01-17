@@ -840,7 +840,7 @@ namespace Server.Engines.Craft
             AddCraft(typeof(CeintureCorsaire), 1015283, "Ceinture de Corsaire", 20.0, 45.0, typeof(Cloth), 1044455, 6, 1044287);
             AddCraft(typeof(CeintureVoyage), 1015283, "Ceinture de Voyage", 20.0, 45.0, typeof(Cloth), 1044455, 6, 1044287);
             AddCraft(typeof(CeintureOssuaire), 1015283, "Ceinture d'Ossuaire", 20.0, 45.0, typeof(Cloth), 1044455, 6, 1044287);
-            AddCraft(typeof(CeintureDouble), 1015283, "Deinture Double", 20.0, 45.0, typeof(Cloth), 1044455, 6, 1044287);
+            AddCraft(typeof(CeintureDouble), 1015283, "Ceinture Double", 20.0, 45.0, typeof(Cloth), 1044455, 6, 1044287);
             AddCraft(typeof(CeintureEcharpe), 1015283, "Ceinture en Echarpe", 20.0, 45.0, typeof(Cloth), 1044455, 6, 1044287);
             AddCraft(typeof(CeintureGitane), 1015283, "Ceinture Gitane", 20.0, 45.0, typeof(Cloth), 1044455, 6, 1044287);
             AddCraft(typeof(CeintureGuerriere), 1015283, "Ceinture Guerriere", 20.0, 45.0, typeof(Cloth), 1044455, 6, 1044287);
