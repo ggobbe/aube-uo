@@ -2219,7 +2219,7 @@ namespace Server.Mobiles
 
                     if (info.Defender.InRange(Location, Core.GlobalMaxUpdateRange) && info.Defender.DamageEntries.Any(de => de.Damager == this))
                     {
-                        info.Defender.RegisterDamage(amount, from);
+                        info.Defender.RegisterDamage(amount / 2, from);
                     }
 
                     if (info.Defender.Player && from.CanBeHarmful(info.Defender, false))
@@ -2234,7 +2234,7 @@ namespace Server.Mobiles
 
                     if (info.Attacker.InRange(Location, Core.GlobalMaxUpdateRange) && info.Attacker.DamageEntries.Any(de => de.Damager == this))
                     {
-                        info.Attacker.RegisterDamage(amount, from);
+                        info.Attacker.RegisterDamage(amount / 2, from);
                     }
 
                     if (info.Attacker.Player && from.CanBeHarmful(info.Attacker, false))
@@ -3572,11 +3572,6 @@ namespace Server.Mobiles
 
 		public override void OnDamage(int amount, Mobile from, bool willKill)
 		{
-            if (Core.SA && from != null)
-            {
-                from.RegisterDamage(amount, this);
-            }
-
 			int disruptThreshold;
 
 			if (!Core.AOS)
