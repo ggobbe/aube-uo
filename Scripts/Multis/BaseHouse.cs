@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-
+using Knives.TownHouses;
 using Server.Accounting;
 using Server.ContextMenus;
 using Server.Guilds;
@@ -4053,6 +4053,11 @@ namespace Server.Multis
             for (int i = 0; i < list.Count; ++i)
             {
                 BaseHouse h = list[i];
+
+                // Ignore TownHouses forced to be public
+                var th = h as TownHouse;
+                if (th != null && th.ForSaleSign != null && th.ForSaleSign.ForcePublic)
+                    continue;
 
                 if (!h.Deleted)
                     count++;
