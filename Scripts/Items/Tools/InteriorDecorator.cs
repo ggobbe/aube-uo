@@ -8,10 +8,18 @@ namespace Server.Items
 {
     public enum DecorateCommand
     {
-        None,
+        None = 0,
         Turn,
         Up,
-        Down
+        Down,
+        North,
+        NorthEast,
+        East,
+        SouthEast,
+        South,
+        SouthWest,
+        West,
+        NorthWest
     }
 
     public class InteriorDecorator : Item
@@ -102,35 +110,40 @@ namespace Server.Items
             {
                 m_Decorator = decorator;
 
-                AddBackground(0, 0, 200, 200, 2600);
+                AddBackground(0, 0, 200, 380, 2600);
 
-                AddButton(50, 45, (decorator.Command == DecorateCommand.Turn ? 2154 : 2152), 2154, 1, GumpButtonType.Reply, 0);
+                AddCommandButton(decorator, 50, 45, DecorateCommand.Turn);
                 AddHtmlLocalized(90, 50, 70, 40, 1018323, false, false); // Turn
 
-                AddButton(50, 95, (decorator.Command == DecorateCommand.Up ? 2154 : 2152), 2154, 2, GumpButtonType.Reply, 0);
+                AddCommandButton(decorator, 50, 95, DecorateCommand.Up);
                 AddHtmlLocalized(90, 100, 70, 40, 1018324, false, false); // Up
 
-                AddButton(50, 145, (decorator.Command == DecorateCommand.Down ? 2154 : 2152), 2154, 3, GumpButtonType.Reply, 0);
+                AddCommandButton(decorator, 50, 145, DecorateCommand.Down);
                 AddHtmlLocalized(90, 150, 70, 40, 1018325, false, false); // Down
+
+                AddHtml(87, 200, 70, 40, "Move", false, false);
+
+                int x = 35, y = 225, xOff = 25, yOff = 25;
+                AddImage(x + xOff*2 - 6, y + yOff*2 - 13, 0x139D);    // 44x50
+                AddCommandButton(decorator, x + xOff*2, y + yOff*0, DecorateCommand.NorthWest);
+                AddCommandButton(decorator, x + xOff*3, y + yOff*1, DecorateCommand.North);
+                AddCommandButton(decorator, x + xOff*4, y + yOff*2, DecorateCommand.NorthEast);
+                AddCommandButton(decorator, x + xOff*3, y + yOff*3, DecorateCommand.East);
+                AddCommandButton(decorator, x + xOff*2, y + yOff*4, DecorateCommand.SouthEast);
+                AddCommandButton(decorator, x + xOff*1, y + yOff*3, DecorateCommand.South);
+                AddCommandButton(decorator, x + xOff*0, y + yOff*2, DecorateCommand.SouthWest);
+                AddCommandButton(decorator, x + xOff*1, y + yOff*1, DecorateCommand.West);
+            }
+
+            private void AddCommandButton(InteriorDecorator decorator, int x, int y, DecorateCommand command)
+            {
+                AddButton(x, y, (decorator.Command == command ? 2154 : 2152), 2154, (int)command, GumpButtonType.Reply, 0);
             }
 
             public override void OnResponse(NetState sender, RelayInfo info)
             {
-                DecorateCommand command = DecorateCommand.None;
+                var command = (DecorateCommand) info.ButtonID;
                 Mobile m = sender.Mobile;
-
-                switch (info.ButtonID)
-                {
-                    case 1:
-                        command = DecorateCommand.Turn;
-                        break;
-                    case 2:
-                        command = DecorateCommand.Up;
-                        break;
-                    case 3:
-                        command = DecorateCommand.Down;
-                        break;
-                }
 
                 if (command != DecorateCommand.None)
                 {
@@ -250,6 +263,30 @@ namespace Server.Items
                             case DecorateCommand.Turn:
                                 Turn(item, from);
                                 break;
+                            case DecorateCommand.North:
+                                Move(item, from, 0, -1);
+                                break;
+                            case DecorateCommand.NorthEast:
+                                Move(item, from, 1, -1);
+                                break;
+                            case DecorateCommand.East:
+                                Move(item, from, 1, 0);
+                                break;
+                            case DecorateCommand.SouthEast:
+                                Move(item, from, 1, 1);
+                                break;
+                            case DecorateCommand.South:
+                                Move(item, from, 0, 1);
+                                break;
+                            case DecorateCommand.SouthWest:
+                                Move(item, from, -1, 1);
+                                break;
+                            case DecorateCommand.West:
+                                Move(item, from, -1, 0);
+                                break;
+                            case DecorateCommand.NorthWest:
+                                Move(item, from, -1, -1);
+                                break;
                         }
                     }
                 }
@@ -317,6 +354,19 @@ namespace Server.Items
                     item.Location = new Point3D(item.Location, item.Z - 1);
                 else
                     from.SendLocalizedMessage(1042275); // You cannot lower it down any further.
+            }
+
+            private static void Move(Item item, Mobile from, int x, int y)
+            {
+                var initialLocation = item.Location;
+                item.Location = new Point3D(item.X + x, item.Y + y, item.Z);
+
+                BaseHouse house = BaseHouse.FindHouseAt(from);
+                if(!house.IsInside(item))
+                {
+                    from.SendLocalizedMessage(1042270); // That is not in your house.
+                    item.Location = initialLocation;
+                }
             }
 
             private static int GetFloorZ(Item item)
