@@ -503,36 +503,37 @@ namespace Server.Mobiles
 	        new ChangeHairstyleEntry(60900, 50900, XOffset, YOffset, 0x2047, 0x2047),
 	        new ChangeHairstyleEntry(60903, 50903, XOffset, YOffset, 0x204a, 0x204a),
 	        new ChangeHairstyleEntry(60703, 50703, XOffset, YOffset, 0x2044, 0x2044),
-	        new ChangeHairstyleEntry(60573, 50573, XOffset, YOffset, 0x2294, 0x2294),
-	        new ChangeHairstyleEntry(60584, 50584, XOffset, YOffset, 0x2295, 0x2295),
-	        new ChangeHairstyleEntry(60820, 50820, XOffset, YOffset, 0x2296, 0x2296),
-	        new ChangeHairstyleEntry(60824, 50824, XOffset, YOffset, 0x2297, 0x2297),
-	        new ChangeHairstyleEntry(60825, 50825, XOffset, YOffset, 0x2298, 0x2298),
-	        new ChangeHairstyleEntry(60827, 50827, XOffset, YOffset, 0x2299, 0x2299),
-	        new ChangeHairstyleEntry(60828, 50828, XOffset, YOffset, 0x229A, 0x229A),
-	        new ChangeHairstyleEntry(60998, 50998, XOffset, YOffset, 0x229B, 0x229B),
-	        new ChangeHairstyleEntry(60845, 50845, XOffset, YOffset, 0x229C, 0x229C),
-	        new ChangeHairstyleEntry(60846, 50846, XOffset, YOffset, 0x229D, 0x229D),
-	        new ChangeHairstyleEntry(60847, 50847, XOffset, YOffset, 0x229E, 0x229E),
-	        new ChangeHairstyleEntry(60848, 50848, XOffset, YOffset, 0x229F, 0x229F),
-	        new ChangeHairstyleEntry(60849, 50849, XOffset, YOffset, 0x22A0, 0x22A0),
-	        new ChangeHairstyleEntry(60850, 50850, XOffset, YOffset, 0x22A1, 0x22A1),
-	        new ChangeHairstyleEntry(60851, 50851, XOffset, YOffset, 0x22A2, 0x22A2),
-	        new ChangeHairstyleEntry(60852, 50852, XOffset, YOffset, 0x22A3, 0x22A3),
-	        new ChangeHairstyleEntry(60853, 50853, XOffset, YOffset, 0x22A4, 0x22A4),
-	        new ChangeHairstyleEntry(60854, 50854, XOffset, YOffset, 0x22A5, 0x22A5),
-	        new ChangeHairstyleEntry(60855, 50855, XOffset, YOffset, 0x22A6, 0x22A6),
-	        new ChangeHairstyleEntry(60856, 50856, XOffset, YOffset, 0x22A7, 0x22A7),
-	        new ChangeHairstyleEntry(60857, 50857, XOffset, YOffset, 0x22A8, 0x22A8),
-	        new ChangeHairstyleEntry(60858, 50858, XOffset, YOffset, 0x22A9, 0x22A9),
-	        new ChangeHairstyleEntry(60859, 50859, XOffset, YOffset, 0x22AA, 0x22AA),
-	        new ChangeHairstyleEntry(60860, 50860, XOffset, YOffset, 0x22AB, 0x22AB),
-	        new ChangeHairstyleEntry(60861, 50861, XOffset, YOffset, 0x22AC, 0x22AC),
-	        new ChangeHairstyleEntry(60862, 50862, XOffset, YOffset, 0x22AD, 0x22AD),
-	        new ChangeHairstyleEntry(60863, 50863, XOffset, YOffset, 0x22AE, 0x22AE),
-	        new ChangeHairstyleEntry(60864, 50864, XOffset, YOffset, 0x22AF, 0x22AF),
-	        new ChangeHairstyleEntry(60949, 50949, XOffset, YOffset, 0x22B0, 0x22B0),
-	        new ChangeHairstyleEntry(60988, 50988, XOffset, YOffset, 0x22B1, 0x22B1),
+	        // customs
+	        new ChangeHairstyleEntry(61422, 51422, XOffset, YOffset, 0x2294, 0x2294),
+	        new ChangeHairstyleEntry(61423, 51423, XOffset, YOffset, 0x2295, 0x2295),
+	        new ChangeHairstyleEntry(61424, 51424, XOffset, YOffset, 0x2296, 0x2296),
+	        new ChangeHairstyleEntry(61425, 51425, XOffset, YOffset, 0x2297, 0x2297),
+	        new ChangeHairstyleEntry(61426, 51426, XOffset, YOffset, 0x2298, 0x2298),
+	        new ChangeHairstyleEntry(61427, 51427, XOffset, YOffset, 0x2299, 0x2299),
+	        new ChangeHairstyleEntry(61428, 51428, XOffset, YOffset, 0x229A, 0x229A),
+	        new ChangeHairstyleEntry(61429, 51429, XOffset, YOffset, 0x229B, 0x229B),
+	        new ChangeHairstyleEntry(61430, 51430, XOffset, YOffset, 0x229C, 0x229C),
+	        new ChangeHairstyleEntry(61431, 51431, XOffset, YOffset, 0x229D, 0x229D),
+	        new ChangeHairstyleEntry(61432, 51432, XOffset, YOffset, 0x229E, 0x229E),
+	        new ChangeHairstyleEntry(61421, 51421, XOffset, YOffset, 0x229F, 0x229F),
+	        new ChangeHairstyleEntry(61433, 51433, XOffset, YOffset, 0x22A0, 0x22A0),
+	        new ChangeHairstyleEntry(61434, 51434, XOffset, YOffset, 0x22A1, 0x22A1),
+	        new ChangeHairstyleEntry(61435, 51435, XOffset, YOffset, 0x22A2, 0x22A2),
+	        new ChangeHairstyleEntry(61436, 51436, XOffset, YOffset, 0x22A3, 0x22A3),
+	        new ChangeHairstyleEntry(61437, 51437, XOffset, YOffset, 0x22A4, 0x22A4),
+	        new ChangeHairstyleEntry(61438, 51438, XOffset, YOffset, 0x22A5, 0x22A5),
+	        new ChangeHairstyleEntry(61439, 51439, XOffset, YOffset, 0x22A6, 0x22A6),
+	        new ChangeHairstyleEntry(61440, 51440, XOffset, YOffset, 0x22A7, 0x22A7),
+	        new ChangeHairstyleEntry(61441, 51441, XOffset, YOffset, 0x22A8, 0x22A8),
+	        new ChangeHairstyleEntry(61442, 51442, XOffset, YOffset, 0x22A9, 0x22A9),
+	        new ChangeHairstyleEntry(61443, 51443, XOffset, YOffset, 0x22AA, 0x22AA),
+	        new ChangeHairstyleEntry(61444, 51444, XOffset, YOffset, 0x22AB, 0x22AB),
+	        new ChangeHairstyleEntry(61445, 51445, XOffset, YOffset, 0x22AC, 0x22AC),
+	        new ChangeHairstyleEntry(61446, 51446, XOffset, YOffset, 0x22AD, 0x22AD),
+	        new ChangeHairstyleEntry(61447, 51447, XOffset, YOffset, 0x22AE, 0x22AE),
+	        new ChangeHairstyleEntry(61448, 51448, XOffset, YOffset, 0x22AF, 0x22AF),
+	        new ChangeHairstyleEntry(61449, 51449, XOffset, YOffset, 0x22B0, 0x22B0),
+	        new ChangeHairstyleEntry(61450, 51450, XOffset, YOffset, 0x22B1, 0x22B1),
 	        new ChangeHairstyleEntry(0, 0, 0, 0)
 	    };
 
@@ -844,7 +845,7 @@ namespace Server.Mobiles
                         }
                         else
                         {
-                            m_From.SendLocalizedMessage(1013009); // You decide not to change your hairstyle. 
+                            m_From.SendLocalizedMessage(1013009); // You decide not to change your hairstyle.
                         }
                     }
                 }
@@ -857,7 +858,7 @@ namespace Server.Mobiles
                     }
                     else
                     {
-                        m_From.SendLocalizedMessage(1013009); // You decide not to change your hairstyle. 
+                        m_From.SendLocalizedMessage(1013009); // You decide not to change your hairstyle.
                     }
                 }
             }
