@@ -491,18 +491,18 @@ namespace Server
         public static BaseWeapon RandomWeapon(bool inTokuno = false, bool isMondain = false, bool isStygian = false)
         {
             #region Stygian Abyss
-            if (Core.SA && isStygian)
+            if (Core.SA && (isStygian || IgnoreRegionRestriction()))
                 return Construct(m_SAWeaponTypes, m_AosWeaponTypes, m_WeaponTypes) as BaseWeapon;
             #endregion
 
             #region Mondain's Legacy
-            if (Core.ML && isMondain)
+            if (Core.ML && (isMondain || IgnoreRegionRestriction()))
             {
                 return Construct(m_MLWeaponTypes, m_AosWeaponTypes, m_WeaponTypes) as BaseWeapon;
             }
             #endregion
 
-            if (Core.SE && inTokuno)
+            if (Core.SE && (inTokuno || IgnoreRegionRestriction()))
             {
                 return Construct(m_SEWeaponTypes, m_AosWeaponTypes, m_WeaponTypes) as BaseWeapon;
             }
@@ -513,6 +513,11 @@ namespace Server
             }
 
             return Construct(m_WeaponTypes) as BaseWeapon;
+        }
+
+        private static bool IgnoreRegionRestriction()
+        {
+            return Utility.RandomDouble() >= 0.99;
         }
 
         public static Item RandomWeaponOrJewelry(bool inTokuno = false, bool isMondain = false, bool isStygian = false)
