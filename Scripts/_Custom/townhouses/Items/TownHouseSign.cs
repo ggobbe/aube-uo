@@ -1083,7 +1083,7 @@ namespace Knives.TownHouses
 			else if ( !Visible )
 				return;
 			//else if ( CanBuyHouse( m ) && !BaseHouse.HasAccountHouse( m ) )
-			else if ( CanBuyHouse( m ) && !BaseHouse.AtAccountHouseLimit( m ) )
+			else if ( CanBuyHouse( m ) && (ForcePublic || !BaseHouse.AtAccountHouseLimit( m ) ))
 				new TownHouseConfirmGump( m, this );
 			else
 				m.SendMessage( "You cannot purchase this house." );
