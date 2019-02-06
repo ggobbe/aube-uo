@@ -31,7 +31,7 @@ namespace Server
 
 			GlobalMaxUpdateRange = 24;
 			GlobalUpdateRange = 18;
-            GlobalRadarRange = 37;
+            GlobalRadarRange = 40;
 		}
 
 		public static Action<CrashedEventArgs> CrashedHandler { get; set; }
