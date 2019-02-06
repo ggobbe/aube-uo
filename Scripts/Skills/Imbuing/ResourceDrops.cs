@@ -1,6 +1,7 @@
 using Server;
 using System;
 using System.Collections.Generic;
+using Server.Aube;
 using Server.Mobiles;
 
 namespace Server.Items
@@ -149,6 +150,12 @@ namespace Server.Items
             m_IngredientTable.Add(new IngredientDropEntry(typeof(BaseCreature), false, "Ilshenar", .05, typeof(EssenceDirection)));
             m_IngredientTable.Add(new IngredientDropEntry(typeof(BaseCreature), false, "Ilshenar", .05, typeof(EssenceFeeling)));
             m_IngredientTable.Add(new IngredientDropEntry(typeof(BaseCreature), false, "Ilshenar", .05, typeof(EssencePersistence)));
+
+            if (ValentineDay.IsValentineHolidays())
+            {
+                var chance = ValentineDay.GetChance();
+                m_IngredientTable.Add(new IngredientDropEntry(typeof(BaseCreature), false, chance, typeof(ValentineChocolate)));
+            }
         }
 
         public static void OnCreatureDeath(CreatureDeathEventArgs e)

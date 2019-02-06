@@ -107,6 +107,7 @@
     <Compile Include="Aube\Mobiles\Vendors\SBInfos\SBPeddlerC.cs" />
     <Compile Include="Aube\Mobiles\Vendors\SBInfos\SBPeddlerD.cs" />
     <Compile Include="Aube\PlayerEvent.cs" />
+    <Compile Include="Aube\ValentineDay.cs" />
     <Compile Include="Commands\AccountGoldCheck.cs" />
     <Compile Include="Commands\Add.cs">
       <SubType>Code</SubType>
