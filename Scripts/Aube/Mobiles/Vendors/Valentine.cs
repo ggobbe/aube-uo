@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Server.Aube;
 using Server.Aube.Mobiles.Vendors.SBInfos;
 using Server.Items;
 using Server.Mobiles;
@@ -25,7 +26,10 @@ namespace Server.Engines.Quests
 
         public override void InitSBInfo()
         {
-            _SBInfos.Add(new SBValentine());
+            if (ValentinesDay.IsValentineHolidays())
+            {
+                _SBInfos.Add(new SBValentine());
+            }
         }
 
         public override void InitBody()
