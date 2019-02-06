@@ -189,7 +189,7 @@ namespace Server.SkillHandlers
                 return true;
 
             // Follow the same rules as indirect spells such as wither
-            return /*src.Map.Rules == MapRules.FeluccaRules ||*/Server.Spells.SpellHelper.ValidIndirectTarget(target, src);
+            return /*src.Map.Rules == MapRules.FeluccaRules ||*/Server.Spells.SpellHelper.ValidIndirectTarget(target, src, ignoreNotorietyCheck: true);
         }
     }
 }

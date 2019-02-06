@@ -515,7 +515,7 @@ namespace Server.Spells
             return g;
         }
 
-        public static bool ValidIndirectTarget(Mobile from, Mobile to)
+        public static bool ValidIndirectTarget(Mobile from, Mobile to, bool ignoreNotorietyCheck = false)
         {
             if (from == to)
             {
@@ -635,7 +635,7 @@ namespace Server.Spells
                 return true;
             }
 
-            return (Notoriety.Compute(from, to) != Notoriety.Innocent || from.Murderer);
+            return ignoreNotorietyCheck || (Notoriety.Compute(@from, to) != Notoriety.Innocent || @from.Murderer);
         }
 
         public static IEnumerable<IDamageable> AcquireIndirectTargets(Mobile caster, IPoint3D p, Map map, int range)
