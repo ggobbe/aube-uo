@@ -107,7 +107,10 @@ namespace Server.Items
 
             if (_MessageItem is ValentineBear)
             {
-                ((ValentineBear)_MessageItem).EditEnd = DateTime.UtcNow + TimeSpan.FromMinutes(10.0);
+                var valentineBear = _MessageItem as ValentineBear;
+                valentineBear.EditEnd = DateTime.UtcNow + TimeSpan.FromMinutes(10.0);
+                valentineBear.OwnerName = User.Name;
+                User.SendMessage("Dans 10 minutes, l'encre de votre message ne sera plus effaçable.");
             }
         }
     }

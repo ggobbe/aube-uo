@@ -25,14 +25,24 @@ namespace Server.Items
         public DateTime EditEnd { get; set; }
 
         [Constructable]
-        public ValentineBear(Mobile owner)
+        public ValentineBear() : this("Someone")
+        {
+        }
+
+        [Constructable]
+        public ValentineBear(Mobile owner) : this(owner.Name)
+        {
+        }
+
+        [Constructable]
+        public ValentineBear(string ownerName)
             : base(Utility.RandomList(0x48E0, 0x48E2))
         {
             Weight = 1.0;
             LootType = LootType.Blessed;
 
             Lines = new string[3];
-            m_OwnerName = owner.Name;
+            m_OwnerName = ownerName;
             EditEnd = DateTime.MaxValue;
         }
 
