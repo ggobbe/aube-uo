@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
+using Server.Aube;
 using Server.ContextMenus;
 using Server.Engines.PartySystem;
 using Server.Engines.Quests;
@@ -1795,13 +1795,14 @@ namespace Server.Mobiles
         {
             if (IsParagon && !GivesMLMinorArtifact)
             {
+                var paragonSuffix = ValentinesDay.IsValentineHolidays() ? "(Fou d'Amour)" : "(Paragon)";
                 if (suffix.Length == 0)
                 {
-                    suffix = "(Paragon)";
+                    suffix = paragonSuffix;
                 }
                 else
                 {
-                    suffix = String.Concat( suffix, " (Paragon)" );
+                    suffix = String.Concat( suffix, string.Format(" {0}", paragonSuffix) );
                 }
             }
 

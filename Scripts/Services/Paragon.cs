@@ -1,4 +1,5 @@
 using System;
+using Server.Aube;
 using Server.Items;
 
 namespace Server.Mobiles
@@ -44,7 +45,8 @@ namespace Server.Mobiles
 				!bc.CanBeParagon)
                 return;
 
-            bc.Hue = Hue;
+
+            bc.Hue = ValentinesDay.IsValentineHolidays() ? ValentinesDay.GetHue() : Hue;
 
             if (bc.HitsMaxSeed >= 0)
                 bc.HitsMaxSeed = (int)(bc.HitsMaxSeed * HitsBuff);
@@ -159,6 +161,11 @@ namespace Server.Mobiles
             if (!Core.AOS)
                 return false;
 
+            if (ValentinesDay.IsValentineHolidays())
+            {
+                return true;
+            }
+
             double fame = (double)bc.Fame;
 
             if (fame > 32000)
@@ -173,7 +180,8 @@ namespace Server.Mobiles
 
         public static void GiveArtifactTo(Mobile m)
         {
-            Item item = (Item)Activator.CreateInstance(Artifacts[Utility.Random(Artifacts.Length)]);
+            var artifacts = ValentinesDay.IsValentineHolidays() ? ValentinesDay.Artifacts : Artifacts;
+            Item item = (Item)Activator.CreateInstance(artifacts[Utility.Random(artifacts.Length)]);
 
             if (m.AddToBackpack(item))
                 m.SendMessage("As a reward for slaying the mighty paragon, an artifact has been placed in your backpack.");

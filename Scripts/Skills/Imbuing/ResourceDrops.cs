@@ -151,9 +151,9 @@ namespace Server.Items
             m_IngredientTable.Add(new IngredientDropEntry(typeof(BaseCreature), false, "Ilshenar", .05, typeof(EssenceFeeling)));
             m_IngredientTable.Add(new IngredientDropEntry(typeof(BaseCreature), false, "Ilshenar", .05, typeof(EssencePersistence)));
 
-            if (ValentineDay.IsValentineHolidays())
+            if (ValentinesDay.IsValentineHolidays())
             {
-                var chance = ValentineDay.GetChance();
+                var chance = ValentinesDay.GetChance();
                 m_IngredientTable.Add(new IngredientDropEntry(typeof(BaseCreature), false, chance, typeof(ValentineChocolate)));
             }
         }
