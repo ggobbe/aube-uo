@@ -99,6 +99,8 @@
     <Compile Include="Aube\Items\TransformationToken.cs" />
     <Compile Include="Aube\Misc\SpeechLogging.cs" />
     <Compile Include="Aube\Mobiles\Vendors\Peddler.cs" />
+    <Compile Include="Aube\Mobiles\Vendors\SBInfos\SBValentine.cs" />
+    <Compile Include="Aube\Mobiles\Vendors\Valentine.cs" />
     <Compile Include="Aube\Mobiles\Vendors\SBInfos\SBPeddler.cs" />
     <Compile Include="Aube\Mobiles\Vendors\SBInfos\SBPeddlerA.cs" />
     <Compile Include="Aube\Mobiles\Vendors\SBInfos\SBPeddlerB.cs" />

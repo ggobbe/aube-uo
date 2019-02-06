@@ -4,7 +4,7 @@ using Server.Mobiles;
 
 namespace Server.Items
 {
-    public class ValentineBear : Item, ICustomizableMessageItem, IFlipable
+    public abstract class ValentineBear : Item, ICustomizableMessageItem, IFlipable
     {
         private string m_OwnerName;
 
@@ -24,25 +24,13 @@ namespace Server.Items
         [CommandProperty(AccessLevel.GameMaster)]
         public DateTime EditEnd { get; set; }
 
-        [Constructable]
-        public ValentineBear() : this("Someone")
+        public ValentineBear(int itemID) : base(itemID)
         {
-        }
-
-        [Constructable]
-        public ValentineBear(Mobile owner) : this(owner.Name)
-        {
-        }
-
-        [Constructable]
-        public ValentineBear(string ownerName)
-            : base(Utility.RandomList(0x48E0, 0x48E2))
-        {
+            Name = "Ours de St Valentin";
             Weight = 1.0;
             LootType = LootType.Blessed;
 
             Lines = new string[3];
-            m_OwnerName = ownerName;
             EditEnd = DateTime.MaxValue;
         }
 
@@ -69,14 +57,11 @@ namespace Server.Items
             }
         }
 
-        public override void AddNameProperty(ObjectPropertyList list)
-        {
-            list.Add(1150295, m_OwnerName); // ~1_NAME~'s St. Valentine Bear
-        }
-
         public override void GetProperties(ObjectPropertyList list)
         {
             base.GetProperties(list);
+
+            list.Add("de la part de {0}", m_OwnerName != null ? m_OwnerName : "___");
 
             if (Lines != null)
             {
@@ -106,7 +91,7 @@ namespace Server.Items
             writer.Write((int)Lines.Length);
 
             for (int i = 0; i < Lines.Length; i++)
-                writer.Write((string)Lines[i]);          
+                writer.Write((string)Lines[i]);
         }
 
         public override void Deserialize(GenericReader reader)
@@ -121,6 +106,54 @@ namespace Server.Items
 
             for (int i = 0; i < Lines.Length; i++)
                 Lines[i] = reader.ReadString();
+        }
+    }
+
+    public class ValentineBearA : ValentineBear
+    {
+        [Constructable]
+        public ValentineBearA() : base(0x48E0)
+        {
+        }
+
+        public ValentineBearA(Serial serial): base(serial)
+        {
+        }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+            writer.Write((int)0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+            int version = reader.ReadInt();
+        }
+    }
+
+    public class ValentineBearB : ValentineBear
+    {
+        [Constructable]
+        public ValentineBearB() : base(0x48E2)
+        {
+        }
+
+        public ValentineBearB(Serial serial): base(serial)
+        {
+        }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+            writer.Write((int)0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+            int version = reader.ReadInt();
         }
     }
 }

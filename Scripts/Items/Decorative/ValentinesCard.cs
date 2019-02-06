@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Server.Mobiles;
 using Server.Targeting;
 
@@ -14,6 +14,7 @@ namespace Server.Items
         public ValentinesCard(int itemid)
             : base(itemid)
         {
+            Name = "Carte de St Valentin";
             this.LootType = LootType.Blessed;
             this.Hue = Utility.RandomDouble() < .001 ? 0x47E : 0xE8;
             this.m_LabelNumber = Utility.Random(1077589, 5);
@@ -58,8 +59,11 @@ namespace Server.Items
         * You light my Candle of Love, ~1_target_player~! Signed: ~2_player~	1077593
         *
         */
-        public override void AddNameProperty(ObjectPropertyList list)
+
+        public override void GetProperties(ObjectPropertyList list)
         {
+            base.GetProperties(list);
+
             list.Add(this.m_LabelNumber, String.Format("{0}\t{1}", (this.m_To != null) ? this.m_To : Unsigned, (this.m_From != null) ? this.m_From : Unsigned));
         }
 
