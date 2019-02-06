@@ -75,12 +75,18 @@ namespace Server.Aube.Mobiles.Vendors
         public Peddler()
             : base("le Colporteur")
         {
-            Female = false;
-            InitBody();
             Name = "Ikboul";
             SpeechHue = 234;
 
             StartTimer();
+        }
+
+        public override void InitBody()
+        {
+            this.Female = false;
+            this.Race = Race.Human;
+
+            this.Hue = 0x83EE;
         }
 
         public override void InitSBInfo()
