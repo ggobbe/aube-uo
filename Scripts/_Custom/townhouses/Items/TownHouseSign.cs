@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using Server;
 using Server.Multis;
 using Server.Items;
@@ -869,7 +870,7 @@ namespace Knives.TownHouses
 			Container bag = new Bag();
 			bag.Name = "Town House Belongings";
 
-			foreach( Item item in new ArrayList( c_House.LockDowns ) )
+			foreach( var item in new List<Item>(c_House.LockDowns.Keys) )
 			{
 				item.IsLockedDown = false;
 				item.Movable = true;
