@@ -156,6 +156,12 @@ namespace Server.Items
             ingredientTable.Add(new IngredientDropEntry(typeof(BaseCreature), false, "Ilshenar", .05, typeof(EssenceFeeling)));
             ingredientTable.Add(new IngredientDropEntry(typeof(BaseCreature), false, "Ilshenar", .05, typeof(EssencePersistence)));
 
+            // Wires
+            ingredientTable.Add(new IngredientDropEntry(typeof(BaseCreature), false, "Exodus Dungeon", .2, typeof(IronWire)));
+            ingredientTable.Add(new IngredientDropEntry(typeof(BaseCreature), false, "Exodus Dungeon", .2, typeof(SilverWire)));
+            ingredientTable.Add(new IngredientDropEntry(typeof(BaseCreature), false, "Exodus Dungeon", .2, typeof(GoldWire)));
+            ingredientTable.Add(new IngredientDropEntry(typeof(BaseCreature), false, "Exodus Dungeon", .2, typeof(CopperWire)));
+
             if (ValentinesDay.IsValentineHolidays())
             {
                 var chance = ValentinesDay.GetChance();
