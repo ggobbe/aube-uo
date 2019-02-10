@@ -12165,15 +12165,9 @@
     <Compile Include="_Custom\DruidSpellSystemVer2.0\Druid\Familiars\PoisonLasher.cs" />
     <Compile Include="_Custom\DruidSpellSystemVer2.0\Druid\Familiars\WaterSpiritFamiliar.cs" />
     <Compile Include="_Custom\DruidSpellSystemVer2.0\Druid\Familiars\WispFamiliar.cs" />
-    <Compile Include="_Custom\DruidSpellSystemVer2.0\Druid\Sleeping body random timer\SleepingBody.cs_" />
     <Compile Include="_Custom\DruidSpellSystemVer2.0\Druid\SleepingBody.cs" />
     <Compile Include="_Custom\DruidSpellSystemVer2.0\Druid\SleepingBodyEquip.cs" />
     <Compile Include="_Custom\DruidSpellSystemVer2.0\Druid\SleepingNameAttribute.cs" />
-    <Compile Include="_Custom\DruidSpellSystemVer2.0\Initializer.cs_" />
-    <Compile Include="_Custom\DruidSpellSystemVer2.0\Reagent.cs_" />
-    <Compile Include="_Custom\DruidSpellSystemVer2.0\Spellbook.cs_" />
-    <Compile Include="_Custom\DruidSpellSystemVer2.0\SpellHelper .cs_" />
-    <Compile Include="_Custom\DruidSpellSystemVer2.0\SpellRegistry.cs_" />
     <Compile Include="_Custom\LayerChangeCommand.cs" />
     <Compile Include="_Custom\MacroCheck.cs" />
     <Compile Include="_Custom\RobesACapuche.cs" />
