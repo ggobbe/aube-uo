@@ -159,6 +159,8 @@ namespace Knives.TownHouses
 
 		protected override void OnRentPaid()
 		{
+            base.OnRentPaid();
+
 			if ( c_RentalMaster == null || c_RentalClient == null )
 				return;
 

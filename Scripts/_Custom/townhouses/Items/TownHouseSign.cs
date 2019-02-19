@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Server;
+using Server.Aube.Misc;
 using Server.Multis;
 using Server.Items;
 using Server.Mobiles;
@@ -13,6 +14,8 @@ namespace Knives.TownHouses
 	[Flipable( 0xC0B, 0xC0C )]
 	public class TownHouseSign : Item
 	{
+        private static AubeLogger _Logger = new AubeLogger("TownHouses");
+
 		private static ArrayList s_TownHouseSigns = new ArrayList();
 		public static ArrayList AllSigns{ get{ return s_TownHouseSigns; } }
 
@@ -1014,6 +1017,7 @@ namespace Knives.TownHouses
 
 		protected virtual void OnRentPaid()
 		{
+            _Logger.Log(string.Format("{0} ({1}): {2} paid {3} for the rent.", c_House.Name, c_House.Location, c_House.Owner, c_Price));
 		}
 
 		public void NextPriceType()
