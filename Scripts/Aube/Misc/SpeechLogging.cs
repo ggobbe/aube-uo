@@ -1,13 +1,8 @@
-using System;
-using System.IO;
-
 namespace Server.Aube.Misc
 {
     public class SpeechLogging
     {
-        private static StreamWriter m_Output;
-
-        private static DateTime m_CreatedAt;
+        private static readonly AubeLogger _Logger = new AubeLogger("Speech");
 
         public static void Initialize()
         {
@@ -32,41 +27,13 @@ namespace Server.Aube.Misc
                 return;
             }
 
-            try
+            var region = "unknown";
+            if (m.Region != null && !string.IsNullOrWhiteSpace(m.Region.Name))
             {
-                var now = DateTime.UtcNow;
-
-                if (m_CreatedAt.Date != now.Date)
-                {
-                    CreateNewLogFile();
-                }
-
-                var region = "unknown";
-                if (m.Region != null && !string.IsNullOrWhiteSpace(m.Region.Name))
-                {
-                    region = m.Region.Name;
-                }
-
-                m_Output.WriteLine("[{0:s}] {1} ({2}): {3}", now, m.Name, region, speech);
+                region = m.Region.Name;
             }
-            catch (Exception e)
-            {
-                Console.WriteLine("Error whilst logging speech: {0}", e);
-            }
-        }
 
-        private static void CreateNewLogFile()
-        {
-            if (!Directory.Exists("Logs"))
-                Directory.CreateDirectory("Logs");
-
-            var directory = Path.Combine("Logs", "Speech");
-
-            if (!Directory.Exists(directory))
-                Directory.CreateDirectory(directory);
-
-            m_CreatedAt = DateTime.UtcNow;
-            m_Output = new StreamWriter(Path.Combine(directory, string.Format("{0:yyyy-MM-dd}.log", m_CreatedAt)), true) {AutoFlush = true};
+            _Logger.Log(string.Format("{0} ({1}): {2}", m.Name, region, speech));
         }
     }
 }

@@ -97,6 +97,7 @@
     </Compile>
     <Compile Include="Aube\Items\ShrinkPotion.cs" />
     <Compile Include="Aube\Items\TransformationToken.cs" />
+    <Compile Include="Aube\Misc\AubeLogger.cs" />
     <Compile Include="Aube\Misc\SpeechLogging.cs" />
     <Compile Include="Aube\Mobiles\Vendors\Peddler.cs" />
     <Compile Include="Aube\Mobiles\Vendors\SBInfos\SBValentine.cs" />
