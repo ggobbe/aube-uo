@@ -944,6 +944,8 @@ namespace Knives.TownHouses
 			if ( !Owned )
 				return;
 
+			ClearRentTimer();
+
 			c_RentTimer = Timer.DelayCall( time, new TimerCallback( RentDue ) );
 			c_RentTime = DateTime.Now + time;
 		}
