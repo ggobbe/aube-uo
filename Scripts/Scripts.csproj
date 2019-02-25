@@ -76,6 +76,7 @@
     <Compile Include="Aube\Alimentation\Feeding.cs" />
     <Compile Include="Aube\Alimentation\FeedingGump.cs" />
     <Compile Include="Aube\Commands\ClearTitles.cs" />
+    <Compile Include="Aube\Commands\GenerateCoral.cs" />
     <Compile Include="Aube\Commands\HearAll.cs" />
     <Compile Include="Aube\Commands\NPChat.cs" />
     <Compile Include="Aube\Commands\NPListener.cs" />
