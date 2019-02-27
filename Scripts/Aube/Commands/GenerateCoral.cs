@@ -37,12 +37,12 @@ namespace Server.Aube.Commands
         // Limits of the coral barrier
         private static Point2D[] limits = new Point2D[]
             {
-                new Point2D(2613,4050),
-                new Point2D(2613,2672),
-                new Point2D(2285,2672),
-                new Point2D(2285,1632),
-                new Point2D(5000,1632),
-                new Point2D(5000,4050),
+                new Point2D(5088, 56),
+                new Point2D(5088, 4070),
+                new Point2D(2695, 4070),
+                new Point2D(2695, 2552),
+                new Point2D(2384, 2552),
+                new Point2D(2384, 1512),
             };
 
         // Type of rocks used for the coral barrier
