@@ -707,6 +707,8 @@ namespace Server.Items
 			book.m_AosAttributes = new AosAttributes(newItem, m_AosAttributes);
 			book.m_AosSkillBonuses = new AosSkillBonuses(newItem, m_AosSkillBonuses);
             book.m_NegativeAttributes = new NegativeAttributes(newItem, m_NegativeAttributes);
+
+            base.OnAfterDuped(newItem);
 		}
 
 		public override void OnAdded(object parent)
@@ -741,6 +743,11 @@ namespace Server.Items
 					}
 				}
 
+                if (HasSocket<Caddellite>())
+                {
+                    Caddellite.UpdateBuff(from);
+                }
+
 				from.CheckStatTimers();
 			}
 		}
@@ -752,6 +759,11 @@ namespace Server.Items
 				Mobile from = (Mobile)parent;
 
 				m_AosSkillBonuses.Remove();
+
+                if (HasSocket<Caddellite>())
+                {
+                    Caddellite.UpdateBuff(from);
+                }
 
 				string modName = Serial.ToString();
 
@@ -842,9 +854,9 @@ namespace Server.Items
 			}
 		}
 
-		public override void GetProperties(ObjectPropertyList list)
-		{
-			base.GetProperties(list);
+        public override void AddNameProperties(ObjectPropertyList list)
+        {
+            base.AddNameProperties(list);
 
 			if (m_Quality == BookQuality.Exceptional)
 			{
@@ -899,6 +911,11 @@ namespace Server.Items
 					list.Add(entry.Title);
 				}
 			}
+
+            if (HasSocket<Caddellite>())
+            {
+                list.Add(1158662); // Caddellite Infused
+            }
 
 			int prop;
 
