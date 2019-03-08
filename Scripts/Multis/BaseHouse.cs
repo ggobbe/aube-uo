@@ -2098,7 +2098,7 @@ namespace Server.Multis
 
             if (locked)
             {
-                if (i is VendorRentalContract)
+                if (i is VendorRentalContract && i.RootParent == null)
                 {
                     if (!VendorRentalContracts.Contains(i))
                         VendorRentalContracts.Add(i);
@@ -5182,6 +5182,17 @@ namespace Server.Multis
 
         public override void OnClick()
         {
+            if (m_Item is AuctionSafe)
+            {
+                AuctionSafe safe = (AuctionSafe)m_Item;
+
+                if (safe.Auction != null && !safe.Auction.CanModify)
+                {
+                    Owner.From.SendLocalizedMessage(1156431); // You cannot modify this while an auction is in progress.
+                    return;
+                }
+            }
+
             ISecurable sec = GetSecurable(Owner.From, m_Item);
 
             if (sec != null)
